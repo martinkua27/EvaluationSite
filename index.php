@@ -1,4 +1,5 @@
 <?php
+session_start();
 //PUSH KITA!
 //EDITED NEW
 
