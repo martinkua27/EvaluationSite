@@ -74,7 +74,7 @@ include("../includes/session.php");
         $storeSubectCode = $subjectcode;
    
       $conn = new mysqli($servername, $username, $password, $dbname);
-      $sql = "SELECT * FROM assigned_schedule where course_code = '".  $_SESSION['login_user'] ."' " ;
+      $sql = "SELECT * FROM evaluation_average_per_stduents where student_id = '".  $_SESSION['login_user'] ."' " ;
       $result = $conn->query($sql);
        
      if ($result->num_rows > 0) {
