@@ -1,9 +1,5 @@
 <?php
-  session_start();
-//hello 
-//NUTTED
-  //hi zeke
-  //working ba
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
