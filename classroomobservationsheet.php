@@ -1,5 +1,5 @@
 <?php
-
+//sample
 $var = $_GET['varr'];
 $profname = $var;
 $emptype = "";
