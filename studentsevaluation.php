@@ -1329,7 +1329,7 @@ include('includes/session.php');
             
               </div>
               <textarea rows="4" name="comments" id="comments"></textarea><br>
-              <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit" name="action" id="saveevaluation" >Save</button>
+              <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit" name="action" id="saveevaluation" disabled="true">Save</button>
           </form>    
 
 
@@ -1380,7 +1380,8 @@ include('includes/session.php');
     </script>
 
     <script>
-
+ 
+     var submitBtn = document.getElementById("saveevaluation");
 
     function showUser(str)  {
 
@@ -1392,6 +1393,7 @@ include('includes/session.php');
         if (str == "") {
             //div.style.display = "none";
             document.getElementById("txtHint").innerHTML = "";
+            submitBtn.disabled = true;
            // document.getElementById("spacer").style.marginBottom = "1845px";
             return;
         } else { 
@@ -1407,10 +1409,13 @@ include('includes/session.php');
             }
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
+
                    document.getElementById("txtHint").innerHTML = this.responseText;
+                     submitBtn.disabled = false;
+
                    var myObj = JSON.parse(this.responseText);
                     document.getElementById("imagename").value = myObj.name;
-                   
+                 
                     //var empid = document.getElementById("emp_id").value 
                      // showImg(empid);
                 }
@@ -1442,6 +1447,7 @@ include('includes/session.php');
             
             myObj = JSON.parse(this.responseText);
              document.getElementById("imagename").value = myObj.name;
+
            }
           };
            xmlhttp.open("GET","getImageProf.php?q=" + str,true);

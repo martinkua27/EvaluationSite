@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           
         
     }else{
-    	echo "<script>alert('student')</script>";
+    	echo "<script>alert('Incorrect Username / Password')</script>";
     }
      
 
