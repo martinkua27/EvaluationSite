@@ -48,6 +48,9 @@ include('../session.php');
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/homeperformance.css" rel="stylesheet">
+	
+	<link href="css/summary.css" rel="stylesheet">
+	
      <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
     <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
@@ -124,7 +127,7 @@ include('../session.php');
 
   <body style="background-color: #212121;">
 
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#9f0000;">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -299,7 +302,7 @@ include('../session.php');
       </div>
     </div>
 	
-         <div class="row">
+		<!--BOTTOM FORM-->
           <div class="col-md-3">
           <div class="profile">
     
@@ -310,8 +313,8 @@ include('../session.php');
                     
                
                  
-                <!-- student profile -->
-                <h3 class='boxed_item'>Summary</h3>
+                <!-- student profile 
+                <h3 class='boxed_item'>Summary</h3>-->
 				
 				<br>
 				
@@ -381,9 +384,12 @@ include('../session.php');
                 */
 				        
                  ?>
+			
+			<!--
 			<button id="signaturebtn" type="button" style="color: black" onclick="signDoc();" disabled="true">Apply Signature</button>
 			<button id="print" value="print" type="button" onclick="testPdf()" style="color: black" disabled="true">save PDF</button>
-     
+			-->
+			
       <br>
 
        <div id="inviData" style="display: none;"></div>
@@ -567,7 +573,6 @@ include('../session.php');
               </div>
 			
 			</form>
-    </div>
       
     <footer id="footer">
       <p class="footer-texta">Copyright @ 2018 San Beda College Alabang. All rights reserved.</p>
