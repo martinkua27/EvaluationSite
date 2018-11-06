@@ -1481,10 +1481,19 @@ include('includes/session.php');
 
             if(this.responseText == "Existing Evaluation Found"){
               submitBtn.disabled = true;
-              alert("Existing Evaluation Found");
+              swal(
+  'System',
+  'Existing Evaluation Found',
+  'error'
+);
+             
             }else{
               submitBtn.disabled = false;
-              alert("Ready for Evaluation");
+                swal(
+  'System',
+  'Ready for Evaluation',
+  'success'
+);
             }
 
            }
