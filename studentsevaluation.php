@@ -1464,12 +1464,11 @@ include('includes/session.php');
         }
 
     }
-
+    
     function verifyEvaluation(){
-
       if (getvalue == "") {
        
-           getvalue = "";
+          alert("Choose a subject");
             return;
         } else { 
              
@@ -1482,18 +1481,10 @@ include('includes/session.php');
 
             if(this.responseText == "Existing Evaluation Found"){
               submitBtn.disabled = true;
-              swal(
-  'Evaluation',
-  'Existing Evaluation Found',
-  'error'
-);
+              alert("Existing Evaluation Found");
             }else{
               submitBtn.disabled = false;
-                swal(
-  'Evaluation',
-  'Ready for Evaluation',
-  'success'
-);
+              alert("Ready for Evaluation");
             }
 
            }
