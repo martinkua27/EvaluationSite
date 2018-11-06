@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+//kc testing
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
