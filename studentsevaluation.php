@@ -1386,9 +1386,17 @@ include('includes/session.php');
      var verifyBtn = document.getElementById("verify");
      var getvalue = "";
 
+     var radioButtons = document.getElementsByTagName("input")
+for(var i=0;i<radioButtons.length;i++) {
+   radioButtons[i].disabled = true;
+}
+
     function showUser(str)  {
 
-
+for(var i=0;i<radioButtons.length;i++) {
+   radioButtons[i].disabled = true;
+   radioButtons[i].checked = false;
+}
       
         //var div = document.getElementById("evaluationform");
           var section = document.getElementById("block").value;
@@ -1399,6 +1407,7 @@ include('includes/session.php');
             submitBtn.disabled = true;
              verifyBtn.disabled = false;
              getvalue = "";
+
            // document.getElementById("spacer").style.marginBottom = "1845px";
             return;
         } else { 
@@ -1480,6 +1489,12 @@ include('includes/session.php');
             return;
         } else { 
              
+for(var i=0;i<radioButtons.length;i++) {
+   radioButtons[i].disabled = true;
+    radioButtons[i].checked = false;
+}
+
+
             var xmlhttp = new XMLHttpRequest();
 
             xmlhttp.onreadystatechange = function() {
@@ -1497,6 +1512,11 @@ include('includes/session.php');
              
             }else{
               submitBtn.disabled = false;
+
+for(var i=0;i<radioButtons.length;i++) {
+   radioButtons[i].disabled = false;
+}
+
                 swal(
   'System',
   'Ready for Evaluation',
