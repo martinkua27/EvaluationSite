@@ -293,8 +293,9 @@ include('includes/session.php');
             <p id="demo"></p>
               <br>
               <div class="profile-info">
+			  
               <h5>SUBJECT CODE</h5>
-                 
+                 <button id="signaturebtn" type="button" style="color: black" onclick="signDoc();" disabled="true">Verify</button>
 					<?php
 
                           include("includes/indexDB.php");

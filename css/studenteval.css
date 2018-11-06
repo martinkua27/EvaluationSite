@@ -153,9 +153,9 @@ textarea {
     margin-top: 40px !important;
 }
 
+/*iMAC 21"*/
 /* 1920 x 1080 */
-/*TESTING CHANGES*/
-@media screen and (max-width: 1920px) , screen and (max-height: 1080) {
+@media screen and (max-width: 1920px) {
     .navbar.navbar-default.navbar-fixed-top{
         font-size: 25px;
     }
@@ -207,7 +207,71 @@ textarea {
     }
     
     .profile {
-        height: 3342px !important;
+        height: 3375px !important;
+    }
+    
+    .footer-text {
+        font-size: 25px  !important;
+    }
+}
+
+/* 1680 x 1050 */
+@media screen and (max-width: 1680px) {
+    .navbar.navbar-default.navbar-fixed-top{
+        font-size: 25px;
+    }
+    .text-top{
+        margin-top: -641px;
+        font-size: 60px;
+    }
+    .container{
+        width: 1444px;
+    }
+    h2 {
+    font-size: 40px;
+    }
+    .boxed-title{
+        max-width: 33%;
+    }
+    h4 {
+        font-size: 28px;
+    }
+    h5 {
+        font-size: 27px;
+    }
+    h3 {
+        font-size: 26px;    
+    }
+    .margin-questions {
+    margin-left: 22px;
+    }
+    .radio{
+        margin-left: 751px;
+        margin-top: -39px;
+    }
+    .checkbox label, .radio label {
+        padding-left: 40px;
+        margin-left: -20px;
+    }
+    .img-profile {
+        height: 200px;
+    }
+    
+    .subj-code {
+        max-width: 85%;
+        font-size: 23px;
+    }
+    
+    .name {
+        font-size: 35px;
+    }
+    hr {
+        margin-right: 40px;
+        margin-top: 9px;
+    }
+    
+    .profile {
+        height: 3095px !important;
     }
     
     .footer-text {
