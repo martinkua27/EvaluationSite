@@ -106,6 +106,7 @@ include('../session.php');
                     <thead class="thead-dark">                            
                        <tr>
                          <td>Evaluator</td>
+                         <td>Position</td>
                          <td>Employee Evaluated</td>
                          <td>A Average</td>
                          <td>B Average</td>
@@ -129,6 +130,7 @@ include('../session.php');
                     ?>
                      <tr>
                          <td data-label="Evaluator"><?php echo $row['evaluator']?></td>
+                         <td data-label="Position"><?php echo $row['position']?></td>
                          <td data-label="Employee Evaluated"><?php echo $row['emp_name_evaluated']?></td>
                          <td data-label="A Average"><?php echo $row['a_average']?></td>
                          <td data-label="B Average"><?php echo $row['b_average']?></td>

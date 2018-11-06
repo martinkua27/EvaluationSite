@@ -32,6 +32,34 @@ include("../includes/session.php");
     }  return $getAY;
   }
 
+  function getposition(){
+
+include("../includes/indexDB.php");
+include("../includes/session.php");
+ 
+     $user = $_SESSION['login_user'];
+     $value = "";
+     $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM emp_details where emp_num = '".  $user ."' " ;
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+       $value = $row['position'];
+
+      }
+       return $value;
+  }
+  else{
+     $value = "None";
+          
+    
+    }  return $value;
+  }
+
   function getSem($prof){
 
 include("../includes/indexDB.php");
@@ -111,6 +139,7 @@ include("../includes/session.php");
                   $dateNow = date("l") . " " . date("Y-m-d");
 
                   $studentid = $_SESSION['login_user'];
+                  $pos = getposition();
 
                   $ay = getAY($prof);
                   $sem = getSem($prof);
@@ -127,7 +156,7 @@ include("../includes/session.php");
          
 
         
-                 $sql = "INSERT INTO evaluation_average_per_prof (evaluator, emp_name_evaluated, a_average, b_average, c_average, semester, academic_year,comments, date_posted) VALUES ('$empid', '$prof','$finalValueA','$finalValueB','$finalValueC','$sem','$ay','$comments','$dateNow')";
+                 $sql = "INSERT INTO evaluation_average_per_prof (evaluator,position ,emp_name_evaluated, a_average, b_average, c_average, semester, academic_year,comments, date_posted) VALUES ('$empid', '$pos' ,'$prof','$finalValueA','$finalValueB','$finalValueC','$sem','$ay','$comments','$dateNow')";
       
 
           
