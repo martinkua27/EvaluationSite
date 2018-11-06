@@ -82,6 +82,41 @@ include('../session.php');
   opacity: 1;
   border-radius: 5px;
 }
+
+	html, body{
+		height: 30%;
+		min-height: 100%;
+	}
+	
+	.profile {
+    background-color: #9F0026 !important;
+    border-radius: 100px 0px 0px 100px;
+    margin-top: 5px;
+    margin-right: -30px;
+	height: 800px;
+	width: 300px;
+	}
+	
+	.questions {
+    margin-left:0px;
+	margin-top:5px;
+	height: 800px;
+	background-color: #ddd;
+	border-radius: 0px 100px 100px 0px;
+	}
+	
+	.boxed-title {
+    border: 3px solid #000;
+    font-weight: bold;
+    max-width: 18%;
+    padding: 5px;
+	}
+	
+	.signature {
+    border: 0;
+    border-bottom: 3px solid #000;
+	}
+
 </style>
    
    
@@ -262,6 +297,276 @@ include('../session.php');
           
         </div>
       </div>
+    </div>
+	
+         <div class="row">
+          <div class="col-md-3">
+          <div class="profile">
+    
+                  <br>
+              <!--<img src="images/001.png" id="profpic" class="img-responsive center-block img-circle img-profile">-->
+              <br>
+              <div class="profile-info">
+                    
+               
+                 
+                <!-- student profile -->
+                <h3 class='boxed_item'>Summary</h3>
+				
+				<br>
+				
+				<form id="myForm">
+
+          <h5>Program</h5>
+                 
+          <?php
+
+                          include("../indexDB.php");
+                          include('../session.php');
+
+                          $conn = new mysqli($servername, $username, $password, $dbname)
+                                  or die ('Cannot connect to db');
+
+                                  $result = $conn->query("select * from assigned_schedule group by program");
+
+                     ?>
+                          <select class= "form-control subj-code" name="department" style="width: 270px;" id="department" onchange="showUser(this.value)">
+                             <?php
+
+                                  echo "<option value=''>Select</option>";
+
+                                  while ($row = $result->fetch_assoc()) {
+
+                                       unset($option1);
+                                    $option1 = $row['program'];
+                                    echo "<option value='$option1'>$option1</option>";
+                                    
+                                   
+
+                                   }
+
+                                    echo "</select>";
+
+                                         if(isset($_POST['department'])){ //check if $_POST['examplePHP'] exists
+          
+                        echo '<script>alert('. $_POST['department'] .')</script>'; // echo the data
+                          die(); // stop execution of the script.
+                       }
+
+                             ?> 
+                            
+
+
+                         <div id="txtHint"></div>
+  
+              <?php 
+
+                //$varaa = "";
+                /*
+                if($varaa = "profname"){
+                echo "<h5 class='department' style='margin-top: 10px;''>Name of Faculty</h5>";
+                echo "<h1 class='name'>NONE</h1>";
+                echo "<hr>";
+        
+                echo "<h5 class='department'>Department/Area</h5>";
+                echo "<h1 class='name'>NONE</h1>";
+                echo "<hr>";
+        
+
+                echo "<h5 class='department'>Date</h5>";
+                echo "<h1 class='name'><?php echo $dateNow; ?></h1>";
+                echo "<hr>";
+                }
+
+                */
+				        
+                 ?>
+			<button id="signaturebtn" type="button" style="color: black" onclick="signDoc();" disabled="true">Apply Signature</button>
+			<button id="print" value="print" type="button" onclick="testPdf()" style="color: black" disabled="true">save PDF</button>
+     
+      <br>
+
+       <div id="inviData" style="display: none;"></div>
+              			
+		</form>
+		
+    <form id="myform" name="myform" onsubmit="return false">
+                <!-- end -->
+                  
+                 
+              </div>
+              <br>
+              <br>
+          </div>
+             
+          </div>      
+
+          <div  class="col-md-9" style="color: #000; margin-bottom: 40px;">
+          <div class="questions">
+          <br>
+          <div class="margin-questions">
+          <h2 class="boxed-title">Elements</h2>
+		  
+		  <div class="radio">
+               <div class="radio-group">
+		 <h4 class="title" class="radio-inline"><b>
+                  &nbsp&nbsp&nbspRating&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp%&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTotal
+                </b></h4>
+               </div>
+			   </div>
+        
+          <h4 class="title"> <b>Classroom Observation 35%</b></h4>
+			   
+			   <h4>1. DEAN/VDAA (5%)</h4>
+               <div class="radio">
+               <div class="radio-group" style="margin-top: -10px">
+               
+                <label class="radio-inline" style="margin-left: 20px;">
+                   <p id="vdaaClassroomObservationRating">-</p>
+                </label>
+                <label class="radio-inline" style="margin-left: 30px">
+                  .05<?php echo $filterProf; ?>
+                </label>
+                <label class="radio-inline" style="margin-left: 55px">
+                   <p id="vdaaClassroomObservationTotal">-</p>
+                </label>                
+              
+              </div>
+              </div>
+               
+               <!-- 2 -->
+               <h4>2. Chair/Coordinator (30%)</h4>
+               <div class="radio">
+               <div class="radio-group" style="margin-top: -10px">
+               
+                <label class="radio-inline" style="margin-left: 20px;">
+                   <p id="chairClassroomObservationRating">-</p>
+                </label>
+                <label class="radio-inline" style="margin-left: 35px">
+                  .30
+                </label>
+                <label class="radio-inline" style="margin-left: 55px">
+                   <p id="chairClassroomObservationTotal">-</p>
+                </label>                
+              
+              </div>
+              </div>
+			  
+			  <h4 class="title"> <b>Performance Appraisal 40%</b></h4>
+			   
+			   <h4>1. Dean/VDAA (20%)</h4>
+               <div class="radio">
+               <div class="radio-group" style="margin-top: -10px">
+               
+                <label class="radio-inline" style="margin-left: 20px;">
+                   <p id="deanVdaaPerformanceAppraisalRating">-</p>
+                </label>
+                <label class="radio-inline" style="margin-left: 35px">
+                  .20
+                </label>
+                <label class="radio-inline" style="margin-left: 55px">
+                   <p id="deanVdaaPerformanceAppraisalTotal">-</p>
+                </label>                
+              
+              </div>
+              </div>
+               
+               <!-- 2 -->
+               <h4>2. Chair/Coordinator (20%)</h4>
+                <div class="radio">
+               <div class="radio-group" style="margin-top: -10px">
+               
+                <label class="radio-inline" style="margin-left: 20px;">
+                   <p id="chairPerformanceAppraisalRating">-</p>
+                </label>
+                <label class="radio-inline" style="margin-left: 35px">
+                  .20
+                </label>
+                <label class="radio-inline" style="margin-left: 55px">
+                   <p id="chairPerformanceAppraisalTotal">-</p>
+                </label>                
+              
+              </div>
+              </div>
+			  
+			  <h4 class="title"> <b>Students Evaluation 20%</b></h4>
+			   
+			   <div class="radio">
+               <div class="radio-group" style="margin-top: -10px">
+               
+                <label class="radio-inline" style="margin-left: 10px;">
+                   <p id="studentsEvaluationRating">-</p>
+                </label>
+                <label class="radio-inline" style="margin-left: 35px">
+                  .20
+                </label>
+                <label class="radio-inline" style="margin-left: 55px">
+                   <p id="studentsEvaluationTotal">-</p>
+                </label>                
+              
+              </div>
+              </div>
+			  
+			  <h4 class="title"> <b>Self Evaluation (5%)</b></h4>
+			   
+			   <div class="radio">
+              <div class="radio-group" style="margin-top: -10px">
+               
+                <label class="radio-inline" style="margin-left: 20px;">
+                   <p id="selfEvaluationRating">-</p>
+                </label>
+                <label class="radio-inline" style="margin-left: 35px">
+                  .05
+                </label>
+                <label class="radio-inline" style="margin-left: 46.5px">
+                   <p id="selfEvaluationTotal">-</p>
+                </label>                
+              
+              </div>
+              </div>
+			  
+			<br>
+			  
+            <h3 class="panel-title" style="margin-left:400px;">OVER-ALL RATING</h3><h4 class="signature" style="margin-left: 550px; width:200px; margin-top:-20px;"><p style="margin-left: 90px;" id="overallTotal">-</p></h4>
+
+			<br><br>
+			
+                <h5 class='department'>Prepared by:</h5>
+				<br>
+				<h1 class='name'><h4 class="signature" style="margin-left: 0px; width:220px; margin-top:-20px;"><img src="images/signatureOne.png" alt="Smiley face" height="42" width="200" style="display: none;" id="sign"></h4></h1>
+	            
+				<h5 class='department' style="margin-left: 0px; margin-top:-10px;">Department Chair/Coordinator</h5>
+				
+				<br>
+				
+				<h5 class='department' style="margin-left: 0px; margin-top:30px;">Endorsed by:</h5>
+				
+				<br>
+				<h1 class='name'><h4 class="signature" style="margin-left: 0px; width:220px; margin-top:-20px;"><img src="images/signatureTwo.png" alt="Smiley face" height="42" width="200" style="display: none;" id="signTwo"></h4></h1>
+	            
+				<h5 class='department' style="margin-left: 0px; margin-top:-10px;">Vice Dean for Academic Affairs</h5>
+				
+				
+				<div style="margin-top: -90px">
+				<h5 class='department' style="margin-left: 450px; margin-top:30px;">Approved by:</h5>
+				<br>
+				<h1 class='name'><h4 class="signature" style="margin-left: 450px; width:220px; margin-top:-20px;"><img src="images/signatureThree.png" alt="Smiley face" height="42" width="200" style="display: none;" id="signThree"></h4></h1>
+	            
+				<h5 class='department' style="margin-left: 450px; margin-top:-10px;">Dean</h5>
+				
+				<br><br>
+				
+				<h5 class='department' style="margin-left: 450px; margin-top:30px;">Copy Received by:</h5>
+				<br>
+				<h1 class='name'><h4 class="signature" style="margin-left: 450px; width:220px; margin-top:-20px;">NONE</h4></h1>
+           
+              </div>
+              </div>
+            
+              </div>
+              </div>
+			
+			</form>
     </div>
       
     <footer id="footer">
