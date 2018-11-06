@@ -410,169 +410,42 @@ include('../session.php');
           <div  class="col-md-9" style="color: #000; margin-bottom: 40px;">
           <div class="questions">
           <br>
-          <div class="margin-questions">
-          <h2 class="boxed-title">Elements</h2>
+          <div class="margin-questions" style="width:1120px;">
+          <h2 class="boxed-title">Unevaluated Professors</h2>
 		  
-		  <div class="radio">
-               <div class="radio-group">
-		 <h4 class="title" class="radio-inline"><b>
-                  &nbsp&nbsp&nbspRating&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp%&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTotal
-                </b></h4>
-               </div>
-			   </div>
-        
-          <h4 class="title"> <b>Classroom Observation 35%</b></h4>
-			   
-			   <h4>1. DEAN/VDAA (5%)</h4>
-               <div class="radio">
-               <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 20px;">
-                   <p id="vdaaClassroomObservationRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 30px">
-                  .05<?php echo $filterProf; ?>
-                </label>
-                <label class="radio-inline" style="margin-left: 55px">
-                   <p id="vdaaClassroomObservationTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
-               
-               <!-- 2 -->
-               <h4>2. Chair/Coordinator (30%)</h4>
-               <div class="radio">
-               <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 20px;">
-                   <p id="chairClassroomObservationRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 35px">
-                  .30
-                </label>
-                <label class="radio-inline" style="margin-left: 55px">
-                   <p id="chairClassroomObservationTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
-			  
-			  <h4 class="title"> <b>Performance Appraisal 40%</b></h4>
-			   
-			   <h4>1. Dean/VDAA (20%)</h4>
-               <div class="radio">
-               <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 20px;">
-                   <p id="deanVdaaPerformanceAppraisalRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 35px">
-                  .20
-                </label>
-                <label class="radio-inline" style="margin-left: 55px">
-                   <p id="deanVdaaPerformanceAppraisalTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
-               
-               <!-- 2 -->
-               <h4>2. Chair/Coordinator (20%)</h4>
-                <div class="radio">
-               <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 20px;">
-                   <p id="chairPerformanceAppraisalRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 35px">
-                  .20
-                </label>
-                <label class="radio-inline" style="margin-left: 55px">
-                   <p id="chairPerformanceAppraisalTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
-			  
-			  <h4 class="title"> <b>Students Evaluation 20%</b></h4>
-			   
-			   <div class="radio">
-               <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 10px;">
-                   <p id="studentsEvaluationRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 35px">
-                  .20
-                </label>
-                <label class="radio-inline" style="margin-left: 55px">
-                   <p id="studentsEvaluationTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
-			  
-			  <h4 class="title"> <b>Self Evaluation (5%)</b></h4>
-			   
-			   <div class="radio">
-              <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 20px;">
-                   <p id="selfEvaluationRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 35px">
-                  .05
-                </label>
-                <label class="radio-inline" style="margin-left: 46.5px">
-                   <p id="selfEvaluationTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
-			  
-			<br>
-			  
-            <h3 class="panel-title" style="margin-left:400px;">OVER-ALL RATING</h3><h4 class="signature" style="margin-left: 550px; width:200px; margin-top:-20px;"><p style="margin-left: 90px;" id="overallTotal">-</p></h4>
+		  <div class="carousel slide multi-item-carousel" id="theCarousel" style="width:500px;">
+                    <div class="carousel-inner">
 
-			<br><br>
-			
-                <h5 class='department'>Prepared by:</h5>
-				<br>
-				<h1 class='name'><h4 class="signature" style="margin-left: 0px; width:220px; margin-top:-20px;"><img src="images/signatureOne.png" alt="Smiley face" height="42" width="200" style="display: none;" id="sign"></h4></h1>
-	            
-				<h5 class='department' style="margin-left: 0px; margin-top:-10px;">Department Chair/Coordinator</h5>
-				
-				<br>
-				
-				<h5 class='department' style="margin-left: 0px; margin-top:30px;">Endorsed by:</h5>
-				
-				<br>
-				<h1 class='name'><h4 class="signature" style="margin-left: 0px; width:220px; margin-top:-20px;"><img src="images/signatureTwo.png" alt="Smiley face" height="42" width="200" style="display: none;" id="signTwo"></h4></h1>
-	            
-				<h5 class='department' style="margin-left: 0px; margin-top:-10px;">Vice Dean for Academic Affairs</h5>
-				
-				
-				<div style="margin-top: -90px">
-				<h5 class='department' style="margin-left: 450px; margin-top:30px;">Approved by:</h5>
-				<br>
-				<h1 class='name'><h4 class="signature" style="margin-left: 450px; width:220px; margin-top:-20px;"><img src="images/signatureThree.png" alt="Smiley face" height="42" width="200" style="display: none;" id="signThree"></h4></h1>
-	            
-				<h5 class='department' style="margin-left: 450px; margin-top:-10px;">Dean</h5>
-				
-				<br><br>
-				
-				<h5 class='department' style="margin-left: 450px; margin-top:30px;">Copy Received by:</h5>
-				<br>
-				<h1 class='name'><h4 class="signature" style="margin-left: 450px; width:220px; margin-top:-20px;">NONE</h4></h1>
-           
-              </div>
-              </div>
-            
-              </div>
-              </div>
-			
-			</form>
+                      <div class="item active">
+
+                          <div class="col-xs-3"><a href="#"><img src="images/002.jpg" id="Musni, Aristotle" alt="Aristotle F. Musni" onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
+                          <div class="col-xs-3"><a href="#"><img src="images/edgar.JPG" id="Torres, Edgardo" alt="Edgar Torres" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
+                          <div class="col-xs-3"><a href="#"><img src="images/mark.JPG" id="Alejandria, Mark Cherwin L." alt="Mark Alejandria" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
+                          <div class="col-xs-3"><a href="#"><img src="images/ponce.JPG"  id="Ponce, Consuelo C." alt="Connie Ponce" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
+                      </div>
+
+                      <div class="item">
+                          <div class="col-xs-3"><a href="#"><img src="images/pic2.jpg" id="musni" onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
+                          <div class="col-xs-3"><a href="#"><img src="images/pic3.jpg" id="edgar" alt="Image" style="max-width: 500%;"></a></div>
+                          <div class="col-xs-3"><a href="#"><img src="images/pic4.jpeg" alt="Image" style="max-width: 500%;"></a></div>
+                          <div class="col-xs-3"><a href="#"><img src="images/pic5.jpg"  alt="Image" style="max-width: 500%;"></a></div>
+
+                      </div>
+                   
+
+                      <!--  Example item end -->
+                    </div>
+                    <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                    <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                    <div class="try" style="border-style: 1px solid #000; width: 10px; margin-left: 50px; margin-right: 50px; margin-top: 20px;">
+
+                    </div>
+                  </div> 
+				  </div>
+				  </div> 
+				  </div>
+				  
+				  </form>
       
     <footer id="footer">
       <p class="footer-texta">Copyright @ 2018 San Beda College Alabang. All rights reserved.</p>
