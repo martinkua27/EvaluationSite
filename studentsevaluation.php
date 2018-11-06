@@ -295,7 +295,7 @@ include('includes/session.php');
               <div class="profile-info">
 			  
               <h5>SUBJECT CODE</h5>
-                 <button id="signaturebtn" type="button" style="color: black" onclick="signDoc();" disabled="true">Verify</button>
+                 <button id="verify" name="verify" type="button" style="color: black" onclick="verifyEvaluation()" >Verify</button>
 					<?php
 
                           include("includes/indexDB.php");
@@ -1383,6 +1383,8 @@ include('includes/session.php');
     <script>
  
      var submitBtn = document.getElementById("saveevaluation");
+     var verifyBtn = document.getElementById("verify");
+     var getvalue = "";
 
     function showUser(str)  {
 
@@ -1395,11 +1397,13 @@ include('includes/session.php');
             //div.style.display = "none";
             document.getElementById("txtHint").innerHTML = "";
             submitBtn.disabled = true;
+             verifyBtn.disabled = true;
+             getvalue = "";
            // document.getElementById("spacer").style.marginBottom = "1845px";
             return;
         } else { 
              // document.getElementById("spacer").style.marginBottom = "1270.2px";
-              
+              getvalue = str;
             //div.style.display = "block";
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -1412,7 +1416,8 @@ include('includes/session.php');
                 if (this.readyState == 4 && this.status == 200) {
 
                    document.getElementById("txtHint").innerHTML = this.responseText;
-                     submitBtn.disabled = false;
+                    
+                     verifyBtn.disabled = false;
 
                    var myObj = JSON.parse(this.responseText);
                     document.getElementById("imagename").value = myObj.name;
@@ -1459,6 +1464,47 @@ include('includes/session.php');
         }
 
     }
+
+    function verifyEvaluation(){
+
+      if (getvalue == "") {
+       
+           getvalue = "";
+            return;
+        } else { 
+             
+            var xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+    
+     
+
+            if(this.responseText == "Existing Evaluation Found"){
+              submitBtn.disabled = true;
+              swal(
+  'Evaluation',
+  'Existing Evaluation Found',
+  'error'
+);
+            }else{
+              submitBtn.disabled = false;
+                swal(
+  'Evaluation',
+  'Ready for Evaluation',
+  'success'
+);
+            }
+
+           }
+          };
+           xmlhttp.open("GET","verifySubj.php?q=" + getvalue,true);
+          xmlhttp.send();
+    }
+  }
+
+    
+
 
     </script>
 
