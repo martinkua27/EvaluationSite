@@ -1,7 +1,6 @@
 <?php
 session_start();
-//PUSH KITA!
-//EDITED NEW
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
