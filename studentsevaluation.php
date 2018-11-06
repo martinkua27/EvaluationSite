@@ -1397,7 +1397,7 @@ include('includes/session.php');
             //div.style.display = "none";
             document.getElementById("txtHint").innerHTML = "";
             submitBtn.disabled = true;
-             verifyBtn.disabled = true;
+             verifyBtn.disabled = false;
              getvalue = "";
            // document.getElementById("spacer").style.marginBottom = "1845px";
             return;
@@ -1468,7 +1468,15 @@ include('includes/session.php');
     function verifyEvaluation(){
       if (getvalue == "") {
        
-          alert("Choose a subject");
+          swal({
+  title: 'Sytem',
+  text: 'Please choose a subject by clicking the dropdown',
+  imageUrl: 'images/chooseSubj.PNG',
+  imageWidth: 400,
+  imageHeight: 100,
+  imageAlt: 'Custom image',
+  animation: false
+})
             return;
         } else { 
              
