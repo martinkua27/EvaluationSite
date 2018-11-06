@@ -1,11 +1,17 @@
 language: node_js
 dist: trusty
-node_js: 8.11
+node_js: lts/*
 sudo: true
 
 addons:
   firefox: latest
   chrome: stable
+
+# limit the Travis 'build on push' feature to master and dist branches only
+branches:
+  only:
+   - master
+   - dist
 
 # The preinstalled yarn is outdated
 before_install:
@@ -32,6 +38,8 @@ after_success:
       node tools/merge-master-into-dist;
     fi;
   - yarn release;
-  - cat ./coverage/lcov.info | coveralls
-  - zip -r coverage.zip coverage
-  - curl --upload-file ./coverage.zip https://transfer.sh/coverage.zip
+  - if [[ "$TRAVIS_BRANCH" != "dist" ]]; then
+      cat ./coverage/lcov.info | coveralls;
+      zip -r coverage.zip coverage;
+      curl --upload-file ./coverage.zip https://transfer.sh/coverage.zip;
+    fi;
