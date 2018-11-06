@@ -1,7 +1,7 @@
 <?php
 session_start();
 //kc testing
-
+//jm santi
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
     
