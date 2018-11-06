@@ -53,6 +53,38 @@ include('../session.php');
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <script src="sweetalert2/dist/sweetalert2.min.js"></script>
    
+   <style>
+#container {
+  position: relative;
+}
+
+.image {
+  display: block;
+}
+
+.overlay {
+  position: absolute; 
+  left: 15px;
+  bottom: 30px; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 90%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 13px;
+  text-align: center;
+}
+
+#container:hover .overlay {
+  opacity: 1;
+  border-radius: 5px;
+}
+</style>
+   
+   
   </head>
 
   <body style="background-color: #212121;">
@@ -96,51 +128,55 @@ include('../session.php');
       <div class="container" style="margin-top:180px;">
          <div class="row">
               <a href="#">
-              <div class="col-xs-6 col-md-3">
+              <div id="container" class="col-xs-6 col-md-3">
                 <div class="jumbotron" style="background-color: #4E887F;">
                     <div class="container">
                        <a data-toggle="modal" data-target="#accounting" style="text-decoration: none;color: #fff;text-align: center;"> 
-                        <img src="images/software.png" class="center-block img-responsive">
+                        <img src="images/software.png" class="center-block img-responsive" class="image">
                         <hr>
                         <h3>IT</h3>
                        </a>
+					   <div class="overlay">Select this</div>
                     </div>
                 
                 </div>
               </div> 
               </a>
-               <div class="col-xs-6 col-md-3">
+               <div id="container" class="col-xs-6 col-md-3">
                 <div class="jumbotron" style="background-color: #4C7FB0;">
                     <div class="container">
                         <a href="#" style="text-decoration: none;color: #fff;text-align: center;"> 
-                          <img src="images/accounting.png" class="center-block img-responsive">
+                          <img src="images/accounting.png" class="center-block img-responsive" class="image">
                           <hr>
                            <h3>Accounting</h3>
                         </a>
+						<div class="overlay">Select this</div>
                     </div>
                 
                 </div>
               </div>  
-              <div class="col-xs-6 col-md-3">
+              <div id="container" class="col-xs-6 col-md-3">
                 <div class="jumbotron" style="background-color: #8d192c;">
                     <div class="container">
                         <a href="#" style="text-decoration: none;color: #fff;text-align: center;"> 
-                          <img src="images/planet-earth.png" class="center-block img-responsive">
+                          <img src="images/planet-earth.png" class="center-block img-responsive" class="image">
                           <hr>
                            <h3>IS</h3>
                         </a>
+						<div class="overlay">Select this</div>
                     </div>
                 
                 </div>
               </div>  
-              <div class="col-xs-6 col-md-3">
+              <div id="container" class="col-xs-6 col-md-3">
                 <div class="jumbotron" style="background-color: #c59744;">
                     <div class="container">
                         <a href="#" style="text-decoration: none;color: #fff;text-align: center;"> 
-                          <img src="images/brain.png" class="center-block img-responsive">
+                          <img src="images/brain.png" class="center-block img-responsive" class="image">
                           <hr>
                            <h3>Psychology</h3>
                         </a>
+						<div class="overlay">Select this</div>
                     </div>
                 
                 </div>
