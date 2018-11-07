@@ -268,12 +268,25 @@ include('../session.php');
               <div class="panel-body">
                 <div class="row">
                   <div class="col-md-12">
-                    <input class="form-control" type="text" id="search" placeholder="Filter Reports...">
+
+                     <span>Filter by:</span>
+
+                    <select onchange="studentsdropdown(this.value)">
+                      <option value="">Choose</option>
+                      <option value="0">Subject Code</option>
+                      <option value="1">Employee Code</option>
+                      <option value="2">Employee Name</option>
+                      <option value="9">Section</option>
+                      <option value="11">Semester</option>
+                      <option value="12">Academic Year</option>
+                    </select>
+
+                    <input class="form-control" type="text" id="searchstudents" placeholder="Filter Reports..." style="display: none;" onkeyup="studentsFilter()">
                   </div>
                 </div>
                 <br>
                 <div class="table-responsive"> 
-                <table class="table table-striped table-hover" id="usersTbl">
+                <table class="table table-striped table-hover" id="studentsreport">
                     <thead class="thead-dark">                            
                        <tr>
                          <td>Subject Code</td>
@@ -356,7 +369,10 @@ include('../session.php');
               <div class="panel-body">
                 <div class="row">
                   <div class="col-md-12">
+                  
+
                     <input class="form-control" type="text" id="search" placeholder="Filter Reports...">
+
                   </div>
                 </div>
                 <br>
@@ -530,3 +546,58 @@ include('../session.php');
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+
+
+
+
+
+    <script>
+
+      var getvalue = "0";
+
+  function studentsdropdown(str)  {
+
+
+
+       if (str == "") {
+            studentsearchtext();
+            return;
+
+        } else { 
+          studentsearchtext();
+         getvalue = str;
+        }
+
+    }
+
+
+function studentsFilter() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("searchstudents");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("studentsreport");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[getvalue];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+function studentsearchtext() {
+    var x = document.getElementById("searchstudents");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.value = "";
+        studentsFilter();
+        x.style.display = "none";
+    }
+}
+</script>
