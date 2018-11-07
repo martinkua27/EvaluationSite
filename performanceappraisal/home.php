@@ -48,8 +48,7 @@ include('../session.php');
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/homeperformance.css" rel="stylesheet">
-	
-	<link href="css/summary.css" rel="stylesheet">
+
 	
      <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
     <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
@@ -91,34 +90,7 @@ include('../session.php');
 		min-height: 100%;
 	}
 	
-	.profile {
-    background-color: #9F0026 !important;
-    border-radius: 100px 0px 0px 100px;
-    margin-top: 5px;
-    margin-right: -30px;
-	height: 800px;
-	width: 300px;
-	}
-	
-	.questions {
-    margin-left:0px;
-	margin-top:5px;
-	height: 800px;
-	background-color: #ddd;
-	border-radius: 0px 100px 100px 0px;
-	}
-	
-	.boxed-title {
-    border: 3px solid #000;
-    font-weight: bold;
-    max-width: 18%;
-    padding: 5px;
-	}
-	
-	.signature {
-    border: 0;
-    border-bottom: 3px solid #000;
-	}
+
 
 </style>
    
@@ -221,13 +193,7 @@ include('../session.php');
               </div>  
         
  
-       <div class="container-fluid">
-        <div class="row">
-       
-
-        
-        </div>
-    </div>
+  
     <!--end-->
     <!-- Modals -->
     
@@ -303,152 +269,25 @@ include('../session.php');
     </div>
 	
 		<!--BOTTOM FORM-->
-          <div class="col-md-3">
-          <div class="profile">
-    
-                  <br>
-              <!--<img src="images/001.png" id="profpic" class="img-responsive center-block img-circle img-profile">-->
-              <br>
-              <div class="profile-info">
-                    
-               
-                 
-                <!-- student profile 
-                <h3 class='boxed_item'>Summary</h3>-->
-				
-				<br>
-				
-				<form id="myForm">
-
-          <h5>Program</h5>
-                 
-          <?php
-
-                          include("../indexDB.php");
-                          include('../session.php');
-
-                          $conn = new mysqli($servername, $username, $password, $dbname)
-                                  or die ('Cannot connect to db');
-
-                                  $result = $conn->query("select * from assigned_schedule group by program");
-
-                     ?>
-                          <select class= "form-control subj-code" name="department" style="width: 270px;" id="department" onchange="showUser(this.value)">
-                             <?php
-
-                                  echo "<option value=''>Select</option>";
-
-                                  while ($row = $result->fetch_assoc()) {
-
-                                       unset($option1);
-                                    $option1 = $row['program'];
-                                    echo "<option value='$option1'>$option1</option>";
-                                    
-                                   
-
-                                   }
-
-                                    echo "</select>";
-
-                                         if(isset($_POST['department'])){ //check if $_POST['examplePHP'] exists
-          
-                        echo '<script>alert('. $_POST['department'] .')</script>'; // echo the data
-                          die(); // stop execution of the script.
-                       }
-
-                             ?> 
-                            
-
-
-                         <div id="txtHint"></div>
-  
-              <?php 
-
-                //$varaa = "";
-                /*
-                if($varaa = "profname"){
-                echo "<h5 class='department' style='margin-top: 10px;''>Name of Faculty</h5>";
-                echo "<h1 class='name'>NONE</h1>";
-                echo "<hr>";
-        
-                echo "<h5 class='department'>Department/Area</h5>";
-                echo "<h1 class='name'>NONE</h1>";
-                echo "<hr>";
-        
-
-                echo "<h5 class='department'>Date</h5>";
-                echo "<h1 class='name'><?php echo $dateNow; ?></h1>";
-                echo "<hr>";
-                }
-
-                */
-				        
-                 ?>
-			
-			<!--
-			<button id="signaturebtn" type="button" style="color: black" onclick="signDoc();" disabled="true">Apply Signature</button>
-			<button id="print" value="print" type="button" onclick="testPdf()" style="color: black" disabled="true">save PDF</button>
-			-->
-			
-      <br>
-
-       <div id="inviData" style="display: none;"></div>
-              			
-		</form>
-		
-    <form id="myform" name="myform" onsubmit="return false">
-                <!-- end -->
-                  
-                 
-              </div>
-              <br>
-              <br>
-          </div>
-             
-          </div>      
-
-          <div  class="col-md-9" style="color: #000; margin-bottom: 40px;">
-          <div class="questions">
-          <br>
-          <div class="margin-questions" style="width:1120px;">
-          <h2 class="boxed-title">Unevaluated Professors</h2>
-		  
-		  <div class="carousel slide multi-item-carousel" id="theCarousel" style="width:500px;">
-                    <div class="carousel-inner">
-
-                      <div class="item active">
-
-                          <div class="col-xs-3"><a href="#"><img src="images/002.jpg" id="Musni, Aristotle" alt="Aristotle F. Musni" onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
-                          <div class="col-xs-3"><a href="#"><img src="images/edgar.JPG" id="Torres, Edgardo" alt="Edgar Torres" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
-                          <div class="col-xs-3"><a href="#"><img src="images/mark.JPG" id="Alejandria, Mark Cherwin L." alt="Mark Alejandria" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
-                          <div class="col-xs-3"><a href="#"><img src="images/ponce.JPG"  id="Ponce, Consuelo C." alt="Connie Ponce" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
-                      </div>
-
-                      <div class="item">
-                          <div class="col-xs-3"><a href="#"><img src="images/pic2.jpg" id="musni" onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
-                          <div class="col-xs-3"><a href="#"><img src="images/pic3.jpg" id="edgar" alt="Image" style="max-width: 500%;"></a></div>
-                          <div class="col-xs-3"><a href="#"><img src="images/pic4.jpeg" alt="Image" style="max-width: 500%;"></a></div>
-                          <div class="col-xs-3"><a href="#"><img src="images/pic5.jpg"  alt="Image" style="max-width: 500%;"></a></div>
-
-                      </div>
-                   
-
-                      <!--  Example item end -->
+        <div class="container" style="margin-top:300px;">
+            <div class="row">
+                <a href="#demo" class="btn btn-info" data-toggle="collapse">Simple collapsible</a>
+                <div id="demo" class="collapse">
+                    <div class="col-md-3" style="color:white;">
+                        kkkk
                     </div>
-                    <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-                    <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-                    <div class="try" style="border-style: 1px solid #000; width: 10px; margin-left: 50px; margin-right: 50px; margin-top: 20px;">
-
+                    <div class="col-md-9" style="color:white;">
+                        kkk
                     </div>
-                  </div> 
-				  </div>
-				  </div> 
-				  </div>
-				  
-				  </form>
+                </div>
+
+            </div>
+        </div>
+        
+         
       
     <footer id="footer">
-      <p class="footer-texta">Copyright @ 2018 San Beda College Alabang. All rights reserved.</p>
+      <p class="footer-b">Copyright @ 2018 San Beda College Alabang. All rights reserved.</p>
     </footer>  
     
       
