@@ -30,6 +30,34 @@ if (!$con) {
 }
 $academicYearEnd = date('Y', strtotime('+1 year'));
 $academicYearStart = date('Y'); 
+
+function pic($a){
+	include('session.php');
+
+	$con = mysqli_connect('localhost','root','','evaluationdb');
+if (!$con) {
+    die('Could not connect: ' . mysqli_error($con));
+}
+
+	mysqli_select_db($con,"ajax_demo");
+$sql="SELECT * FROM emp_details WHERE emp_num = '".$a."'";
+$result = mysqli_query($con,$sql);
+
+while($row = mysqli_fetch_array($result)) {
+
+  echo "  
+	
+			
+				<img src='".$row['emp_image']."' id='profpic' class='img-responsive center-block img-circle img-profile'>
+			<hr>
+	     "; 
+echo "<br><br><br>";
+}
+}
+
+
+
+
 mysqli_select_db($con,"ajax_demo");
 $sql="SELECT * FROM assigned_schedule WHERE course_code = '".$q."' and class_section = '" . $getsection . "' GROUP BY course_code ";
 $result = mysqli_query($con,$sql);
@@ -42,10 +70,14 @@ while($row = mysqli_fetch_array($result)) {
 		
 	     ";
 
+
+
 	echo "  
 				<br><input class='input100' type='text' id='emp_id' name='emp_id' style='display: none;' value='". $row['faculty_id'] ."' readonly>
 			
 	     ";     
+
+	     pic($row['faculty_id']);
 
     echo "  <h5 class='professor'>PROFESSOR</h5>
 			<h1 class='name'>". $row['faculty'] ."</h1>
