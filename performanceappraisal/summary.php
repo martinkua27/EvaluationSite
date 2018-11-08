@@ -451,8 +451,8 @@ include('../session.php');
   var signatureImgTwo = document.getElementById("signTwo");
   var signatureImgThree = document.getElementById("signThree");
 
-  var printBtn = document.getElementById("print");
-  var signatureBtn = document.getElementById("signaturebtn");
+ // var printBtn = document.getElementById("print");
+ // var signatureBtn = document.getElementById("signaturebtn");
 
   var getnamedropdown = "";
 
@@ -484,16 +484,16 @@ include('../session.php');
 
             document.getElementById("overallTotal").innerHTML = "-";
               
-              printBtn.disabled = true;
-              signatureBtn.disabled = true;
-              resetSignature();
+           //   printBtn.disabled = true;
+            //  signatureBtn.disabled = true;
+           //   resetSignature();
             
             return;
         } else { 
-              
-              resetSignature();
-                printBtn.disabled = true;
-              signatureBtn.disabled = true;
+               
+            //  resetSignature();
+             //   printBtn.disabled = true;
+            //  signatureBtn.disabled = true;
 
             valueOfDepartment = str;
 
