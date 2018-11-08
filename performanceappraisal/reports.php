@@ -326,8 +326,7 @@ include('../session.php');
 
                      <span>Filter by:</span>
 
-					<div class="custom-select" style="width:200px;">
-                    <select onchange="studentsdropdown(this.value)">
+                    <select onchange="studentsdropdown(this.value)" class="custom-select" style="width:200px;">
                       <option value="">Choose</option>
                       <option value="0">Subject Code</option>
                       <option value="1">Employee Code</option>
@@ -336,9 +335,11 @@ include('../session.php');
                       <option value="11">Semester</option>
                       <option value="12">Academic Year</option>
                     </select>
-					</div>
 
-                    <input class="form-control" type="text" id="searchstudents" placeholder="Filter Reports..." style="display: none;" onkeyup="studentsFilter()">
+                     <input class="form-control" type="text" id="searchstudents" placeholder="Filter Reports..." style="display: none;" onkeyup="studentsFilter()">
+	
+
+                   
                   </div>
                 </div>
                 <br>
@@ -682,17 +683,21 @@ document.addEventListener("click", closeAllSelect);
     <script>
 
       var getvalue = "0";
+      var stat = "";
 
+       var x = document.getElementById("searchstudents");
   function studentsdropdown(str)  {
 
 
 
        if (str == "") {
-            studentsearchtext();
+        x.value = "";
+         studentsFilter();
+          x.style.display = "none";
             return;
 
         } else { 
-          studentsearchtext();
+        x.style.display = "block";
          getvalue = str;
         }
 
@@ -717,14 +722,4 @@ function studentsFilter() {
   }
 }
 
-function studentsearchtext() {
-    var x = document.getElementById("searchstudents");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.value = "";
-        studentsFilter();
-        x.style.display = "none";
-    }
-}
 </script>
