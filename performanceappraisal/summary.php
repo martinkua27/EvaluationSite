@@ -48,7 +48,7 @@ include('../session.php');
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/homeperformance.css" rel="stylesheet">
+ 
 	
 	<link href="css/summary.css" rel="stylesheet">
 	
@@ -87,14 +87,7 @@ include('../session.php');
 	}
 	
 	</style>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
   </head>
 
   <body style="background-color: #212121;">
@@ -252,8 +245,13 @@ include('../session.php');
                 */
 				        
                  ?>
-			<button id="signaturebtn" type="button" style="color: black" onclick="signDoc();" disabled="true">Apply Signature</button>
-			<button id="print" value="print" type="button" onclick="testPdf()" style="color: black" disabled="true">save PDF</button>
+			<button id="signaturebtn" type="button" class="btn btn-default" style="color: black" onclick="signDoc();" disabled="true">Apply Signature</button>
+<!--		<button id="print" value="print" type="button" class="btn btn-default btn-pdf" onclick="testPdf()" style="color: black" disabled="true">save PDF</button>-->
+            //try                  
+            <?php $results = mysqli_query($conn, "SELECT * FROM evaluation_average_per_prof"); ?>
+            <?php while($row = mysqli_fetch_array($results)) { ?>
+            <a id="<?php echo $row["id"]; $_SESSION["evalid"] = $row["id"]; ?>"><button type="button" name="view" value="view">Print</button></a>
+            <?php } ?>
      
       <br>
 
@@ -677,6 +675,14 @@ function resetSignature(){
 }
 
 </script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 
 
 

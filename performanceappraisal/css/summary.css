@@ -132,10 +132,21 @@ textarea {
     box-sizing: border-box;
     width: 82%;
 }
-.footer-text {
-    color: #fff;
-    margin-top: 40px !important;
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-top: 10px;
 }
+.btn-pdf {
+    margin-top: 10px;
+}
+.footer-text {
+    text-align: center;
+    color: #fff;
+}
+
 
 
 

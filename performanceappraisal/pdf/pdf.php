@@ -35,15 +35,16 @@ $pdf->Ln(43);
 //Cell(width, height, text, border 0(no border) 1(border), end line 0(continue) 1(new line), [align] (L/empty string (default value) C (center) R (right))
 //queries 
 //classroom observation
-$query1 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated,semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.05)/COUNT(id),3) as total FROM observation_sheet_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
-$query2 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.30)/COUNT(id) ,3) as total FROM observation_sheet_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
+$query1 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated,semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.05)/COUNT(id),3) as totala FROM observation_sheet_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
+$query2 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.30)/COUNT(id) ,3) as totalb FROM observation_sheet_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
 //performance appraisal
-$query3 = mysqli_query($conn,"SELECT COUNT(id) as performance_count,emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2),3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2)*.20,3) as total FROM evaluation_average_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
-$query4 = mysqli_query($conn,"SELECT COUNT(id) as performance_count, emp_name_evaluated, semester, academic_year, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)),3) as rating, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)) * .20,3) as total FROM evaluation_average_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
+$query3 = mysqli_query($conn,"SELECT COUNT(id) as performance_count,emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2),3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2)*.20,3) as totalc FROM evaluation_average_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
+$query4 = mysqli_query($conn,"SELECT COUNT(id) as performance_count, emp_name_evaluated, semester, academic_year, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)),3) as rating, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)) * .20,3) as totald FROM evaluation_average_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
 //studentsevaluation
-$query5 = mysqli_query($conn,"SELECT COUNT(id) as students_count,emp_name, semester, academic_year,  FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id), 3) as rating, FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id) * 0.20, 3) as total FROM evaluation_average_per_stduents WHERE emp_name Like '%Edgardo%' GROUP BY emp_name, semester, academic_year");
+$query5 = mysqli_query($conn,"SELECT COUNT(id) as students_count,emp_name, semester, academic_year,  FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id), 3) as rating, FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id) * 0.20, 3) as totale FROM evaluation_average_per_stduents WHERE emp_name Like '%Edgardo%' GROUP BY emp_name, semester, academic_year");
 //self-evaluation
-$query6 = mysqli_query($conn,"SELECT COUNT(id) as selfeval_count,evaluation_average_per_prof.position, evaluation_average_per_prof.semester, evaluation_average_per_prof.academic_year, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) as rating, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) * 0.05 as total FROM evaluation_average_per_prof INNER JOIN emp_details ON evaluation_average_per_prof.position = emp_details.position WHERE evaluation_average_per_prof.position = emp_details.position AND evaluation_average_per_prof.position != 'dean' AND evaluation_average_per_prof.position != 'vicedean' AND evaluation_average_per_prof.position != 'chairperson'AND emp_name_evaluated Like '%Edgardo%' GROUP BY evaluation_average_per_prof.position,  evaluation_average_per_prof.semester, evaluation_average_per_prof.academic_year");
+$query6 = mysqli_query($conn,"SELECT COUNT(id) as selfeval_count, evaluator, emp_name_evaluated, semester, academic_year, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) as rating, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) * 0.05 as totalf FROM evaluation_average_per_prof INNER JOIN emp_details ON evaluation_average_per_prof.position = emp_details.position WHERE evaluation_average_per_prof.evaluator = emp_details.emp_num AND emp_name_evaluated LIKE '%Torres%' AND evaluation_average_per_prof.evaluator != 'dean' AND evaluation_average_per_prof.position != 'vicedean' AND evaluation_average_per_prof.position != 'chairperson' GROUP BY evaluation_average_per_prof.evaluator, evaluation_average_per_prof.semester, evaluation_average_per_prof.academic_year");
+
 //end
 $pdf->SetFont('Arial', 'B', 14);
 $pdf->Cell(114,  5, 'San Beda College Alabang', 0, 0); 
@@ -117,7 +118,7 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line
 } else {
 $rating = $item['rating'];
-$total = $item['total'];
+$totala = $item['totala'];
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(5,  5, '', 'L,B', 0); 
 $pdf->SetFont('Arial', '', 12);
@@ -127,7 +128,7 @@ $pdf->Cell(37.6,  5, number_format($rating,2), 1, 0);
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '(5%)', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line
+$pdf->Cell(37.6,  5, number_format($totala,2), 1, 1, 'R');//end of line
     
 }
 }
@@ -147,7 +148,7 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line
 } else {
 $rating = $item['rating'];
-$total = $item['total'];
+$totalb = $item['totalb'];
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(5,  5, '', 'L', 0); 
 $pdf->SetFont('Arial', '', 12);
@@ -157,7 +158,7 @@ $pdf->Cell(37.6,  5, number_format($rating,2), 1, 0);
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '(30%)', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line
+$pdf->Cell(37.6,  5, number_format($totalb,2), 1, 1, 'R');//end of line
 }
 }
 //space
@@ -195,7 +196,7 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line 
 } else {
 $rating = $item['rating'];
-$total = $item['total'];
+$totalc = $item['totalc'];
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(5,  5, '', 'L,B', 0); 
 $pdf->SetFont('Arial', '', 12);
@@ -205,7 +206,7 @@ $pdf->Cell(37.6,  5, number_format($rating,2), 1, 0);
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '(20%)', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line   
+$pdf->Cell(37.6,  5, number_format($totalc,2), 1, 1, 'R');//end of line   
 }    
 }
 //2
@@ -223,7 +224,7 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line
 } else {
 $rating = $item['rating'];
-$total = $item['total'];
+$totald = $item['totald'];
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(5,  5, '', 'L', 0); 
 $pdf->SetFont('Arial', '', 12);
@@ -233,7 +234,7 @@ $pdf->Cell(37.6,  5, number_format($rating,2), 1, 0);
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '(20%)', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line    
+$pdf->Cell(37.6,  5, number_format($totald,2), 1, 1, 'R');//end of line    
 }
 }
 //space
@@ -259,7 +260,7 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line
 } else {
 $rating = $item['rating'];
-$total = $item['total'];
+$totale = $item['totale'];
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(75,  5, 'Students Evaluation', 1, 0); 
 $pdf->SetFont('Arial', '', 12);
@@ -267,7 +268,7 @@ $pdf->Cell(37.6,  5, number_format($rating,2), 1, 0);
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '20%', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line   
+$pdf->Cell(37.6,  5, number_format($totale,2), 1, 1, 'R');//end of line   
 }
 }
 //space
@@ -281,8 +282,6 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '', 1, 1);//end of line
 
 //selfevaluation 
-$rating = $item['rating'];
-$total = $item['total'];
 while($item = mysqli_fetch_array($query6)){
 if ($item['selfeval_count'] == 0) {
 $pdf->SetFont('Arial', '', 12);
@@ -295,7 +294,7 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line
 } else {
 $rating = $item['rating'];
-$total = $item['total'];
+$totalf = $item['totalf'];
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(75,  5, 'Self Evaluation', 1, 0); 
 $pdf->SetFont('Arial', '', 12);
@@ -303,10 +302,10 @@ $pdf->Cell(37.6,  5, number_format($rating,2), 1, 0);
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '5%', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line
-}
-}
+$pdf->Cell(37.6,  5, number_format($totalf,2), 1, 1, 'R');//end of line
+
 //total
+$finaltotal = $totala + $totalb + $totalc + $totald + $totale + $totalf;
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(75,  5, 'Total:', 1, 0); 
 $pdf->SetFont('Arial', 'B', 12);
@@ -314,8 +313,10 @@ $pdf->Cell(37.6,  5, '(100%)', 1, 0);
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '', 1, 0);
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(37.6,  5, '1.88', 1, 1, 'R');//end of line
-
+$pdf->Cell(37.6,  5, number_format($finaltotal,2), 1, 1, 'R');//end of line
+    
+}
+}
 
 
 //
