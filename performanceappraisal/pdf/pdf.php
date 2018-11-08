@@ -6,14 +6,14 @@ require('fpdf.php');
 
 
 ////connect to database
-//   $servername = "localhost";
-//   $username = "root";
-//   $password = "";
-//   $dbname = "areson";
-//
+   $servername = "localhost";
+   $username = "root";
+   $password = "";
+   $dbname = "evaluationdb";
+
 //// Create connection
-//$conn = mysqli_connect($servername, $username, $password, $dbname);
-//
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
 ////get invoices data
 //$query = mysqli_query($conn, "select * from invoiceprint
 //                       where custdate = '".$_GET['custdate']."'");
@@ -33,7 +33,18 @@ $pdf->Ln(43);
 
 //HEADER
 //Cell(width, height, text, border 0(no border) 1(border), end line 0(continue) 1(new line), [align] (L/empty string (default value) C (center) R (right))
-
+//queries 
+//classroom observation
+$query1 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated,semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.05)/COUNT(id),3) as total FROM observation_sheet_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
+$query2 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.30)/COUNT(id) ,3) as total FROM observation_sheet_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
+//performance appraisal
+$query3 = mysqli_query($conn,"SELECT COUNT(id) as performance_count,emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2),3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2)*.20,3) as total FROM evaluation_average_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
+$query4 = mysqli_query($conn,"SELECT COUNT(id) as performance_count, emp_name_evaluated, semester, academic_year, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)),3) as rating, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)) * .20,3) as total FROM evaluation_average_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
+//studentsevaluation
+$query5 = mysqli_query($conn,"SELECT COUNT(id) as students_count,emp_name, semester, academic_year,  FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id), 3) as rating, FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id) * 0.20, 3) as total FROM evaluation_average_per_stduents WHERE emp_name Like '%Edgardo%' GROUP BY emp_name, semester, academic_year");
+//self-evaluation
+$query6 = mysqli_query($conn,"SELECT COUNT(id) as selfeval_count,evaluation_average_per_prof.position, evaluation_average_per_prof.semester, evaluation_average_per_prof.academic_year, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) as rating, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) * 0.05 as total FROM evaluation_average_per_prof INNER JOIN emp_details ON evaluation_average_per_prof.position = emp_details.position WHERE evaluation_average_per_prof.position = emp_details.position AND evaluation_average_per_prof.position != 'dean' AND evaluation_average_per_prof.position != 'vicedean' AND evaluation_average_per_prof.position != 'chairperson'AND emp_name_evaluated Like '%Edgardo%' GROUP BY evaluation_average_per_prof.position,  evaluation_average_per_prof.semester, evaluation_average_per_prof.academic_year");
+//end
 $pdf->SetFont('Arial', 'B', 14);
 $pdf->Cell(114,  5, 'San Beda College Alabang', 0, 0); 
 $pdf->Cell(74,  5, 'Performance Summary', 0, 1); //end of line
@@ -72,7 +83,7 @@ $pdf->Cell(88,  5, '1st Semester', 0, 0);
 $pdf->Cell(74,  5, '', 0, 1); //end of line
 
 $pdf->Ln(15);
-
+//start
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(75,  5, 'Elements', 1, 0); 
 $pdf->SetFont('Arial', 'B', 12);
@@ -92,27 +103,63 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '', 1, 1);//end of line
 
 //1
+while($item = mysqli_fetch_array($query1)){
+if ($item['classroom_count'] == 0) {
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(5,  5, '', 'L,B', 0); 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(70,  5, '1. VDAA', 'R,B', 0); 
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, '2.11', 1, 0); 
+$pdf->Cell(37.6,  5, '0', 1, 0); 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '(5%)', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, '0.11', 1, 1, 'R');//end of line
+$pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line
+} else {
+$rating = $item['rating'];
+$total = $item['total'];
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(5,  5, '', 'L,B', 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(70,  5, '1. VDAA', 'R,B', 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($rating,2), 1, 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, '(5%)', 1, 0);
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line
+    
+}
+}
+
 //2
+while($item = mysqli_fetch_array($query2)){
+if ($item['classroom_count'] == 0) {
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(5,  5, '', 'L', 0); 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(70,  5, '2. Chair/Coordinator', 'R', 0); 
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, '1.14', 1, 0); 
+$pdf->Cell(37.6,  5, '0', 1, 0); 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '(30%)', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, '0.34', 1, 1, 'R');//end of line
+$pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line
+} else {
+$rating = $item['rating'];
+$total = $item['total'];
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(5,  5, '', 'L', 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(70,  5, '2. Chair/Coordinator', 'R', 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($rating,2), 1, 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, '(30%)', 1, 0);
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line
+}
+}
 //space
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(75,  5, '', 1, 0); 
@@ -134,27 +181,61 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '', 1, 1);//end of line
 
 //1
+while($item = mysqli_fetch_array($query3)){
+if ($item['performance_count'] == 0) {
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(5,  5, '', 'L,B', 0); 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(70,  5, '1. Dean/VDAA', 'R,B', 0); 
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, '4.14', 1, 0); 
+$pdf->Cell(37.6,  5, '0', 1, 0); 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '(20%)', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, '0.83', 1, 1, 'R');//end of line
+$pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line 
+} else {
+$rating = $item['rating'];
+$total = $item['total'];
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(5,  5, '', 'L,B', 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(70,  5, '1. Dean/VDAA', 'R,B', 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($rating,2), 1, 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, '(20%)', 1, 0);
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line   
+}    
+}
 //2
+while($item = mysqli_fetch_array($query4)){
+if ($item['performance_count'] == 0) {
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(5,  5, '', 'L', 0); 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(70,  5, '2. Chair/Coordinator', 'R', 0); 
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, '4.14', 1, 0); 
+$pdf->Cell(37.6,  5, '0', 1, 0); 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '(20%)', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, '0.83', 1, 1, 'R');//end of line
+$pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line
+} else {
+$rating = $item['rating'];
+$total = $item['total'];
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(5,  5, '', 'L', 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(70,  5, '2. Chair/Coordinator', 'R', 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($rating,2), 1, 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, '(20%)', 1, 0);
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line    
+}
+}
 //space
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(75,  5, '', 1, 0); 
@@ -166,14 +247,29 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '', 1, 1);//end of line
 
 //studentsevaluation 
+while($item = mysqli_fetch_array($query5)){
+if ($item['students_count'] == 0) {
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(75,  5, 'Students Evaluation', 1, 0); 
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, '3.00', 1, 0); 
+$pdf->Cell(37.6,  5, '0', 1, 0); 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '20%', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, '0.60', 1, 1, 'R');//end of line
+$pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line
+} else {
+$rating = $item['rating'];
+$total = $item['total'];
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(75,  5, 'Students Evaluation', 1, 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($rating,2), 1, 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, '20%', 1, 0);
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line   
+}
+}
 //space
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(75,  5, '', 1, 0); 
@@ -185,14 +281,31 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '', 1, 1);//end of line
 
 //selfevaluation 
+$rating = $item['rating'];
+$total = $item['total'];
+while($item = mysqli_fetch_array($query6)){
+if ($item['selfeval_count'] == 0) {
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(75,  5, 'Self Evaluation', 1, 0); 
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, 'No Record', 1, 0); 
+$pdf->Cell(37.6,  5, '0', 1, 0); 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '5%', 1, 0);
 $pdf->SetFont('Arial', '', 12);
-$pdf->Cell(37.6,  5, 'No Record', 1, 1, 'R');//end of line
+$pdf->Cell(37.6,  5, '0', 1, 1, 'R');//end of line
+} else {
+$rating = $item['rating'];
+$total = $item['total'];
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(75,  5, 'Self Evaluation', 1, 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($rating,2), 1, 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, '5%', 1, 0);
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(37.6,  5, number_format($total,2), 1, 1, 'R');//end of line
+}
+}
 //total
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(75,  5, 'Total:', 1, 0); 
@@ -254,12 +367,12 @@ $pdf->Cell(37.6,  5, '1.88', 1, 1, 'R');//end of line
 //   $pdf->Cell(40,  5, '0000',1, 1,'R');
 //
 //////When the buyers buys a lot of items
-////while($item = mysqli_fetch_array($query)){
-////	$pdf->Cell(25,  5, '0000', 1, 0);
-////	$pdf->Cell(85	,5,'0000',1,0);
-////	$pdf->Cell(40,  5, '0000',1, 0, 'C');
-////  $pdf->Cell(40,  5, '0000',1, 1,'R');
-////}
+//while($item = mysqli_fetch_array($query)){
+//	$pdf->Cell(25,  5, '0000', 1, 0);
+//	$pdf->Cell(85	,5,'0000',1,0);
+//	$pdf->Cell(40,  5, '0000',1, 0, 'C');
+//  $pdf->Cell(40,  5, '0000',1, 1,'R');
+//}
 //
 //$pdf->Cell(25,  5, '',     1, 0);
 //$pdf->Cell(85, 5, '', 1, 0);
