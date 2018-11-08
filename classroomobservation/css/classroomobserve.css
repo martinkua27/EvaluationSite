@@ -164,68 +164,6 @@ textarea {
     margin-top: 40px !important;
 }
 
-/*iMAC 21"*/
-/* 1920 x 1080 */
-@media screen and (max-width: 1920px) {
-    .navbar.navbar-default.navbar-fixed-top{
-        font-size: 25px;
-    }
-    .text-top{
-        margin-top: -930px;
-        font-size: 70px;
-    }
-    .container{
-        width: 1590px !important;
-    }
-    h2 {
-    font-size: 35px;
-    }
-    .boxed-title{
-        max-width: 25%;
-    }
-    h4 {
-        font-size: 30px;
-    }
-    h5 {
-        font-size: 29px;
-    }
-    h3 {
-        font-size: 28px;    
-    }
-    .radio{
-        margin-left: 858px;
-        margin-top: -39px;
-    }
-    .checkbox label, .radio label {
-        padding-left: 43px;
-        margin-left: -21px;
-    }
-    .img-profile {
-        height: 200px;
-    }
-    
-    .subj-code {
-        max-width: 88%;
-        font-size: 27px;
-    }
-    
-    .name {
-        font-size: 35px;
-    }
-    hr {
-        margin-right: 40px;
-        margin-top: 9px;
-    }
-    
-    .profile {
-        height: 3375px !important;
-    }
-    
-    .footer-text {
-        font-size: 25px  !important;
-    }
-}
-
 @media (max-width: 1300px) {
 	.title {
 		margin-left: -35px;
