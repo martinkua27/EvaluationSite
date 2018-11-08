@@ -152,12 +152,25 @@ include('../session.php');
               <div class="panel-body">
                 <div class="row">
                   <div class="col-md-12">
-                    <input class="form-control" type="text" id="search" placeholder="Filter Reports...">
+                    
+                         <span>Filter by:</span>
+
+                    <select onchange="profdropdown(this.value)" class="custom-select" style="width:200px;">
+                      <option value="">Choose</option>
+                      <option value="0">Evaluator</option>
+                      <option value="1">Position</option>
+                      <option value="2">Employee Name</option>
+                      <option value="6">Semester</option>
+                      <option value="7">Academic Year</option>
+                    </select>
+
+                   <input class="form-control" type="text" id="searchprof" placeholder="Filter Reports..." style="display: none;" onkeyup="profFilter()">
+
                   </div>
                 </div>
                 <br>
                 <div class="table-responsive"> 
-                <table class="table table-striped table-hover" id="usersTbl">
+                <table class="table table-striped table-hover" id="profreport">
                     <thead class="thead-dark">                            
                        <tr>
                          <td>Evaluator</td>
@@ -429,13 +442,26 @@ include('../session.php');
                   <div class="col-md-12">
                   
 
-                    <input class="form-control" type="text" id="search" placeholder="Filter Reports...">
+                    <span>Filter by:</span>
+
+                    <select onchange="observationdropdown(this.value)" class="custom-select" style="width:200px;">
+                      <option value="">Choose</option>
+                      <option value="0">Evaluator</option>
+                      <option value="1">Position</option>
+                      <option value="2">Employee Name</option>
+                      <option value="7">Subject Code</option>
+                      <option value="8">Subject</option>
+                      <option value="9">Semester</option>
+                      <option value="10">Academic Year</option>
+                    </select>
+
+                   <input class="form-control" type="text" id="searchobservation" placeholder="Filter Reports..." style="display: none;" onkeyup="observationFilter()">
 
                   </div>
                 </div>
                 <br>
                 <div class="table-responsive"> 
-                <table class="table table-striped table-hover" id="usersTbl">
+                <table class="table table-striped table-hover" id="observationreport">
                     <thead class="thead-dark">                            
                        <tr>
                          <td>Evaluator</td>
@@ -682,10 +708,16 @@ document.addEventListener("click", closeAllSelect);
 
     <script>
 
-      var getvalue = "0";
-      var stat = "";
+      var getvaluestudent = "0";
+      var getvaluesobservation = "0";
+      var getvaluesprof = "0";
+  
 
        var x = document.getElementById("searchstudents");
+       var xx = document.getElementById("searchobservation");
+       var xxx = document.getElementById("searchprof");
+
+
   function studentsdropdown(str)  {
 
 
@@ -698,7 +730,41 @@ document.addEventListener("click", closeAllSelect);
 
         } else { 
         x.style.display = "block";
-         getvalue = str;
+         getvaluestudent = str;
+        }
+
+    }
+
+    function observationdropdown(str)  {
+
+
+
+       if (str == "") {
+        xx.value = "";
+         observationFilter();
+          xx.style.display = "none";
+            return;
+
+        } else { 
+        xx.style.display = "block";
+         getvaluesobservation = str;
+        }
+
+    }
+
+    function profdropdown(str)  {
+
+
+
+       if (str == "") {
+        xxx.value = "";
+         profFilter();
+          xxx.style.display = "none";
+            return;
+
+        } else { 
+        xxx.style.display = "block";
+         getvaluesprof = str;
         }
 
     }
@@ -711,7 +777,43 @@ function studentsFilter() {
   table = document.getElementById("studentsreport");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[getvalue];
+    td = tr[i].getElementsByTagName("td")[getvaluestudent];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+function observationFilter() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("searchobservation");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("observationreport");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[getvaluesobservation];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+function profFilter() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("searchprof");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("profreport");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[getvaluesprof];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
