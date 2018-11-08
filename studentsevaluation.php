@@ -253,30 +253,30 @@ include('includes/session.php');
         font-size: 25px;
     }
     .text-top{
-        margin-top: -943px;
+        margin-top: -844px;
         font-size: 40px;
     }
     .container{
         width: 1375px !important;
     }
     h2 {
-    font-size: 30px;
+    font-size: 40px;
     }
     .boxed-title{
-        max-width: 26%;
+        max-width: 37%;
     }
     h4 {
         font-size: 20px;
     }
     h5 {
-        font-size: 29px;
+        font-size: 30px;
     }
     h3 {
-        font-size: 28px;    
+        font-size: 40px;    
     }
     .radio{
         margin-left: 740px;
-        margin-top: -50px;
+        margin-top: -40px;
     }
     .checkbox label, .radio label {
         padding-left: 25px;
@@ -300,7 +300,7 @@ include('includes/session.php');
     }
     
     .profile {
-        height: 1940px !important;
+        height: 2354px !important;
     }
     
     .footer-text {
@@ -344,6 +344,7 @@ include('includes/session.php');
         <div class="row">
              <div class="bg-top"></div>
 <!--             <img src="images/redpattern.jpg" class="bg-top img-responsive">-->
+	
              <h1 class="text-top">STUDENTS EVALUATION OF<br>FACULTY</h1>
         </div>
       </div>
@@ -393,6 +394,8 @@ include('includes/session.php');
    										 }
 
                              ?> 
+							 
+				<br><br>			 
                         <button id="verify" name="verify" type="button" class="btn btn-default btn-verify" onclick="verifyEvaluation()" >Verify</button>
                 <hr>   
                 <!-- prof and subj info -->
