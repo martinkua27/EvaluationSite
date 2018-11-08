@@ -155,7 +155,7 @@ include('../session.php');
                     
                          <span>Filter by:</span>
 
-                    <select onchange="profdropdown(this.value)" class="custom-select" style="width:200px;">
+                    <select onchange="profdropdown(this.value)" class="form-control subj-code">
                       <option value="">Choose</option>
                       <option value="0">Evaluator</option>
                       <option value="1">Position</option>
@@ -339,7 +339,7 @@ include('../session.php');
 
                      <span>Filter by:</span>
 
-                    <select onchange="studentsdropdown(this.value)" class="custom-select" style="width:200px;">
+                    <select onchange="studentsdropdown(this.value)" class="form-control subj-code">
                       <option value="">Choose</option>
                       <option value="0">Subject Code</option>
                       <option value="1">Employee Code</option>
@@ -444,7 +444,7 @@ include('../session.php');
 
                     <span>Filter by:</span>
 
-                    <select onchange="observationdropdown(this.value)" class="custom-select" style="width:200px;">
+                    <select onchange="observationdropdown(this.value)" class="form-control subj-code">
                       <option value="">Choose</option>
                       <option value="0">Evaluator</option>
                       <option value="1">Position</option>
