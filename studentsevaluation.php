@@ -340,9 +340,10 @@ include('includes/session.php');
     
       
      
-      <div class="container-fluid" style="margin-top:90px;">
+      <div class="container-fluid">
         <div class="row">
-             <img src="images/redpattern.jpg" class="bg-top img-responsive">
+             <div class="bg-top"></div>
+<!--             <img src="images/redpattern.jpg" class="bg-top img-responsive">-->
              <h1 class="text-top">STUDENTS EVALUATION OF<br>FACULTY</h1>
         </div>
       </div>
@@ -359,7 +360,7 @@ include('includes/session.php');
               <div class="profile-info">
 			  
               <h5>SUBJECT CODE</h5>
-                 <button id="verify" name="verify" type="button" style="color: black" onclick="verifyEvaluation()" >Verify</button>
+                 
 					<?php
 
                           include("includes/indexDB.php");
@@ -392,6 +393,7 @@ include('includes/session.php');
    										 }
 
                              ?> 
+                        <button id="verify" name="verify" type="button" class="btn btn-default btn-verify" onclick="verifyEvaluation()" >Verify</button>
                 <hr>   
                 <!-- prof and subj info -->
                 <div id="txtHint"></div>
