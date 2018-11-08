@@ -245,6 +245,70 @@ include('includes/session.php');
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <script src="sweetalert2/dist/sweetalert2.min.js"></script>
    
+   <style>
+   /*iMAC 21"*/
+/* 1920 x 1080 */
+@media screen and (max-width: 1920px) {
+    .navbar.navbar-default.navbar-fixed-top{
+        font-size: 25px;
+    }
+    .text-top{
+        margin-top: -943px;
+        font-size: 40px;
+    }
+    .container{
+        width: 1375px !important;
+    }
+    h2 {
+    font-size: 30px;
+    }
+    .boxed-title{
+        max-width: 26%;
+    }
+    h4 {
+        font-size: 20px;
+    }
+    h5 {
+        font-size: 29px;
+    }
+    h3 {
+        font-size: 28px;    
+    }
+    .radio{
+        margin-left: 740px;
+        margin-top: -50px;
+    }
+    .checkbox label, .radio label {
+        padding-left: 25px;
+        margin-left: -5px;
+    }
+    .img-profile {
+        height: 200px;
+    }
+    
+    .subj-code {
+        max-width: 88%;
+        font-size: 20px;
+    }
+    
+    .name {
+        font-size: 25px;
+    }
+    hr {
+        margin-right: 40px;
+        margin-top: 9px;
+    }
+    
+    .profile {
+        height: 1940px !important;
+    }
+    
+    .footer-text {
+        font-size: 25px  !important;
+    }
+}
+</style>
+
   </head>
 
   <body style="background-color: #9f0000;">
