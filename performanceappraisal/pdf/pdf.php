@@ -3,8 +3,7 @@ require('fpdf.php');
 //A4 width
 //default margin: 10mm each side
 //writable horizontal: 219-(10*2) = 189mm
-
-
+$name = $_GET['varr'];
 ////connect to database
    $servername = "localhost";
    $username = "root";
@@ -35,15 +34,15 @@ $pdf->Ln(43);
 //Cell(width, height, text, border 0(no border) 1(border), end line 0(continue) 1(new line), [align] (L/empty string (default value) C (center) R (right))
 //queries 
 //classroom observation
-$query1 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated,semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.05)/COUNT(id),3) as totala FROM observation_sheet_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
-$query2 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.30)/COUNT(id) ,3) as totalb FROM observation_sheet_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
+$query1 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated,semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.05)/COUNT(id),3) as totala FROM observation_sheet_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '".$name."' GROUP BY emp_name_evaluated, semester, academic_year");
+$query2 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.30)/COUNT(id) ,3) as totalb FROM observation_sheet_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '".$name."' GROUP BY emp_name_evaluated, semester, academic_year");
 //performance appraisal
-$query3 = mysqli_query($conn,"SELECT COUNT(id) as performance_count,emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2),3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2)*.20,3) as totalc FROM evaluation_average_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
-$query4 = mysqli_query($conn,"SELECT COUNT(id) as performance_count, emp_name_evaluated, semester, academic_year, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)),3) as rating, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)) * .20,3) as totald FROM evaluation_average_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '%Edgardo%' GROUP BY emp_name_evaluated, semester, academic_year");
+$query3 = mysqli_query($conn,"SELECT COUNT(id) as performance_count,emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2),3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2)*.20,3) as totalc FROM evaluation_average_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '".$name."' GROUP BY emp_name_evaluated, semester, academic_year");
+$query4 = mysqli_query($conn,"SELECT COUNT(id) as performance_count, emp_name_evaluated, semester, academic_year, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)),3) as rating, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)) * .20,3) as totald FROM evaluation_average_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '".$name."' GROUP BY emp_name_evaluated, semester, academic_year");
 //studentsevaluation
-$query5 = mysqli_query($conn,"SELECT COUNT(id) as students_count,emp_name, semester, academic_year,  FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id), 3) as rating, FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id) * 0.20, 3) as totale FROM evaluation_average_per_stduents WHERE emp_name Like '%Edgardo%' GROUP BY emp_name, semester, academic_year");
+$query5 = mysqli_query($conn,"SELECT COUNT(id) as students_count,emp_name, semester, academic_year,  FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id), 3) as rating, FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id) * 0.20, 3) as totale FROM evaluation_average_per_stduents WHERE emp_name Like '".$name."' GROUP BY emp_name, semester, academic_year");
 //self-evaluation
-$query6 = mysqli_query($conn,"SELECT COUNT(id) as selfeval_count, evaluator, emp_name_evaluated, semester, academic_year, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) as rating, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) * 0.05 as totalf FROM evaluation_average_per_prof INNER JOIN emp_details ON evaluation_average_per_prof.position = emp_details.position WHERE evaluation_average_per_prof.evaluator = emp_details.emp_num AND emp_name_evaluated LIKE '%Torres%' AND evaluation_average_per_prof.evaluator != 'dean' AND evaluation_average_per_prof.position != 'vicedean' AND evaluation_average_per_prof.position != 'chairperson' GROUP BY evaluation_average_per_prof.evaluator, evaluation_average_per_prof.semester, evaluation_average_per_prof.academic_year");
+$query6 = mysqli_query($conn,"SELECT COUNT(id) as selfeval_count, evaluator, emp_name_evaluated, semester, academic_year, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) as rating, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) * 0.05 as totalf FROM evaluation_average_per_prof INNER JOIN emp_details ON evaluation_average_per_prof.position = emp_details.position WHERE evaluation_average_per_prof.evaluator = emp_details.emp_num AND emp_name_evaluated LIKE '".$name."' AND evaluation_average_per_prof.evaluator != 'dean' AND evaluation_average_per_prof.position != 'vicedean' AND evaluation_average_per_prof.position != 'chairperson' GROUP BY evaluation_average_per_prof.evaluator, evaluation_average_per_prof.semester, evaluation_average_per_prof.academic_year");
 
 //end
 $pdf->SetFont('Arial', 'B', 14);
@@ -318,248 +317,6 @@ $pdf->Cell(37.6,  5, number_format($finaltotal,2), 1, 1, 'R');//end of line
 }
 }
 
-
-//
-//$pdf->Cell(25,  5, '', 0, 1);
-//$pdf->SetFont('Arial', '', 12);
-//$pdf->Cell(25,  5, 'ADDRESS: ', 0, 0); 
-//$pdf->SetFont('Arial', '', 8);
-//$pdf->Cell(100,  5,  '0000', 'B', 1, 1); //end of line
-//
-//$pdf->Cell(25,  5, '', 0, 1);
-//$pdf->SetFont('Arial', '', 12);
-//$pdf->Cell(25,  5, 'SHIP TO: ', 0, 0); 
-//$pdf->SetFont('Arial', '', 8);
-//$pdf->Cell(100,  5,  '0000', 'B', 0, 1); //end of line
-//
-//$pdf->SetFont('Arial', '', 11);
-//$pdf->Cell(15,  5, '', 0, 0); 
-//$pdf->Cell('',  5, 'P.O. NO.:', 0, 0);  //P.O No. (R)
-//$pdf->SetFont('Arial', '', 11);
-//$pdf->Cell(-30,  5, '', 0, 0); 
-//$pdf->Cell('',  5, '0000', 'B', 1, 1);//end of line
-//
-///*$pdf->Cell(25,  5, '', 0, 1);
-//$pdf->SetFont('Arial', '', 12);
-//$pdf->Cell(25,  5, 'VIA: ', 0, 0); 
-//$pdf->SetFont('Arial', '', 12);
-//$pdf->Cell(100,  5, $invoice['customer'], 'B', 0, 1); //end of line */
-//
-////may di pa ko nilagay 
-//
-////make a dummy empty cell as a vertical spacer
-//$pdf->Cell(189, 10, '', 0, 1); //end of line 
-//
-////invoice contents
-//$pdf->SetFont('Arial', 'B', 12);
-//$pdf->Cell(25,  5, 'QTY',1, 0, 'C');
-//$pdf->Cell(85, 5, 'DESCRIPTION', 1, 0, 'C');
-//$pdf->Cell(40,  5, 'UNIT PRICE', 1, 0, 'C');
-//$pdf->Cell(40,  5, 'AMOUNT', 1, 1, 'C'); //end of line 
-//
-//$pdf->SetFont('Arial', '', 12);
-//
-////Numbers are right-aligned so we give 'R' after new line parameter
-//
-////When the buyer buys 1 item
-//	 $pdf->Cell(25,  5, '0000', 1, 0);
-//	 $pdf->Cell(85	,5,'0000',1,0);
-//	 $pdf->Cell(40,  5, '0000',1, 0, 'C');
-//   $pdf->Cell(40,  5, '0000',1, 1,'R');
-//
-//////When the buyers buys a lot of items
-//while($item = mysqli_fetch_array($query)){
-//	$pdf->Cell(25,  5, '0000', 1, 0);
-//	$pdf->Cell(85	,5,'0000',1,0);
-//	$pdf->Cell(40,  5, '0000',1, 0, 'C');
-//  $pdf->Cell(40,  5, '0000',1, 1,'R');
-//}
-//
-//$pdf->Cell(25,  5, '',     1, 0);
-//$pdf->Cell(85, 5, '', 1, 0);
-//$pdf->Cell(40,  5, '',1, 0, 'C');
-//$pdf->Cell(40,  5, '',1, 1,'R'); //end of line 
-//
-//$pdf->Cell(25,  5, '',     1, 0);
-//$pdf->Cell(85, 5, '', 1, 0);
-//$pdf->Cell(40,  5, '',1, 0, 'C');
-//$pdf->Cell(40,  5, '',1, 1,'R'); //end of line 
-//
-////summary 
-//$pdf->Cell(25,  5, '',     1, 0);
-//$pdf->Cell(85, 5, 'Total Sales(Vat Inclusive)', 1, 0,'R');
-//$pdf->Cell(40,  5, '',1, 0, 'C');
-//$pdf->Cell(40,  5,  '0000',1, 1,'R'); //end of line 
-//
-//$pdf->Cell(25,  5, '',     1, 0);
-//$pdf->Cell(85, 5, 'Less: VAT', 1, 0,'R');
-//$pdf->Cell(40,  5, '',1, 0, 'C');
-//$pdf->Cell(40,  5, '0000',1, 1,'R'); //end of line 
-//
-//$pdf->Cell(25,  5, '',     1, 0);
-//$pdf->Cell(85, 5, 'Amount: Net of VAT', 1, 0,'R');
-//$pdf->Cell(40,  5, '',1, 0, 'C');
-//$pdf->Cell(40,  5, '0000',1, 1,'R'); //end of line 
-//
-///*$pdf->Cell(25,  5, '',     1, 0);
-//$pdf->Cell(85, 5, 'Amount Due', 1, 0,'R');
-//$pdf->Cell(40,  5, '',1, 0, 'C');
-//$pdf->Cell(40,  5, '[-]',1, 1,'R'); //end of line */
-//
-//$pdf->Cell(25,  5, '',     1, 0);
-//$pdf->Cell(85, 5, 'Add: VAT', 1, 0,'R');
-//$pdf->Cell(40,  5, '',1, 0, 'C');
-//$pdf->Cell(40,  5, '0000',1, 1,'R'); //end of line  
-//
-//$pdf->SetFont('Arial', '', 7.5);
-//$pdf->Cell(150, 6.5, 'NOTE: Make all checks payable to ARESON TRADE AND SERVICES, INC.        TOTAL:' , 'L', 0, 'R');
-//$pdf->SetFont('Arial', '', 12);
-//$pdf->Cell(40, 6.5, '0000', 'R', 1, 'R');
-//
-//$pdf->SetFont('Arial', '', 7.5);
-//$pdf->Cell(55,  10, 'Prepared by: ',1, 0);
-//$pdf->Cell(40,  10, 'Delivered by: ',1, 0);
-//$pdf->Cell(48,  10, 'Checked by: ',1, 0);
-////$pdf->Image('bqa.png',175,165,15,20,0,0);
-//$pdf->Cell(47,  10, 'Credit Approved by: B.Q.A',1, 1);
-//
-//$pdf->SetFont('Arial', '', 6);
-//$pdf->Cell(130, 4, '1. For the purpose of securing payment of the purchase price, the goods remain the property of ARESON until fully paid for.' , 0, 0);
-//
-//$pdf->SetFont('Arial', '', 8);
-//$pdf->Cell(60, 4, 'RECEIVED all items listed above' , 0, 1, 'R'); //R
-//
-//$pdf->SetFont('Arial', '', 6);
-//$pdf->Cell(130, 4, '2. Any overdue account remaining unpaid after the terms indicated above shall automatically bear
-// interest at the rate of 3%' , 0, 0);
-//
-//$pdf->SetFont('Arial', '', 8);
-//$pdf->Cell(60, 4, 'in good order and condition and' , 0, 1, 'R'); //R
-//
-//$pdf->SetFont('Arial', '', 6);
-//$pdf->Cell(130, 4, 'per month compounded monthly. In case of litigation for the collection of this account or any portion thereof the action may ' , 0, 0);
-//
-//$pdf->SetFont('Arial', '', 8);
-//$pdf->Cell(60, 4, 'we hereby agree to the terms and' , 0, 1, 'R'); //R
-//
-//$pdf->SetFont('Arial', '', 6);
-//$pdf->Cell(130, 4, 'be filed in any court in Metro Manila and the buyer shall pay an amount equivalent to 25% of the amount due but in no case' , 0, 0);
-//
-//$pdf->SetFont('Arial', '', 8);
-//$pdf->Cell(60, 4, 'conditions.' , 0, 1, 'R'); //R
-//
-//$pdf->SetFont('Arial', '', 6);
-//$pdf->Cell(130, 4, 'less than P1,000.00 as attorneys fees aside from the cost of suit.' , 0, 1);
-//$pdf->Cell(130, 4, '3. Goods travel at buyers risk. Our responsibility ceases when merchandise is delivered to the carrier in good order. Claim' , 0, 0);
-//
-//$pdf->SetFont('Arial', '', 8);
-//$pdf->Cell(60, 4, 'By: ________________________' , 0, 1, 'R'); //R
-//
-//$pdf->SetFont('Arial', '', 6);
-//$pdf->Cell(130, 4, 'for losses and damages should be made against the carriers. Insurance charge, if any are for buyers account.' , 0, 0);
-//
-//$pdf->SetFont('Arial', '', 8);
-//$pdf->Cell(60, 4, 'Authorized Representive    ' , 0, 1, 'R'); //R
-//
-//$pdf->SetFont('Arial', '', 6);
-//$pdf->Cell(130, 4, '4. Demand a Provisional receipt, or Companys Official Receipt. We cannot accept a receipted Invoice, Delivery Receipt,' , 0, 0);
-//
-//$pdf->SetFont('Arial', '', 8);
-//$pdf->Cell(60, 4, '___________________________' , 0, 1, 'R'); //R
-//
-//$pdf->SetFont('Arial', '', 6);
-//$pdf->Cell(130, 4, 'Job Order and/or Sales Order as proof of payment.', 00, 0);  
-// 
-//$pdf->SetFont('Arial', '', 8);
-//$pdf->Cell(60, 4, 'Name in Print                ' , 0, 1, 'R'); //R
-
-//Cell(width, height, text, border 0(no border) 1(border), end line 0(continue) 1(new line), [align] (L/empty string (default value) C (center) R (right))]
-
-/*$pdf->Cell(130, 5, 'GEMUL APPLIANCES CO.', 0, 0);
-$pdf->Cell(59,  5, 'INVOICE', 0, 1); //end of line
-
-//set font to arial, regular, 12pt
-$pdf->SetFont('Arial', '', 12);
-
-$pdf->Cell(130, 5, '[Street Address]', 0, 0);
-$pdf->Cell(59,  5, '', 0, 1); //end of line
-
-$pdf->Cell(130, 5, '[City, Country, ZIP]', 0, 0);
-$pdf->Cell(25,  5, 'Date', 0, 0); 
-$pdf->Cell(34,  5, '[dd/mm/yyyy]', 0, 1); //end of line
-
-$pdf->Cell(130, 5, 'Phone [+12345678]', 0, 0);
-$pdf->Cell(25,  5, 'Invoice #', 0, 0); 
-$pdf->Cell(34,  5,  '[invoiceID]', 0, 1); //end of line
-
-$pdf->Cell(130, 5, 'Fax [+12345678]', 0, 0);
-$pdf->Cell(25,  5, 'Customer ID', 0, 0); 
-$pdf->Cell(34,  5,  '[clientID]', 0, 1); //end of line
-
-//make a dummy empty cell as a vertical spacer 
-$pdf->Cell(189, 10, '', 0, 1); //end of line 
-
-//billing address
-$pdf->Cell(100, 5, 'Bill to', 0, 1); //end of line 
-
-//add dummy cell at beginning of each line for indention 
-$pdf->Cell(10, 5, '', 0, 0); 
-$pdf->Cell(90, 5, '[name]', 0, 1); 
-
-$pdf->Cell(10, 5, '', 0, 0); 
-$pdf->Cell(90, 5, '[company]', 0, 1); 
-
-$pdf->Cell(10, 5, '', 0, 0); 
-$pdf->Cell(90, 5, '[Address]', 0, 1); 
-
-$pdf->Cell(10, 5, '', 0, 0); 
-$pdf->Cell(90, 5, '[Phone]', 0, 1); 
-
-//make a dummy empty cell as a vertical spacer
-$pdf->Cell(189, 10, '', 0, 1); //end of line 
-
-//invoice contents
-$pdf->SetFont('Arial', 'B', 12);
-
-$pdf->Cell(130, 5, 'Description', 1, 0);
-$pdf->Cell(25,  5, 'Taxable',     1, 0);
-$pdf->Cell(34,  5, 'Amount',      1, 1); //end of line 
-
-$pdf->SetFont('Arial', '', 12);
-
-//Numbers are right-aligned so we give 'R' after new line parameter
-$pdf->Cell(130, 5, 'UltraCool Fridge', 1, 0);
-$pdf->Cell(25,  5, '-',1, 0);
-$pdf->Cell(34,  5, '3,250',1, 1,'R'); //end of line 
-
-$pdf->Cell(130, 5, 'Supaclean Dishwasher', 1, 0);
-$pdf->Cell(25,  5, '-',1, 0);
-$pdf->Cell(34,  5, '1,200',1, 1,'R'); //end of line 
-
-$pdf->Cell(130, 5, 'UltraCool Fridge', 1, 0);
-$pdf->Cell(25,  5, '-',1, 0);
-$pdf->Cell(34,  5, '1,000',1, 1,'R'); //end of line 
-
-//summary 
-$pdf->Cell(130, 5, '', 0, 0);
-$pdf->Cell(25,  5, 'Subtotal',0, 0);
-$pdf->Cell(4,   5, '$',1, 0);
-$pdf->Cell(30,  5, '4,450',1, 1,'R'); //end of line 
-
-$pdf->Cell(130, 5, '', 0, 0);
-$pdf->Cell(25,  5, 'Taxable',0, 0);
-$pdf->Cell(4,   5, '$',1, 0);
-$pdf->Cell(30,  5, '0',1, 1,'R'); //end of line 
-
-$pdf->Cell(130, 5, '', 0, 0);
-$pdf->Cell(25,  5, 'Tax Rate',0, 0);
-$pdf->Cell(4,   5, '$',1, 0);
-$pdf->Cell(30,  5, '10%',1, 1,'R'); //end of line 
-
-$pdf->Cell(130, 5, '', 0, 0);
-$pdf->Cell(25,  5, 'Total Due',0, 0);
-$pdf->Cell(4,   5, '$',1, 0);
-$pdf->Cell(30,  5, '4450',1, 1,'R'); //end of line */
-
 $pdf->Output();
+
 ?>

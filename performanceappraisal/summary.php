@@ -223,25 +223,10 @@ include('../session.php');
 
                          <div id="txtHint"></div>
   
-              <?php 
+			<button id="openpdf" type="button" class="btn btn-default" style="color: black; margin-top: 5px;" onclick="printpdf();" disabled>save PDF</button>
 
-                //$varaa = "";
-                /*
-                if($varaa = "profname"){
-                echo "<h5 class='department' style='margin-top: 10px;''>Name of Faculty</h5>";
-                echo "<h1 class='name'>NONE</h1>";
-                echo "<hr>";
-        
-                echo "<h5 class='department'>Department/Area</h5>";
-                echo "<h1 class='name'>NONE</h1>";
-                echo "<hr>";
-        
 
-                echo "<h5 class='department'>Date</h5>";
-                echo "<h1 class='name'><?php echo $dateNow; ?></h1>";
-                echo "<hr>";
-                }
-
+<<<<<<< HEAD
                 */
 				        
                  ?>
@@ -255,6 +240,8 @@ include('../session.php');
             <a id="<?php echo $row["id"]; $_SESSION["evalid"] = $row["id"]; ?>"><button type="button" name="view" value="view">Print</button></a>
             <?php } ?>
 -->
+=======
+>>>>>>> e69d41f8b71b034c32fa46a6d075615d9423fd0a
      
       <br>
 
@@ -459,7 +446,7 @@ include('../session.php');
   var signatureImgThree = document.getElementById("signThree");
 
  // var printBtn = document.getElementById("print");
- // var signatureBtn = document.getElementById("signaturebtn");
+   var openpdf = document.getElementById("openpdf");
 
   var getnamedropdown = "";
 
@@ -492,7 +479,7 @@ include('../session.php');
             document.getElementById("overallTotal").innerHTML = "-";
               
            //   printBtn.disabled = true;
-            //  signatureBtn.disabled = true;
+          openpdf.disabled = true;
            //   resetSignature();
             
             return;
@@ -500,7 +487,7 @@ include('../session.php');
                
             //  resetSignature();
              //   printBtn.disabled = true;
-            //  signatureBtn.disabled = true;
+           openpdf.disabled = true;
 
             valueOfDepartment = str;
 
@@ -554,8 +541,8 @@ include('../session.php');
 
             
 
-              printBtn.disabled = true;
-              signatureBtn.disabled = true;
+            //  printBtn.disabled = true;
+             openpdf.disabled = true;
 
             return;
         } else { 
@@ -614,8 +601,8 @@ include('../session.php');
                         document.getElementById("overallTotal").innerHTML = (overallTotal.toFixed(2)).toString();
 
                     resetSignature();
-                     signatureBtn.disabled = false;
-                      printBtn.disabled = true;
+                     openpdf.disabled = false;
+                      //printBtn.disabled = true;
                     
                 }
             };
@@ -651,9 +638,9 @@ include('../session.php');
                 doc.addImage(imgData, 'PNG', 0, 0);
                 doc.save(getnamedropdown + '.EvaluationSummary.pdf');
 
-                 resetSignature();
-                 signatureBtn.disabled = true;
-                 printBtn.disabled = true;
+               //  resetSignature();
+               //  signatureBtn.disabled = true;
+               //  printBtn.disabled = true;
                  showUser("");
                  document.getElementById("myForm").reset();
 
@@ -670,7 +657,7 @@ function signDoc(){
    signatureImgThree.style.display = "block";
 
     printBtn.disabled = false;
-    signatureBtn.disabled = true;
+   // signatureBtn.disabled = true;
 }
 
 function resetSignature(){
@@ -680,6 +667,18 @@ function resetSignature(){
    signatureImgThree.style.display = "none";
 
 }
+
+ function printpdf()  {
+
+ name = getnamedropdown;
+ var win = window.open("pdf/pdf.php?varr=" + name, '_blank');
+  win.focus();
+
+ //window.location="pdf/pdf.php?varr=" + name;
+
+        }
+
+  
 
 </script>
 	
