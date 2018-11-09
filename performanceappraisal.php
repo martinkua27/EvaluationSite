@@ -316,12 +316,12 @@ include('includes/session.php');
         <div class="row">
                 <img src="performanceappraisal/images/bg4.jpg" class="bg-top">
                 <img src="<?php echo $getImage; ?>" style="height: 263px; width: 193px; margin-left: 205px; margin-top: -95px; position: absolute;" class="img-responsive">
-             <img src="images/profileBanner.png" class="img-top">
-            <h1 class="instructor"><b><?php  echo $profname ?></b></h1>
-             <h3 class="subject">JAVA</h3>
-             <h3 class="dept">Information Technology</h3>
-             <h3 class="date"><?php echo date("Y-m-d"); ?></h3>
-             <img src="performanceappraisal/images/score2.jpg" class="img-score">
+             <img src="performanceappraisal/images/profileBanner.png" class="img-top">
+            <h1 class="instructor" style="margin-top:-180px; margin-left:470px; font-size:45px;"><b><?php  echo $profname ?></b></h1>
+             <h3 class="subject"></h3>
+             <h3 class="dept"></h3>
+             <h3 class="date"></h3>
+             <img src="performanceappraisal/images/score2.jpg" class="img-score" style="margin-top:50px;">
 
         </div>
       </div>

@@ -398,7 +398,7 @@ include('includes/session.php');
 				<br><br>			 
                         <button id="verify" name="verify" type="button" class="btn btn-default btn-verify" onclick="verifyEvaluation()" >Verify</button>
                 <hr>   
-                <!-- prof and subj info -->
+                <!-- profImage and subj info -->
                 <div id="txtHint"></div>
                  
                 <!-- student profile -->
@@ -1550,8 +1550,8 @@ for(var i=0;i<radioButtons.length;i++) {
   title: 'Sytem',
   text: 'Please choose a subject by clicking the dropdown',
   imageUrl: 'images/chooseSubj.PNG',
-  imageWidth: 400,
-  imageHeight: 100,
+  imageWidth: 100,
+  imageHeight: 50,
   imageAlt: 'Custom image',
   animation: false
 })

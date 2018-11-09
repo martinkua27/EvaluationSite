@@ -1,20 +1,7 @@
 <!DOCTYPE html>
     <html>
     <head>
-    <link href="css/studenteval.css" rel="stylesheet">
-    <style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    table, td, th {
-        border: 1px solid black;
-        padding: 5px;
-    }
-
-    th {text-align: left;}
-    </style>
+    
     </head>
 <body>
 
@@ -48,7 +35,7 @@ while($row = mysqli_fetch_array($result)) {
   echo "  
 	
 			
-				<img src='".$row['emp_image']."' id='profpic' class='img-responsive center-block img-circle img-profile'>
+				<img src='".$row['emp_image']."' id='profpic' class='img-responsive center-block img-circle img-profile' style='margin-bottom:50px; margin-left:50px;'>
 			<hr>
 	     "; 
 echo "<br><br><br>";
