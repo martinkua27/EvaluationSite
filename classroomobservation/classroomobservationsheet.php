@@ -14,7 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/classroomobserve.css" rel="stylesheet">
-
+	
   </head>
 
   <body style="background-color: #f1bd60;">
