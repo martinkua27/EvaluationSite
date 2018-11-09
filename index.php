@@ -166,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<div class="wrap-login100">
 				 <form class="login100-form validate-form" method="post" class="well">
 					<span class="login100-form-title p-b-43">
-						Login to continue
+						Login
 					</span>
 					
 					
