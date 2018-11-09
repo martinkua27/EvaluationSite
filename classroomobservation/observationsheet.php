@@ -61,7 +61,7 @@
 
                <h4>A. <b>Teacher</b></h4>
                <h4>1. Teaching personality</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -84,7 +84,7 @@
               </div>
              
                <h4>2. Composure</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -107,7 +107,7 @@
               </div>
 
                <h4>3. Articulation</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -130,7 +130,7 @@
               </div>
 
                <h4>4. Modulation of voice</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -153,7 +153,7 @@
               </div>
 
                <h4>5. Mastery of the medium of instruction</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -176,7 +176,7 @@
               </div>
 
                <h4>6. Mastery of the subject matter</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -199,7 +199,7 @@
               </div>
 
                <h4>7. Ability to answer questions</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -222,7 +222,7 @@
               </div>
 
                <h4>8. Openness to students' opinions</h4> 
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -247,7 +247,7 @@
 
                <h4>B. <b>Teaching Procedure</b></h4>
                <h4>1. Organization of subject matter</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -270,7 +270,7 @@
               </div>
 
                <h4>2. Ability to relate subject to previous topics</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -293,7 +293,7 @@
               </div>
 
                <h4>3. Ability to provoke critical thinking</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -316,7 +316,7 @@
               </div>
 
                <h4>4. Ability to motivate</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -339,7 +339,7 @@
               </div>
 
                <h4>5. Ability to manage class</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -362,7 +362,7 @@
               </div>
 
                <h4>6. Questioning techniques</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -385,7 +385,7 @@
               </div>
 
                <h4>7. Use of teaching aids</h4> 
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -410,7 +410,7 @@
 
                <h4>C. <b>Students</b></h4>
                <h4>1. Class attention</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -433,7 +433,7 @@
               </div>
 
                <h4>2. Class participation</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -458,7 +458,7 @@
 
                <h4>D. <b>General Observations</b></h4>
                <h4>1. Rapport between teacher and students</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -481,7 +481,7 @@
               </div>
 
                <h4>2. Class atmosphere</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -504,7 +504,7 @@
               </div>
 
                <h4>3. Overall teacher impact</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">
@@ -527,7 +527,7 @@
               </div>
 
                <h4>4. General classroom condition</h4>
-               <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+               <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
                
                <form>
                 <label class="radio-inline">

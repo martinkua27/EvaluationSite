@@ -622,7 +622,7 @@ include('../session.php');
 
 	
     <footer id="footer" style="margin-top: 809px">
-      <p class="footer-texta">Copyright @ 2018 San Beda College Alabang. All rights reserved.</p>
+      <p class="footer-b">Copyright @ 2018 San Beda College Alabang. All rights reserved.</p>
     </footer>  
 	
 	 <!-- Bootstrap core JavaScript

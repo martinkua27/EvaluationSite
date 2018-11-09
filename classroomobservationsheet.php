@@ -198,7 +198,7 @@ include('session.php');
 
     <!-- Bootstrap core CSS -->
     <link href="classroomobservation/css/bootstrap.min.css" rel="stylesheet">
-    <link href="classroomobservation/css/classroomobserve.css" rel="stylesheet">
+    <link href="css/classroomobserve.css" rel="stylesheet">
 
      <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css">
 
@@ -341,7 +341,7 @@ include('session.php');
 
                  <h4>A. <b>Teacher</b></h4>
       
-      <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+      <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
      <h4 class="numbering" class="radio-inline"><b>
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp5&nbsp&nbsp&nbsp&nbsp4&nbsp&nbsp&nbsp&nbsp&nbsp3&nbsp&nbsp&nbsp&nbsp2&nbsp&nbsp&nbsp&nbsp&nbsp1
                 </b></h4>
@@ -542,7 +542,7 @@ include('session.php');
 
                <h4>B. <b>Teaching Procedure</b></h4>
          
-         <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+         <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
      <h4 class="numbering" class="radio-inline"><b>
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp5&nbsp&nbsp&nbsp&nbsp4&nbsp&nbsp&nbsp&nbsp&nbsp3&nbsp&nbsp&nbsp&nbsp2&nbsp&nbsp&nbsp&nbsp&nbsp1
                 </b></h4>
@@ -712,7 +712,7 @@ include('session.php');
 
                <h4>C. <b>Students</b></h4>
          
-         <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+         <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
      <h4 class="numbering" class="radio-inline"><b>
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp5&nbsp&nbsp&nbsp&nbsp4&nbsp&nbsp&nbsp&nbsp&nbsp3&nbsp&nbsp&nbsp&nbsp2&nbsp&nbsp&nbsp&nbsp&nbsp1
                 </b></h4>
@@ -767,7 +767,7 @@ include('session.php');
 
                <h4>D. <b>General Observations</b></h4>
          
-         <div  style="position:relative; margin-left: 453px; margin-top: -40px; margin-bottom: 35px;">
+         <div  style="position:relative; margin-left: 406px; margin-top: -40px; margin-bottom: 35px;">
      <h4 class="numbering" class="radio-inline"><b>
                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp5&nbsp&nbsp&nbsp&nbsp4&nbsp&nbsp&nbsp&nbsp&nbsp3&nbsp&nbsp&nbsp&nbsp2&nbsp&nbsp&nbsp&nbsp&nbsp1
                 </b></h4>
