@@ -248,10 +248,14 @@ include('../session.php');
 			<button id="signaturebtn" type="button" class="btn btn-default" style="color: black" onclick="signDoc();" disabled="true">Apply Signature</button>
 <!--		<button id="print" value="print" type="button" class="btn btn-default btn-pdf" onclick="testPdf()" style="color: black" disabled="true">save PDF</button>-->
             //try                  
-            <?php $results = mysqli_query($conn, "SELECT * FROM evaluation_average_per_prof"); ?>
-            <?php while($row = mysqli_fetch_array($results)) { ?>
+<!--
+<!--            <?php $results = mysqli_query($conn, "SELECT * FROM evaluation_average_per_prof WHERE "); ?>-->
+<!--            <?php while($row = mysqli_fetch_array($results)) { ?>-->
+<!--
             <a id="<?php echo $row["id"]; $_SESSION["evalid"] = $row["id"]; ?>"><button type="button" name="view" value="view">Print</button></a>
             <?php } ?>
+-->
+-->
      
       <br>
 
