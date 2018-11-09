@@ -133,9 +133,75 @@ include('../session.php');
     </nav>
     
       
-     
+     	<!--COLLAPSIBLE-->
+        <div class="container" style="margin-top:150px; margin-left:104px;">
+            <div class="row">
+                <a href="#demo" class="btn btn-default" style="background-color: lightslategray; border-color:lightslategray; color:#fff;" data-toggle="collapse">Status</a>
+                <div id="demo" class="collapse">
+                    <div class="col-md-3" style="color:white;margin-left: -15px;">
+                          <div class="list-group">
+                          <a href="" class="list-group-item">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <b>Program:</b>
+                          </a>
+                          <a href="" class="list-group-item"><span class="badge">20</span> BACMS</a>
+                          <a href="" class="list-group-item"><span class="badge">12</span> BAIS</a>
+                          <a href="" class="list-group-item"><span class="badge">33</span> BAP</a>
+                          <a href="" class="list-group-item"><span class="badge">20</span> BEEd</a>
+                          <a href="" class="list-group-item"><span class="badge">12</span> BSA</a>
+                          <a href="" class="list-group-item"><span class="badge">33</span> BSAT</a>
+                          <a href="" class="list-group-item"><span class="badge">20</span> BSBA</a>
+                          <a href="" class="list-group-item"><span class="badge">12</span> BSE</a>
+                          <a href="" class="list-group-item"><span class="badge">33</span> BSEd</a>
+                          <a href="" class="list-group-item"><span class="badge">20</span> BSIT</a>
+                          <a href="" class="list-group-item"><span class="badge">12</span> BSLM</a>
+                          <a href="" class="list-group-item"><span class="badge">33</span> BSP</a>
+                          <a href="" class="list-group-item"><span class="badge">33</span> PROGRAM</a>
+
+                          </div>
+                    </div>
+                    <div class="col-md-9" style="background-color: lightslategray; color:#000; margin-left: -11px; height: 575px; border-radius: 5px;">
+                    <div class="carousel slide multi-item-carousel" id="Carousel" style="margin-top: 30px;">
+                    <div class="carousel-inner" style="width: 93%;">
+
+                      <div class="item active">
+
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/002.jpg" id="Musni, Aristotle" alt="Aristotle F. Musni" style="max-width: 100%;"></a><h4><center><b>Musni, Aristotle</b></center></h4></div>
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/edgar.JPG" id="Torres, Edgardo" alt="Edgar Torres" style="max-width: 100%;"></a><h4><center><b>Torres, Edgardo</b></center></h4></div>
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/mark.JPG" id="Alejandria, Mark Cherwin L." alt="Mark Alejandria" style="max-width: 100%;"></a><h4><center><b>Alejandria, Mark Cherwin L.</b></center></h4></div>
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/ponce.JPG"  id="Ponce, Consuelo C." alt="Connie Ponce" style="max-width: 100%;"></a><h4><center><b>Ponce, Consuelo C.</b></center></h4></div>
+                      </div>
+
+                      <div class="item">
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/regina.jpg" id="Santos, Regina C." alt="Image" style="max-width: 100%;"></a><h4><center><b>Santos, Regina C.</b></center></h4></div>
+                          
+<!--
+                          <div class="col-xs-3"><a href="#"><img src="images/pic3.jpg" id="edgar" alt="Image" style="max-width: 100%;"></a></div>
+                          <div class="col-xs-3"><a href="#"><img src="images/pic4.jpeg" alt="Image" style="max-width: 100%;"></a></div>
+                          <div class="col-xs-3"><a href="#"><img src="images/pic5.jpg"  alt="Image" style="max-width: 100%;"></a></div>
+-->
+
+                      </div>
+                   
+
+                      <!--  Example item end -->
+                    </div>
+                    <a class="left carousel-control leftcontrol" href="#Carousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                    <a class="right carousel-control" href="#Carousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+<!--
+                    <div class="try" style="border-style: 1px solid #000; width: 10px; margin-left: 50px; margin-right: 50px; margin-top: 20px;">
+
+                    </div>
+-->
+                  </div>
+                    <!--end-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
    
-      <div class="container" style="margin-top:180px;">
+      <div class="container" style="margin-top:63px;">
          <div class="row">
               <a href="#">
               <div id="container" class="col-xs-6 col-md-3">
@@ -222,10 +288,13 @@ include('../session.php');
                       </div>
 
                       <div class="item">
-                          <div class="col-xs-3"><a href="#"><img src="images/pic2.jpg" id="musni" onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
+                          <div class="col-xs-3"><a href="#"><img src="images/regina.jpg" id="Santos, Regina C." onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
+                          
+<!--
                           <div class="col-xs-3"><a href="#"><img src="images/pic3.jpg" id="edgar" alt="Image" style="max-width: 100%;"></a></div>
                           <div class="col-xs-3"><a href="#"><img src="images/pic4.jpeg" alt="Image" style="max-width: 100%;"></a></div>
                           <div class="col-xs-3"><a href="#"><img src="images/pic5.jpg"  alt="Image" style="max-width: 100%;"></a></div>
+-->
 
                       </div>
                    
@@ -268,22 +337,7 @@ include('../session.php');
       </div>
     </div>
 	
-		<!--BOTTOM FORM-->
-        <div class="container" style="margin-top:300px;">
-            <div class="row">
-                <a href="#demo" class="btn btn-info" data-toggle="collapse">Simple collapsible</a>
-                <div id="demo" class="collapse">
-                    <div class="col-md-3" style="color:white;">
-                        kkkk
-                    </div>
-                    <div class="col-md-9" style="color:white;">
-                        kkk
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        
+	
          
       
     <footer id="footer">

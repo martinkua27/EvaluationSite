@@ -77,6 +77,10 @@ body {
   border-color: #9f0000 !important;
   color: #fff !important;
 }
+.list-group-item>.badge {
+    float: left;
+    margin-right: 15px;
+}
 
 /* Header */
 #header {
@@ -88,6 +92,11 @@ body {
 
 #header .create {
     padding-top: 20px;
+}
+
+/*collapsible */
+.leftcontrol {
+    margin-left: -60px;
 }
 
 /*home jumbotron */
@@ -261,7 +270,7 @@ body {
 .footer-b {
     text-align: center;
     color: #fff;
-    margin-top: 250px !important;
+    margin-top: 350px !important;
 }
 .footer-text {
     text-align: center;
