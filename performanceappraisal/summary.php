@@ -223,45 +223,9 @@ include('../session.php');
 
                          <div id="txtHint"></div>
   
-              <?php 
+			<button id="openpdf" type="button" class="btn btn-default" style="color: black; margin-top: 5px;" onclick="printpdf();" disabled>save PDF</button>
 
-                //$varaa = "";
-                /*
-                if($varaa = "profname"){
-                echo "<h5 class='department' style='margin-top: 10px;''>Name of Faculty</h5>";
-                echo "<h1 class='name'>NONE</h1>";
-                echo "<hr>";
-        
-                echo "<h5 class='department'>Department/Area</h5>";
-                echo "<h1 class='name'>NONE</h1>";
-                echo "<hr>";
-        
 
-                echo "<h5 class='department'>Date</h5>";
-                echo "<h1 class='name'><?php echo $dateNow; ?></h1>";
-                echo "<hr>";
-                }
-
-                */
-				        
-                 ?>
-<<<<<<< HEAD
-			<button id="signaturebtn" type="button" class="btn btn-default" style="color: black" onclick="printpdf();">save PDF</button>
-
-           
-=======
-			<button id="signaturebtn" type="button" class="btn btn-default" style="color: black" onclick="signDoc();" disabled="true">Apply Signature</button>
-<!--		<button id="print" value="print" type="button" class="btn btn-default btn-pdf" onclick="testPdf()" style="color: black" disabled="true">save PDF</button>-->
-            //try                  
-<!--
-<!--            <?php $results = mysqli_query($conn, "SELECT * FROM evaluation_average_per_prof WHERE "); ?>-->
-<!--            <?php while($row = mysqli_fetch_array($results)) { ?>-->
-<!--
-            <a id="<?php echo $row["id"]; $_SESSION["evalid"] = $row["id"]; ?>"><button type="button" name="view" value="view">Print</button></a>
-            <?php } ?>
--->
--->
->>>>>>> 72d22dab9531f9a88d19544342930d7f4d16fff3
      
       <br>
 
@@ -466,7 +430,7 @@ include('../session.php');
   var signatureImgThree = document.getElementById("signThree");
 
  // var printBtn = document.getElementById("print");
- // var signatureBtn = document.getElementById("signaturebtn");
+   var openpdf = document.getElementById("openpdf");
 
   var getnamedropdown = "";
 
@@ -499,7 +463,7 @@ include('../session.php');
             document.getElementById("overallTotal").innerHTML = "-";
               
            //   printBtn.disabled = true;
-            //  signatureBtn.disabled = true;
+          openpdf.disabled = true;
            //   resetSignature();
             
             return;
@@ -507,7 +471,7 @@ include('../session.php');
                
             //  resetSignature();
              //   printBtn.disabled = true;
-            //  signatureBtn.disabled = true;
+           openpdf.disabled = true;
 
             valueOfDepartment = str;
 
@@ -561,8 +525,8 @@ include('../session.php');
 
             
 
-              printBtn.disabled = true;
-              signatureBtn.disabled = true;
+            //  printBtn.disabled = true;
+             openpdf.disabled = true;
 
             return;
         } else { 
@@ -621,8 +585,8 @@ include('../session.php');
                         document.getElementById("overallTotal").innerHTML = (overallTotal.toFixed(2)).toString();
 
                     resetSignature();
-                     signatureBtn.disabled = false;
-                      printBtn.disabled = true;
+                     openpdf.disabled = false;
+                      //printBtn.disabled = true;
                     
                 }
             };
@@ -658,9 +622,9 @@ include('../session.php');
                 doc.addImage(imgData, 'PNG', 0, 0);
                 doc.save(getnamedropdown + '.EvaluationSummary.pdf');
 
-                 resetSignature();
-                 signatureBtn.disabled = true;
-                 printBtn.disabled = true;
+               //  resetSignature();
+               //  signatureBtn.disabled = true;
+               //  printBtn.disabled = true;
                  showUser("");
                  document.getElementById("myForm").reset();
 
@@ -677,7 +641,7 @@ function signDoc(){
    signatureImgThree.style.display = "block";
 
     printBtn.disabled = false;
-    signatureBtn.disabled = true;
+   // signatureBtn.disabled = true;
 }
 
 function resetSignature(){
@@ -691,8 +655,10 @@ function resetSignature(){
  function printpdf()  {
 
  name = getnamedropdown;
+ var win = window.open("pdf/pdf.php?varr=" + name, '_blank');
+  win.focus();
 
- window.location="pdf/pdf.php?varr=" + name;
+ //window.location="pdf/pdf.php?varr=" + name;
 
         }
 
