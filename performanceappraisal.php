@@ -257,7 +257,7 @@ include('includes/session.php');
   <body style="background-color: #e0e0e0;">
 
   <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+      <div class="container navbar-performance">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -312,21 +312,34 @@ include('includes/session.php');
     
       
      
-      <div class="container-fluid" style="margin-top:50px;">
+      <div class="container-fluid" style="margin-top:40px;">
         <div class="row">
-                <img src="performanceappraisal/images/bg4.jpg" class="bg-top">
-                <img src="<?php echo $getImage; ?>" style="height: 263px; width: 193px; margin-left: 205px; margin-top: -95px; position: absolute;" class="img-responsive">
-             <img src="performanceappraisal/images/profileBanner.png" class="img-top">
-            <h1 class="instructor" style="margin-top:-180px; margin-left:470px; font-size:45px;"><b><?php  echo $profname ?></b></h1>
-             <h3 class="subject"></h3>
-             <h3 class="dept"></h3>
-             <h3 class="date"></h3>
-             <img src="performanceappraisal/images/score2.jpg" class="img-score" style="margin-top:50px;">
-
+            <img src="performanceappraisal/images/bg4.jpg" class="bg-top">
         </div>
       </div>
+      <div class="container profile-bg">
+          <div class="row">
+            <img src="images/patternfade.png" class="img-top">
+            <img src="<?php echo $getImage; ?>" class="profile-imgprof">
+            <h1 class="instructor"><b><?php  echo $profname ?></b></h1>
+            <hr class="line-prof">
+            <h3 class="subject"></h3>
+            <h3 class="dept"></h3>
+            <h3 class="date"></h3>
+           </div>
+      </div>
+      
+      <div class="container scoring-bg">
+        <div class="row">
+            <div class="border-scoring">
+            <div class="scoring-top">5- OUTSTANDING<div class="spacing-score"></div>4- VERY SATISFACTORY<div class="spacing-score"></div>3- SATISFACTORY</div>  
+            <div class="scoring-bottom">2- MODERATELY SATISFACTORY<div class="spacing-score"></div>1- NEEDS IMPROVEMENT</div>
+            </div>
+        </div>
+      </div>
+      
    
-      <div class="container bg-2" style="margin-top:20px; background-color: #fff;">
+      <div class="container bg-2" style="background-color: #fff;">
          <div class="row">
            
           <div class="questions">
@@ -337,8 +350,8 @@ include('includes/session.php');
 		  
 		  <div class="radio">
                <div class="radio-group">
-		 <h4 class="title" class="radio-inline"><b>
-                  5&nbsp&nbsp&nbsp&nbsp&nbsp4&nbsp&nbsp&nbsp&nbsp&nbsp3&nbsp&nbsp&nbsp&nbsp2&nbsp&nbsp&nbsp&nbsp&nbsp1
+		 <h4 class="scoring"><b>
+                  5<div class="scoring-space"></div>4<div class="scoring-space"></div>3<div class="scoring-space"></div>2<div class="scoring-space"></div>1
                 </b></h4>
                </div>
 			   </div>
@@ -678,9 +691,8 @@ include('includes/session.php');
 		  
 		  <div class="radio">
                <div class="radio-group">
-		 <h4 class="title" class="radio-inline"><b>
-                  5&nbsp&nbsp&nbsp&nbsp&nbsp4&nbsp&nbsp&nbsp&nbsp&nbsp3&nbsp&nbsp&nbsp&nbsp2&nbsp&nbsp&nbsp&nbsp&nbsp1
-                </b></h4>
+		 <h4 class="scoring"><b>
+                  5<div class="scoring-space"></div>4<div class="scoring-space"></div>3<div class="scoring-space"></div>2<div class="scoring-space"></div>1
                </div>
 			   </div>
 			  
@@ -792,9 +804,8 @@ include('includes/session.php');
 		  
 		  <div class="radio">
                <div class="radio-group">
-		 <h4 class="title" class="radio-inline"><b>
-                  5&nbsp&nbsp&nbsp&nbsp&nbsp4&nbsp&nbsp&nbsp&nbsp&nbsp3&nbsp&nbsp&nbsp&nbsp2&nbsp&nbsp&nbsp&nbsp&nbsp1
-                </b></h4>
+		 <h4 class="scoring"><b>
+                  5<div class="scoring-space"></div>4<div class="scoring-space"></div>3<div class="scoring-space"></div>2<div class="scoring-space"></div>1
                </div>
 			   </div>
 			  

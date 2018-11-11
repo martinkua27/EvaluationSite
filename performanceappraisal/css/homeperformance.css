@@ -239,6 +239,14 @@ body {
   margin-left: 200px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.border-scoring {
+  border: 5px solid #fff;
+  margin: 25px;
+  height: 112px;
+}
+.scoring-bg {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .bg-2 {
   margin-top:180px;
   color: #000;
@@ -278,175 +286,129 @@ body {
     margin-top: 40px !important;
 }
 /*performance appraisal*/
-@media (max-width: 1348px) { 
-    .img-top {
-    max-width: 70.1% !important;    
-    }
-    .img-score {
-    max-width: 70.1% !important;
-    }
-}
-/*carousel modal*/
-.carousel-control {
-  opacity: 0.3 !important;
-  color: #000 !important;
-}
-@media (max-width: 1300px) {
-
-	.instructor {
-		margin-top: -242px;
-		margin-left: 452px;
-	}
-	.subject {
-    margin-top: 30px;
-    margin-left: 687px;
-	}
-	.dept {
-		margin-top: -3px;
-		margin-left: 581px;
-	}
-	.date {
-    margin-top: -3px;
-    margin-left: 509px;
-	}
-	.questions {
-		margin-left: 22px;
-	}
-}
-
-@media (max-width: 1199px) {
-  #theCarousel {
-   margin-right: 373px; 
-   
-    text-align: center;
-  }
-  /*performance appraisal*/
-  .img-top {
-    margin-left: 160px;
-    margin-top: -67px;
-  }
-  .instructor {
-    margin-top:-197px;
-    margin-left: 365px;  
-    font-size: 28px;
-  }
-  .subject {
-    margin-top: 26px;
-    margin-left: 561px;  
-    font-size: 20px;    
-  }
-  .dept {
-    margin-top: -5px;
-    margin-left: 475px;  
-    font-size: 20px;        
-  }
-  .date {
-    margin-top: -4px;
-    margin-left: 415px;  
-    font-size: 20px;   
-    margin-bottom: 65px;
-  }
-  .img-score {
-    margin-left: 160px;    
-  }
-  .bg-2 {
-    margin-left: 160px;      
-  }
-  .radio-group {
-    margin-left: -661px;
-    margin-top: 45px;
-    margin-bottom: -25px;
-  }
-}
-@media (max-width: 991px) {
-  #theCarousel {
-   margin-right: 152px; 
-   
-    text-align: center;
-  }
+@media (max-width: 1920px) { 
    /*performance appraisal*/
-  .img-top {
-    margin-left: 140px;
-    margin-top: -67px;
-  }
-  .instructor {
-    margin-top:-179px;
-    margin-left: 335px;  
-    font-size: 19px;
-  }
-  .subject {
-    margin-top: 26px;
-    margin-left: 525px;  
-    font-size: 19px;    
-  }
-  .dept {
-    margin-top: -5px;
-    margin-left: 444px;  
-    font-size: 19px;        
-  }
-  .date {
-    margin-top: -4px;
-    margin-left: 385px;  
-    font-size: 19px;   
-    margin-bottom: 65px;
-  }
-  .img-score {
-    margin-left: 140px;    
-  }
-  .bg-2 {
-    margin-left: 140px;      
-  }
-  .radio-group {
-    margin-left: -571px;
-    margin-top: 45px;
-    margin-bottom: -25px;
-  }
-}
-@media (max-width: 768px) {
-  /*performance appraisal*/
   .bg-top {
-    max-width: 102%;      
+    max-width: 100%; 
+    z-index: -30px;
+  }
+  .navbar-performance {
+    width: 1745px;
+  }
+  .profile-bg {
+    width: 1170px;
+    height: 360px;
+    margin-top: -126px;
+    position: absolute;
+    margin-left: 350px;
+    background-color: #fff;    
+  }
+  .profile-imgprof {
+    height: 263px;
+    width: 193px;
+    margin-left: 88px;
+    margin-top: 48px;
+    position: absolute; 
+  }
+  .line-prof {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px solid #eee;
+    width: 764px;
+    margin-left: 336px;    
   }
   .img-top {
-    margin-left: 115px;
-    margin-top: -51px;
+    width: 1170px;
+    height: 360px;
+    margin-top: -1px;
+    position: absolute;
+    margin-left: 0px;
   }
   .instructor {
-    margin-top:-146px;
-    margin-left: 269px;  
-    font-size: 19px;
+    margin-top: 63px;
+    margin-left: 329px;
+    font-size: 55px;
   }
   .subject {
-    margin-top: 20px;
-    margin-left: 418px;  
-    font-size: 15px;    
+    margin-top: 13px;
+    margin-left: 347px;  
+    font-size: 12px;    
   }
   .dept {
-    margin-top: -5px;
-    margin-left: 354px;  
-    font-size: 15px;        
+    margin-top: -7px;
+    margin-left: 297px;  
+    font-size: 12px;        
   }
   .date {
-    margin-top: -5px;
-    margin-left: 308px;  
-    font-size: 15px;   
-    margin-bottom: 49px;
+    margin-top: -7px;
+    margin-left: 263px;  
+    font-size: 12px;   
+    margin-bottom: 26px;
   }
   .img-score {
-    margin-left: 115px;    
+    margin-left: 120px;
+    margin-bottom: -10px;
+    max-width: 409px !important; 
+  }
+  .scoring-bg {
+    background-color: #921c12;
+    position: absolute;
+    margin-top: 261px;
+    margin-left: 350px;
+    height: 160px;
+  }
+  .scoring-top {
+    color: #fff;
+    font-size: 23px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .scoring-bottom {
+    color: #fff;
+    font-size: 23px;
+    text-align: center;
+    margin-top: -5px;  
+  }
+  .spacing-score {
+    display: inline;
+    margin-left: 50px;
   }
   .bg-2 {
-    margin-left: 115px;      
+    margin-top: 450px;   
+    margin-left: 350px;     
   }
   .questions {
-    margin-left: 22px;    
+    margin-left: 25px;
+    margin-top: 45px;
+  }
+  .scoring-space {
+    display: inline;
+    margin-left: 23px;
   }
   .radio-group {
-    margin-left: -571px;
-    margin-top: 45px;
+    margin-left: 250px;
+    margin-top: 18px;
     margin-bottom: -25px;
-  }  
+  }
+  h4 {
+    font-size: 23px;
+  }
+  .radio-inline {
+    position: relative;
+    display: inline-block;
+    padding-left: 66px;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  input[type=radio], .radio-inline input[type=radio] {
+    width: 20px;
+  }
+ 
 }
+
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #ecf0f1;
@@ -474,112 +436,4 @@ body {
   }
 
 }
-@media (max-width: 414px) { 
-   /*performance appraisal*/
-  .bg-top {
-    max-width: 159%;      
-  }
-  .img-top {
-    margin-left: 120px;
-    margin-top: -44px;
-    max-width: 409px !important;
-  }
-  .instructor {
-    margin-top: -108px;
-    margin-left: 237px;  
-    font-size: 14px;
-  }
-  .subject {
-    margin-top: 13px;
-    margin-left: 347px;  
-    font-size: 12px;    
-  }
-  .dept {
-    margin-top: -7px;
-    margin-left: 297px;  
-    font-size: 12px;        
-  }
-  .date {
-    margin-top: -7px;
-    margin-left: 263px;  
-    font-size: 12px;   
-    margin-bottom: 26px;
-  }
-  .img-score {
-    margin-left: 120px;
-    margin-bottom: -10px;
-    max-width: 409px !important; 
-  }
-  .bg-2 {
-    margin-left: 60px;      
-  }
-  .questions {
-    margin-left: 8px;
-    margin-top: -2px;   
-  }
-  .radio-group {
-    margin-left: -571px;
-    margin-top: 45px;
-    margin-bottom: -25px;
-  }  
-  h4 {
-    font-size: 9px;
-  }
-  input[type=radio], .radio-inline input[type=radio] {
-    width: 10px;
-  }
-}
-@media (max-width: 375px) { 
-   /*performance appraisal*/
-  .bg-top {
-    max-width: 102%;      
-  }
-  .img-top {
-    margin-left: 60px;
-    margin-top: -26px;
-  }
-  .instructor {
-    margin-top: -75px;
-    margin-left: 136px;  
-    font-size: 16px;
-  }
-  .subject {
-    margin-top: -6px;
-    margin-left: 207px;  
-    font-size: 10px;    
-  }
-  .dept {
-    margin-top: -11px;
-    margin-left: 174px;  
-    font-size: 10px;        
-  }
-  .date {
-    margin-top: -11px;
-    margin-left: 151px;  
-    font-size: 10px;   
-    margin-bottom: 15px;
-  }
-  .img-score {
-    margin-left: 60px;  
-    margin-bottom: -8px;  
-  }
-  .bg-2 {
-    margin-left: 60px;      
-  }
-  .questions {
-    margin-left: 8px;
-    margin-top: -2px;   
-  }
-  .radio-group {
-    margin-left: -571px;
-    margin-top: 45px;
-    margin-bottom: -25px;
-  }  
-  h4 {
-    font-size: 9px;
-  }
-  input[type=radio], .radio-inline input[type=radio] {
-    width: 10px;
-  }
 
-}
