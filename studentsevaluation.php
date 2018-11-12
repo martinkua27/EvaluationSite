@@ -257,7 +257,8 @@ include('includes/session.php');
         font-size: 40px;
     }
     .container{
-        width: 1375px !important;
+        width: 1590px !important;
+		margin-left: 155px !important;
     }
     h2 {
     font-size: 40px;

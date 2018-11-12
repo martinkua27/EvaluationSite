@@ -173,6 +173,7 @@ textarea {
     }
     .container{
         width: 1590px !important;
+		margin-left: 260px !important;
     }
     h2 {
     font-size: 35px;
