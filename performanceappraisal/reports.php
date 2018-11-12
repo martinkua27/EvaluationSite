@@ -153,8 +153,10 @@ include('../session.php');
                 <div class="row">
                   <div class="col-md-12">
                     
+					<button id="openpdf" type="button" class="btn btn-default" style="color: black; margin-top: 5px;" onclick="printpdf();">Print</button>
+						<br><br>
                          <span>Filter by:</span>
-
+						 
                     <select onchange="profdropdown(this.value)" class="form-control subj-code">
                       <option value="">Choose</option>
                       <option value="0">Evaluator</option>
@@ -337,6 +339,8 @@ include('../session.php');
                 <div class="row">
                   <div class="col-md-12">
 
+				  <button id="openpdf" type="button" class="btn btn-default" style="color: black; margin-top: 5px;" onclick="printpdf();">Print</button>
+						<br><br>
                      <span>Filter by:</span>
 
                     <select onchange="studentsdropdown(this.value)" class="form-control subj-code">
@@ -441,7 +445,8 @@ include('../session.php');
                 <div class="row">
                   <div class="col-md-12">
                   
-
+				<button id="openpdf" type="button" class="btn btn-default" style="color: black; margin-top: 5px;" onclick="printpdf();">Print</button>
+						<br><br>
                     <span>Filter by:</span>
 
                     <select onchange="observationdropdown(this.value)" class="form-control subj-code">
