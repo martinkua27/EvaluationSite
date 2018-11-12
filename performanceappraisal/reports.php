@@ -153,7 +153,7 @@ include('../session.php');
                 <div class="row">
                   <div class="col-md-12">
                     
-					<button id="openpdf" type="button" class="btn btn-default" style="color: black; margin-top: 5px;" onclick="printpdf();">Print</button>
+					<button id="printprofreport" type="button" class="btn btn-default" style="color: black; margin-top: 5px;" onclick="printproftable()">Print</button>
 						<br><br>
                          <span>Filter by:</span>
 						 
@@ -339,7 +339,7 @@ include('../session.php');
                 <div class="row">
                   <div class="col-md-12">
 
-				  <button id="openpdf" type="button" class="btn btn-default" style="color: black; margin-top: 5px;" onclick="printpdf();">Print</button>
+				  <button id="printstudentreport" type="button" class="btn btn-default" style="color: black; margin-top: 5px;" onclick="printstudenttable()">Print</button>
 						<br><br>
                      <span>Filter by:</span>
 
@@ -445,7 +445,7 @@ include('../session.php');
                 <div class="row">
                   <div class="col-md-12">
                   
-				<button id="openpdf" type="button" class="btn btn-default" style="color: black; margin-top: 5px;" onclick="printpdf();">Print</button>
+				<button id="printobservationtable" type="button" class="btn btn-default" style="color: black; margin-top: 5px;" onclick="printobservationtable()">Print</button>
 						<br><br>
                     <span>Filter by:</span>
 
@@ -980,3 +980,49 @@ function profFilter() {
       });
     });
     </script>
+
+   
+      <script type="text/javascript">
+  function printproftable()
+{
+   var divToPrint=document.getElementById("profreport");
+   newWin= window.open("");
+   newWin.document.write(divToPrint.outerHTML);
+   newWin.print();
+   newWin.close();
+}
+
+$('printprofreport').on('click',function(){
+printData();
+})
+</script>
+
+      <script type="text/javascript">
+  function printstudenttable()
+{
+   var divToPrint=document.getElementById("studentsreport");
+   newWin= window.open("");
+   newWin.document.write(divToPrint.outerHTML);
+   newWin.print();
+   newWin.close();
+}
+
+$('printstudentreport').on('click',function(){
+printData();
+})
+</script>
+
+      <script type="text/javascript">
+  function printobservationtable()
+{
+   var divToPrint=document.getElementById("observationreport");
+   newWin= window.open("");
+   newWin.document.write(divToPrint.outerHTML);
+   newWin.print();
+   newWin.close();
+}
+
+$('printobservationreport').on('click',function(){
+printData();
+})
+</script>

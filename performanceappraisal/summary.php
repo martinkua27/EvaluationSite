@@ -248,6 +248,9 @@ include('../session.php');
           <div  class="col-md-9" style="color: #000; margin-bottom: 40px;">
           <div class="questions">
           <br>
+          <div>
+            <p id="nameprof" style="font-size: 40px; margin-left: 10px;"></p>
+          </div>
           <div class="margin-questions">
           <h2 class="boxed-title">Elements</h2>
 		  
@@ -441,6 +444,7 @@ include('../session.php');
        
 
         if (str == "") {
+           document.getElementById('nameprof').innerHTML = "";
            document.getElementById("txtHint").innerHTML = "";
             document.getElementById("vdaaClassroomObservationRating").innerHTML = "-";
             document.getElementById("vdaaClassroomObservationTotal").innerHTML = "-";
@@ -502,7 +506,7 @@ include('../session.php');
 
         if (str == "") {
             //div.style.display = "none";
-
+            document.getElementById('nameprof').innerHTML = "";
              document.getElementById("vdaaClassroomObservationRating").innerHTML = "-";
             document.getElementById("vdaaClassroomObservationTotal").innerHTML = "-";
 
@@ -531,7 +535,7 @@ include('../session.php');
 
             return;
         } else { 
-            
+            document.getElementById('nameprof').innerHTML = "Professor: " + str;
 
             document.getElementById("inviData").innerHTML = "";
             getnamedropdown = str;
@@ -666,6 +670,8 @@ function resetSignature(){
   
 
 </script>
+
+
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
 
