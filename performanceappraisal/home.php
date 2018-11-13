@@ -276,18 +276,18 @@ include('../session.php');
             <div class="row">
 
                 <p class="search-text">Search: </p><input class="form-control" type="text" id="search" placeholder="Filter Professors.."> 
-                  <div class="carousel slide multi-item-carousel" id="theCarousel">
+                  <div class="carousel slide multi-item-carousel" id="theCarousel" style="">
                     <div class="carousel-inner">
 
-                      <div class="item active">
+                      <div class="item active" style="margin-left: 20px; margin-right: 20px;">
 
-                          <div class="col-xs-3"><a href="#"><img src="images/002.jpg" id="Musni, Aristotle" alt="Aristotle F. Musni" onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
+                          <div class="col-xs-3" style="" ><a href="#"><img src="images/002.jpg" id="Musni, Aristotle" alt="Aristotle F. Musni" onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
                           <div class="col-xs-3"><a href="#"><img src="images/edgar.JPG" id="Torres, Edgardo" alt="Edgar Torres" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
                           <div class="col-xs-3"><a href="#"><img src="images/mark.JPG" id="Alejandria, Mark Cherwin L." alt="Mark Alejandria" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
                           <div class="col-xs-3"><a href="#"><img src="images/ponce.JPG"  id="Ponce, Consuelo C." alt="Connie Ponce" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
                       </div>
 
-                      <div class="item">
+                      <div class="item" style="margin-left: 20px; margin-right: 20px;">
                           <div class="col-xs-3"><a href="#"><img src="images/regina.jpg" id="Santos, Regina C." onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
                           
 <!--
@@ -301,7 +301,7 @@ include('../session.php');
 
                       <!--  Example item end -->
                     </div>
-                    <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                    <a class="left carousel-control" href="#theCarousel" style="margin-right: 60px;" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
                     <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
                     <div class="try" style="border-style: 1px solid #000; width: 10px; margin-left: 50px; margin-right: 50px; margin-top: 20px;">
 

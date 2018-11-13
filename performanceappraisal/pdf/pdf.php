@@ -62,7 +62,7 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(114,  5, 'Phone: [975-4432; 500-6183]', 0, 0); 
 $pdf->Cell(35,  5, 'Faculty Name:', 0, 0);
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(39,  5, 'Aristotle F. Musni', 0, 1); //end of line
+$pdf->Cell(39,  5, $name , 0, 1); //end of line
 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(26,  5, 'Department:', 0, 0); 
