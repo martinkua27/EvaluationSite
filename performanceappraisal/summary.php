@@ -271,7 +271,7 @@ include('../session.php');
                 <label class="radio-inline" style="margin-left: 20px;">
                    <p id="vdaaClassroomObservationRating">-</p>
                 </label>
-                <label class="radio-inline" style="margin-left: 30px">
+                <label class="radio-inline" style="margin-left: 35px">
                   .05<?php echo $filterProf; ?>
                 </label>
                 <label class="radio-inline" style="margin-left: 55px">
@@ -341,7 +341,7 @@ include('../session.php');
 			   <div class="radio">
                <div class="radio-group" style="margin-top: -10px">
                
-                <label class="radio-inline" style="margin-left: 10px;">
+                <label class="radio-inline" style="margin-left: 20px;">
                    <p id="studentsEvaluationRating">-</p>
                 </label>
                 <label class="radio-inline" style="margin-left: 35px">
@@ -365,7 +365,7 @@ include('../session.php');
                 <label class="radio-inline" style="margin-left: 35px">
                   .05
                 </label>
-                <label class="radio-inline" style="margin-left: 46.5px">
+                <label class="radio-inline" style="margin-left: 55px">
                    <p id="selfEvaluationTotal">-</p>
                 </label>                
               

@@ -67,7 +67,7 @@ include('../session.php');
 .overlay {
   position: absolute; 
   left: 15px;
-  bottom: 30px; 
+  bottom: -20px; 
   background: rgb(0, 0, 0);
   background: rgba(0, 0, 0, 0.5); /* Black see-through */
   color: #f1f1f1; 
@@ -90,8 +90,13 @@ include('../session.php');
 		min-height: 100%;
 	}
 	
-
-
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+    margin-left: -70px;
+}
+	
+.carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+    margin-right: -70px;
+}
 </style>
    
    
