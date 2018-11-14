@@ -63,13 +63,13 @@ include('../session.php');
     border-radius: 100px 0px 0px 100px;
     margin-top: 5px;
     margin-right: -30px;
-	height: 800px;
+	height: 950px;
 	}
 	
 	.questions {
     margin-left:0px;
 	margin-top:5px;
-	height: 800px;
+	height: 950px;
 	background-color: #ddd;
 	border-radius: 0px 100px 100px 0px;
 	}
@@ -254,6 +254,7 @@ include('../session.php');
           <div class="margin-questions">
           <h2 class="boxed-title">Elements</h2>
 		  
+		  <!--
 		  <div class="radio">
                <div class="radio-group">
 		 <h4 class="title" class="radio-inline"><b>
@@ -261,118 +262,186 @@ include('../session.php');
                 </b></h4>
                </div>
 			   </div>
-        
-          <h4 class="title"> <b>Classroom Observation 35%</b></h4>
-			   
-			   <h4>1. DEAN/VDAA (5%)</h4>
-               <div class="radio">
-               <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 20px;">
-                   <p id="vdaaClassroomObservationRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 35px">
+		   -->
+		
+		<div class="col-md-12">
+		
+			<table class="table table-hover table-responsive"  style="width:770px;">
+				
+				<tr>
+					<th><h4><b>Classroom Observation (35%)</b></h4></th>
+					<th><h4><b>Rating</b></h4></th>
+					<th><h4><b>%</b></h4></th>
+					<th><h4><b>Total</b></h4></th>
+				</tr>
+					
+				<!--1 Dean/VDAA-->
+				<tr>
+					
+					<td>
+						<h4>1. DEAN/VDAA (5%)</h4>
+					</td>
+					
+					<td><label>
+						<p id="vdaaClassroomObservationRating">-</p>
+						</label>
+					</td>
+					
+					<td><label>
                   .05<?php echo $filterProf; ?>
-                </label>
-                <label class="radio-inline" style="margin-left: 55px">
-                   <p id="vdaaClassroomObservationTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
+						</label>
+					</td>
+					
+					<td><label>
+						<p id="vdaaClassroomObservationTotal">-</p>
+						</label>  
+					</td>
+					
+				</tr>
+				
+				<!--2 Chair/Coordinator-->
+				<tr>
+				
+					<td>
+						<h4>2. Chair/Coordinator (20%)</h4>
+					</td>
+					
+					<td><label>
+						<p id="chairClassroomObservationRating">-</p>
+						</label>
+					</td>
+					
+					<td><label>
+					  .30
+						</label>
+					</td>
+					
+					<td><label>
+						<p id="chairClassroomObservationTotal">-</p>
+						</label>       
+					</td>
+				
+				</tr>
+				
+				<!--Header Performance Appraisal-->
+				<tr>
+				
+					<th>
+						<h4><b>Performance Appraisal (40%)</b></h4>
+					</th>
+					
+					<th>
+					</th>
+					
+					<th>
+					</th>
+					
+					<th>      
+					</th>
+				
+				</tr>
+				
+				<!--3 Dean/VDAA-->
+				<tr>
+				
+					<td>
+						<h4>1. Dean/VDAA (20%)</h4>
+					</td>
+				
+					<td><label>
+						<p id="deanVdaaPerformanceAppraisalRating">-</p>
+						</label>
+					</td>
+					
+					<td><label>
+                  .20<?php echo $filterProf; ?>
+						</label>
+					</td>
+					
+					<td><label>
+						<p id="deanVdaaPerformanceAppraisalTotal">-</p>
+						</label>  
+					</td>
+				
+				</tr>
+				
+				<!--3 Chair/Coordinator-->
+				<tr>
+				
+					<td>
+						<h4>2. Chair/Coordinator (20%)</h4>
+					</td>
+				
+					<td><label>
+						<p id="chairPerformanceAppraisalRating">-</p>
+						</label>
+					</td>
+					
+					<td><label>
+                  .20<?php echo $filterProf; ?>
+						</label>
+					</td>
+					
+					<td><label>
+						<p id="chairPerformanceAppraisalTotal">-</p>
+						</label>  
+					</td>
+				
+				</tr>
+				
+				<!--4 Students Evaluation-->
+				<tr>
+				
+					<td>
+						<h4>Students Evaluation (20%)</h4>
+					</td>
+				
+					<td><label>
+						<p id="studentsEvaluationRating">-</p>
+						</label>
+					</td>
+					
+					<td><label>
+                  .20<?php echo $filterProf; ?>
+						</label>
+					</td>
+					
+					<td><label>
+						<p id="studentsEvaluationTotal">-</p>
+						</label>  
+					</td>
+				
+				</tr>
+				
+				<!--5 Self Evaluation-->
+				<tr>
+				
+					<td>
+						<h4>Self Evaluation (5%)</h4>
+					</td>
+				
+					<td><label>
+						<p id="selfEvaluationRating">-</p>
+						</label>
+					</td>
+					
+					<td><label>
+                  .05<?php echo $filterProf; ?>
+						</label>
+					</td>
+					
+					<td><label>
+						<p id="selfEvaluationTotal">-</p>
+						</label>  
+					</td>
+				
+				</tr>
+						
+			</table>
+			
+		</div>
                
-               <!-- 2 -->
-               <h4>2. Chair/Coordinator (30%)</h4>
-               <div class="radio">
-               <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 20px;">
-                   <p id="chairClassroomObservationRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 35px">
-                  .30
-                </label>
-                <label class="radio-inline" style="margin-left: 55px">
-                   <p id="chairClassroomObservationTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
-			  
-			  <h4 class="title"> <b>Performance Appraisal 40%</b></h4>
-			   
-			   <h4>1. Dean/VDAA (20%)</h4>
-               <div class="radio">
-               <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 20px;">
-                   <p id="deanVdaaPerformanceAppraisalRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 35px">
-                  .20
-                </label>
-                <label class="radio-inline" style="margin-left: 55px">
-                   <p id="deanVdaaPerformanceAppraisalTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
-               
-               <!-- 2 -->
-               <h4>2. Chair/Coordinator (20%)</h4>
-                <div class="radio">
-               <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 20px;">
-                   <p id="chairPerformanceAppraisalRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 35px">
-                  .20
-                </label>
-                <label class="radio-inline" style="margin-left: 55px">
-                   <p id="chairPerformanceAppraisalTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
-			  
-			  <h4 class="title"> <b>Students Evaluation 20%</b></h4>
-			   
-			   <div class="radio">
-               <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 20px;">
-                   <p id="studentsEvaluationRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 35px">
-                  .20
-                </label>
-                <label class="radio-inline" style="margin-left: 55px">
-                   <p id="studentsEvaluationTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
-			  
-			  <h4 class="title"> <b>Self Evaluation (5%)</b></h4>
-			   
-			   <div class="radio">
-              <div class="radio-group" style="margin-top: -10px">
-               
-                <label class="radio-inline" style="margin-left: 20px;">
-                   <p id="selfEvaluationRating">-</p>
-                </label>
-                <label class="radio-inline" style="margin-left: 35px">
-                  .05
-                </label>
-                <label class="radio-inline" style="margin-left: 55px">
-                   <p id="selfEvaluationTotal">-</p>
-                </label>                
-              
-              </div>
-              </div>
-			  
-			<br>
+			<br><br><br>
 			  
             <h3 class="panel-title" style="margin-left:400px;">OVER-ALL RATING</h3><h4 class="signature" style="margin-left: 550px; width:200px; margin-top:-20px;"><p style="margin-left: 90px;" id="overallTotal">-</p></h4>
 
