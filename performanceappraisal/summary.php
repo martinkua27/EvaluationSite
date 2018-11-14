@@ -393,7 +393,7 @@ include('../session.php');
 				<tr>
 				
 					<td>
-						<h4>Students Evaluation (20%)</h4>
+						<h4><b>Students Evaluation (20%)</b></h4>
 					</td>
 				
 					<td><label>
@@ -417,7 +417,7 @@ include('../session.php');
 				<tr>
 				
 					<td>
-						<h4>Self Evaluation (5%)</h4>
+						<h4><b>Self Evaluation (5%)</b></h4>
 					</td>
 				
 					<td><label>
