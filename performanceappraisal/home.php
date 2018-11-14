@@ -139,7 +139,8 @@ include('../session.php');
     
       
      	<!--COLLAPSIBLE-->
-        <div class="container" style="margin-top:150px; margin-left:104px;">
+        <div style="margin-top: 150px;"></div>
+        <div class="container" style="margin-top:150px; margin-left:104px; display:none;">
             <div class="row">
                 <a href="#demo" class="btn btn-default" style="background-color: lightslategray; border-color:lightslategray; color:#fff;" data-toggle="collapse">Status</a>
                 <div id="demo" class="collapse">
@@ -170,20 +171,16 @@ include('../session.php');
 
                       <div class="item active">
 
-                          <div class="col-md-3 mb-3"><a href="#"><img src="images/002.jpg" id="Musni, Aristotle" alt="Aristotle F. Musni" style="max-width: 100%;"></a><h4><center><b>Musni, Aristotle</b></center></h4></div>
-                          <div class="col-md-3 mb-3"><a href="#"><img src="images/edgar.JPG" id="Torres, Edgardo" alt="Edgar Torres" style="max-width: 100%;"></a><h4><center><b>Torres, Edgardo</b></center></h4></div>
-                          <div class="col-md-3 mb-3"><a href="#"><img src="images/mark.JPG" id="Alejandria, Mark Cherwin L." alt="Mark Alejandria" style="max-width: 100%;"></a><h4><center><b>Alejandria, Mark Cherwin L.</b></center></h4></div>
-                          <div class="col-md-3 mb-3"><a href="#"><img src="images/ponce.JPG"  id="Ponce, Consuelo C." alt="Connie Ponce" style="max-width: 100%;"></a><h4><center><b>Ponce, Consuelo C.</b></center></h4></div>
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/002.jpg" alt="Aristotle F. Musni" style="max-width: 100%;"></a><h4><center><b>Musni, Aristotle</b></center></h4></div>
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/edgar.JPG" alt="Edgar Torres" style="max-width: 100%;"></a><h4><center><b>Torres, Edgardo</b></center></h4></div>
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/mark.JPG" alt="Mark Alejandria" style="max-width: 100%;"></a><h4><center><b>Alejandria, Mark Cherwin L.</b></center></h4></div>
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/ponce.JPG"  alt="Connie Ponce" style="max-width: 100%;"></a><h4><center><b>Ponce, Consuelo C.</b></center></h4></div>
                       </div>
 
                       <div class="item">
-                          <div class="col-md-3 mb-3"><a href="#"><img src="images/regina.jpg" id="Santos, Regina C." alt="Image" style="max-width: 100%;"></a><h4><center><b>Santos, Regina C.</b></center></h4></div>
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/regina.jpg" alt="Santos, Regina C." style="max-width: 100%;"></a><h4><center><b>Santos, Regina C.</b></center></h4></div>
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/lea.jpg" alt="Martinez, Lea" style="max-width: 100%;"></a><h4><center><b>Martinez, Lea</b></center></h4></div>
                           
-<!--
-                          <div class="col-xs-3"><a href="#"><img src="images/pic3.jpg" id="edgar" alt="Image" style="max-width: 100%;"></a></div>
-                          <div class="col-xs-3"><a href="#"><img src="images/pic4.jpeg" alt="Image" style="max-width: 100%;"></a></div>
-                          <div class="col-xs-3"><a href="#"><img src="images/pic5.jpg"  alt="Image" style="max-width: 100%;"></a></div>
--->
 
                       </div>
                    
@@ -192,11 +189,7 @@ include('../session.php');
                     </div>
                     <a class="left carousel-control leftcontrol" href="#Carousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
                     <a class="right carousel-control" href="#Carousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-<!--
-                    <div class="try" style="border-style: 1px solid #000; width: 10px; margin-left: 50px; margin-right: 50px; margin-top: 20px;">
 
-                    </div>
--->
                   </div>
                     <!--end-->
                     </div>
@@ -208,60 +201,188 @@ include('../session.php');
    
       <div class="container" style="margin-top:63px;">
          <div class="row">
-              <a href="#">
-              <div id="container" class="col-xs-6 col-md-3">
-                <div class="jumbotron" style="background-color: #4E887F;">
-                    <div class="container">
-                       <a data-toggle="modal" data-target="#accounting" style="text-decoration: none;color: #fff;text-align: center;"> 
-                        <img src="images/software.png" class="center-block img-responsive" class="image">
-                        <hr>
-                        <h3>IT</h3>
-                       </a>
-					   <div class="overlay">Select this</div>
+                    <div class="carousel slide multi-item-carousel" id="cCarousel" style="margin-top: 30px;">
+                    <div class="carousel-inner ccarousel-width-height" style="width: 93%;">
+
+                      <div class="item active">
+
+                          <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #4E887F;">
+                                <div class="container">
+                                   <a data-toggle="modal" data-target="#bsit" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                    <img src="images/software.png" class="center-block img-responsive" class="image">
+                                    <hr>
+                                    <h3>BSIT</h3>
+                                   </a>
+                                   <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                          </div> 
+                           <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #4C7FB0;">
+                                <div class="container">
+                                    <a data-toggle="modal" data-target="#bsa" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                      <img src="images/accounting.png" class="center-block img-responsive" class="image">
+                                      <hr>
+                                       <h3>BSA</h3>
+                                    </a>
+                                    <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                          </div>  
+                          <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #8d192c;">
+                                <div class="container">
+                                    <a data-toggle="modal" data-target="#bais" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                      <img src="images/planet-earth.png" class="center-block img-responsive" class="image">
+                                      <hr>
+                                       <h3>BAIS</h3>
+                                    </a>
+                                    <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                          </div>  
+                          <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #c59744;">
+                                <div class="container">
+                                    <a data-toggle="modal" data-target="#bap" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                      <img src="images/brain.png" class="center-block img-responsive" class="image">
+                                      <hr>
+                                       <h3>BAP</h3>
+                                    </a>
+                                    <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                          </div>  
+                      </div>
+
+                      <div class="item">
+                          <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #4E887F;">
+                                <div class="container">
+                                   <a data-toggle="modal" data-target="#beed" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                    <img src="images/class-group.png" class="center-block img-responsive" class="image">
+                                    <hr>
+                                    <h3>BEEd</h3>
+                                   </a>
+                                   <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                          </div> 
+                          <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #4C7FB0;">
+                                <div class="container">
+                                    <a data-toggle="modal" data-target="#bacms" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                      <img src="images/video.png" class="center-block img-responsive" class="image">
+                                      <hr>
+                                       <h3>BACMS</h3>
+                                    </a>
+                                    <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                          </div>  
+                          <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #8d192c;">
+                                <div class="container">
+                                    <a data-toggle="modal" data-target="#bsat" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                      <img src="images/profit.png" class="center-block img-responsive" class="image">
+                                      <hr>
+                                       <h3>BSAT</h3>
+                                    </a>
+                                    <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                          </div> 
+                         <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #c59744;">
+                                <div class="container">
+                                    <a data-toggle="modal" data-target="#bsba" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                      <img src="images/operation.png" class="center-block img-responsive" class="image">
+                                      <hr>
+                                       <h3>BSBA</h3>
+                                    </a>
+                                    <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                          </div>   
+
+                      </div>
+                      <div class="item">
+                         <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #4E887F;">
+                                <div class="container">
+                                   <a data-toggle="modal" data-target="#bse" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                    <img src="images/entrepreneur.png" class="center-block img-responsive" class="image">
+                                    <hr>
+                                    <h3>BSE</h3>
+                                   </a>
+                                   <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                         </div>  
+                         <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #4C7FB0;">
+                                <div class="container">
+                                    <a data-toggle="modal" data-target="#bsed" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                      <img src="images/books.png" class="center-block img-responsive" class="image">
+                                      <hr>
+                                       <h3>BSEd</h3>
+                                    </a>
+                                    <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                         </div> 
+                         <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #8d192c;">
+                                <div class="container">
+                                    <a data-toggle="modal" data-target="#bslm" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                      <img src="images/auction.png" class="center-block img-responsive" class="image">
+                                      <hr>
+                                       <h3>BSLM</h3>
+                                    </a>
+                                    <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                         </div>  
+                         <div id="container" class="col-xs-6 col-md-3">
+                            <div class="jumbotron" style="background-color: #c59744;">
+                                <div class="container">
+                                    <a data-toggle="modal" data-target="#bsp" style="text-decoration: none;color: #fff;text-align: center;"> 
+                                      <img src="images/memorize.png" class="center-block img-responsive" class="image">
+                                      <hr>
+                                       <h3>BSP</h3>
+                                    </a>
+                                    <div class="overlay">Select this</div>
+                                </div>
+
+                            </div>
+                          </div>
+                         
+                         
+                      </div>
+                   
+
+                      <!--  Example item end -->
                     </div>
-                
-                </div>
-              </div> 
-              </a>
-               <div id="container" class="col-xs-6 col-md-3">
-                <div class="jumbotron" style="background-color: #4C7FB0;">
-                    <div class="container">
-                        <a href="#" style="text-decoration: none;color: #fff;text-align: center;"> 
-                          <img src="images/accounting.png" class="center-block img-responsive" class="image">
-                          <hr>
-                           <h3>Accounting</h3>
-                        </a>
-						<div class="overlay">Select this</div>
-                    </div>
-                
-                </div>
-              </div>  
-              <div id="container" class="col-xs-6 col-md-3">
-                <div class="jumbotron" style="background-color: #8d192c;">
-                    <div class="container">
-                        <a href="#" style="text-decoration: none;color: #fff;text-align: center;"> 
-                          <img src="images/planet-earth.png" class="center-block img-responsive" class="image">
-                          <hr>
-                           <h3>IS</h3>
-                        </a>
-						<div class="overlay">Select this</div>
-                    </div>
-                
-                </div>
-              </div>  
-              <div id="container" class="col-xs-6 col-md-3">
-                <div class="jumbotron" style="background-color: #c59744;">
-                    <div class="container">
-                        <a href="#" style="text-decoration: none;color: #fff;text-align: center;"> 
-                          <img src="images/brain.png" class="center-block img-responsive" class="image">
-                          <hr>
-                           <h3>Psychology</h3>
-                        </a>
-						<div class="overlay">Select this</div>
-                    </div>
-                
-                </div>
-              </div>  
+                    <a class="left carousel-control leftcontrol" href="#cCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                    <a class="right carousel-control" href="#cCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+
+                  </div>
+                    <!--end-->          
+         </div>
+      </div>
+             
         
  
   
@@ -269,7 +390,7 @@ include('../session.php');
     <!-- Modals -->
     
     <!-- Add Page -->
-    <div class="modal fade" id="accounting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="bsit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           
@@ -295,11 +416,6 @@ include('../session.php');
                       <div class="item" style="margin-left: 20px; margin-right: 20px;">
                           <div class="col-xs-3"><a href="#"><img src="images/regina.jpg" id="Santos, Regina C." onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
                           
-<!--
-                          <div class="col-xs-3"><a href="#"><img src="images/pic3.jpg" id="edgar" alt="Image" style="max-width: 100%;"></a></div>
-                          <div class="col-xs-3"><a href="#"><img src="images/pic4.jpeg" alt="Image" style="max-width: 100%;"></a></div>
-                          <div class="col-xs-3"><a href="#"><img src="images/pic5.jpg"  alt="Image" style="max-width: 100%;"></a></div>
--->
 
                       </div>
                    
@@ -388,79 +504,79 @@ include('../session.php');
     </script>
     
 
-<script type="text/javascript">
-  
- function changeText(value) {
-       document.getElementById('pText').innerHTML = "You Chose " + value;
+    <script type="text/javascript">
 
-       var buttonone = document.getElementById("fbtn");
-       var buttontwo = document.getElementById("sbtn");
-       
+     function changeText(value) {
+           document.getElementById('pText').innerHTML = "You Chose " + value;
 
-               
-    
-                    if(value == "Faculty Performance Appraisal")
-                {
-                   buttonone.style.display = "block";
-                   buttontwo.style.display = "none";
+           var buttonone = document.getElementById("fbtn");
+           var buttontwo = document.getElementById("sbtn");
+
+
+
+
+                        if(value == "Faculty Performance Appraisal")
+                    {
+                       buttonone.style.display = "block";
+                       buttontwo.style.display = "none";
+                    }
+                    else{
+
+                        buttonone.style.display = "none";
+                        buttontwo.style.display = "block";
+                    }
+
+
+
+
                 }
-                else{
-                   
-                    buttonone.style.display = "none";
-                    buttontwo.style.display = "block";
-                }
-                
-   
-        
-                  
-            }
 
-function go(){
-      var name = document.getElementById("change-name").innerHTML;
-      var varr = "";
+    function go(){
+          var name = document.getElementById("change-name").innerHTML;
+          var varr = "";
 
 
-if (name == "Professors"){
-  
-    swal(
-  'Evaluation',
-  'Please choose an Employee',
-  'error'
-);
+    if (name == "Professors"){
 
-}
-else{
-decodeURIComponent(name);
- window.location="../performanceappraisal.php?varr=" + name;
-}
+        swal(
+      'Evaluation',
+      'Please choose an Employee',
+      'error'
+    );
 
-  
-}
-
-function gotwo(){
-      var name = document.getElementById("change-name").innerHTML;
-      var varr = "";
+    }
+    else{
+    decodeURIComponent(name);
+     window.location="../performanceappraisal.php?varr=" + name;
+    }
 
 
-if (name == "Professors"){
+    }
 
-   swal(
-  'Evaluation',
-  'please choose an employee',
-  'error'
-);
-}
-else{
+    function gotwo(){
+          var name = document.getElementById("change-name").innerHTML;
+          var varr = "";
 
-decodeURIComponent(name);
-window.location="../classroomobservationsheet.php?varr=" + name;
-}
 
-  
-}
- 
-            
-</script>
+    if (name == "Professors"){
+
+       swal(
+      'Evaluation',
+      'please choose an employee',
+      'error'
+    );
+    }
+    else{
+
+    decodeURIComponent(name);
+    window.location="../classroomobservationsheet.php?varr=" + name;
+    }
+
+
+    }
+
+
+    </script>
 
 
 
