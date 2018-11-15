@@ -4,6 +4,7 @@ require('fpdf.php');
 //default margin: 10mm each side
 //writable horizontal: 219-(10*2) = 189mm
 $name = $_GET['varr'];
+
 ////connect to database
    $servername = "localhost";
    $username = "root";
@@ -13,12 +14,15 @@ $name = $_GET['varr'];
 //// Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-////get invoices data
-//$query = mysqli_query($conn, "select * from invoiceprint
-//                       where custdate = '".$_GET['custdate']."'");
-//$invoice = mysqli_fetch_array($query);
-//
-////$user = $_SESSION['username'];
+//get prof data
+$query = mysqli_query($conn, "select * from assigned_schedule
+                       where faculty = '".$name."'");
+$info = mysqli_fetch_array($query);
+
+//date
+$today = date("m/d/y"); 
+
+//$user = $_SESSION['username'];
 
 $pdf = new FPDF('P', 'mm', 'A4');
 
@@ -56,7 +60,7 @@ $pdf->Cell(74,  5, '', 0, 1); //end of line
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(114,  5, '[Muntinlupa City, Philippines, 1709]', 0, 0); 
 $pdf->Cell(35,  5, 'Date', 0, 0);
-$pdf->Cell(39,  5, '11/03/17', 0, 1); //end of line
+$pdf->Cell(39,  5, $today, 0, 1); //end of line
 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(114,  5, 'Phone: [975-4432; 500-6183]', 0, 0); 
@@ -67,19 +71,19 @@ $pdf->Cell(39,  5, $name , 0, 1); //end of line
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(26,  5, 'Department:', 0, 0); 
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(88,  5, 'Information Technology', 0, 0); 
+$pdf->Cell(88,  5, $info['program'], 0, 0); 
 $pdf->Cell(74,  5, '', 0, 1); //end of line
 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(26,  5, 'School Year:', 0, 0); 
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(88,  5, '2018-2019', 0, 0); 
+$pdf->Cell(88,  5, $info['academic_year'], 0, 0); 
 $pdf->Cell(74,  5, '', 0, 1); //end of line
 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(26,  5, 'Semester:', 0, 0); 
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(88,  5, '1st Semester', 0, 0); 
+$pdf->Cell(88,  5, $info['semester'], 0, 0); 
 $pdf->Cell(74,  5, '', 0, 1); //end of line
 
 $pdf->Ln(15);
@@ -313,6 +317,65 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(37.6,  5, '', 1, 0);
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(37.6,  5, number_format($finaltotal,2), 1, 1, 'R');//end of line
+    
+$pdf->Ln(15);  
+//prepared by
+
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(75,  5, 'Prepared by:', 0, 1); 
+$pdf->Ln(10); 
+$pdf->Image('signatureOne.png',10,183,50,25,0,0);
+$pdf->SetFont('Arial', '',12);
+$pdf->Cell(50,  5, '', 'C,B', 1, 1); 
+$pdf->SetFont('Arial', '',10);
+$pdf->Cell(50,  5, 'Department Chair/Coordinator',0, 1); //end of line
+    
+
+$pdf->Ln(10);  
+//prepared by
+
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(75,  5, 'Endorsed by:', 0, 0); 
+$pdf->SetFont('Arial', '',12);
+$pdf->Cell(45,  5, '',0, 0);
+$pdf->SetFont('Arial', '',12);
+$pdf->Cell(45,  5, 'Approved by:',0, 1);  
+$pdf->Ln(10); 
+  
+$pdf->Image('signatureTwo.png',10,223,50,18,0,0);
+$pdf->SetFont('Arial', '',12);
+$pdf->Cell(50,  5, '', 'C,B', 0, 0); 
+$pdf->SetFont('Arial', '',12);
+$pdf->Cell(70,  5, '', '',0, 0);
+    
+$pdf->Image('signatureThree.png',127,225,50,17,0,0);   
+$pdf->SetFont('Arial', '',12);
+$pdf->Cell(45,  5, '', 'C,B', 1, 1); 
+
+$pdf->SetFont('Arial', '',10);
+$pdf->Cell(60,  5, 'Vice Dean for Academic Affairs',0, 0);
+$pdf->SetFont('Arial', '',10);
+$pdf->Cell(60,  5, '',0, 0);
+$pdf->SetFont('Arial', '',10);
+$pdf->Cell(45,  5, 'Dean',0, 1);
+
+$pdf->Ln(5); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(120,  5, '',0, 0);     
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(45,  5, 'Copy Received by:',0, 1);
+$pdf->Ln(7); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(120,  5, '',0, 0); 
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(45,  5, '','B',0, 1);
+
+
+    
+
+
+    
+
     
 }
 }
