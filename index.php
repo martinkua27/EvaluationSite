@@ -166,7 +166,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<div class="wrap-login100">
 				 <form class="login100-form validate-form" method="post" class="well">
 					<span class="login100-form-title p-b-43">
-						Login
+						<img src="images/sbcaEmblem.png" alt="SBCA" width="104.5px;">
+						 <br>
+						<img src="images/Faculty Performance Appraisal.png" alt="FPA" width="300px;">
 					</span>
 					
 					
@@ -215,7 +217,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					
 				</form>
 
-				<div class="login100-more" style="background-image: url('images/Evaluation.jpg');">
+				<div class="login100-more" style="background-image: url('images/Evaluation.jpg'); max-width: 100%; z-index:100;">
 				</div>
 			</div>
 		</div>
