@@ -144,7 +144,7 @@ include('../session.php');
             <span class="icon-bar"></span>
           </button>
           <!--logo-->
-            <a class="navbar-brand" href="#"><img src="images/bedalogo.png"></a>
+            <a class="navbar-brand" href="#"><img src="images/bedalogocas.png"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
