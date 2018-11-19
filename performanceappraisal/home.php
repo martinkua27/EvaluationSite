@@ -362,7 +362,7 @@ include('../session.php');
                           if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                         echo  "<div class='jumbotron' style='background-color: #c59744;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/brain.png' class='center-block img-responsive' class='image'>";
@@ -407,7 +407,7 @@ include('../session.php');
                           if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/class-group.png' class='center-block img-responsive' class='image'>";
@@ -423,7 +423,7 @@ include('../session.php');
                         else if (getDepartment() == "BEEd"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/class-group.png' class='center-block img-responsive' class='image'>";
@@ -448,7 +448,7 @@ include('../session.php');
                          if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/video.png' class='center-block img-responsive' class='image'>";
@@ -464,7 +464,7 @@ include('../session.php');
                         else if (getDepartment() == "BACMS"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/video.png' class='center-block img-responsive' class='image'>";
@@ -490,7 +490,7 @@ include('../session.php');
                          if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/profit.png' class='center-block img-responsive' class='image'>";
@@ -506,7 +506,7 @@ include('../session.php');
                         else if (getDepartment() == "BSAT"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/profit.png' class='center-block img-responsive' class='image'>";
@@ -531,7 +531,7 @@ include('../session.php');
                           if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                         echo  "<div class='jumbotron' style='background-color: #c59744;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/operation.png' class='center-block img-responsive' class='image'>";
@@ -547,7 +547,7 @@ include('../session.php');
                         else if (getDepartment() == "BSBA"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                         echo  "<div class='jumbotron' style='background-color: #c59744;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/operation.png' class='center-block img-responsive' class='image'>";
@@ -574,7 +574,7 @@ include('../session.php');
 
                           if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/entrepreneur.png' class='center-block img-responsive' class='image'>";
@@ -590,7 +590,7 @@ include('../session.php');
                         else if (getDepartment() == "BSE"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/entrepreneur.png' class='center-block img-responsive' class='image'>";
@@ -615,7 +615,7 @@ include('../session.php');
                          if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/books.png' class='center-block img-responsive' class='image'>";
@@ -631,7 +631,7 @@ include('../session.php');
                         else if (getDepartment() == "BSEd"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/books.png' class='center-block img-responsive' class='image'>";
@@ -656,7 +656,7 @@ include('../session.php');
                           if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/auction.png' class='center-block img-responsive' class='image'>";
@@ -672,7 +672,7 @@ include('../session.php');
                         else if (getDepartment() == "BSLM"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/auction.png' class='center-block img-responsive' class='image'>";
@@ -699,7 +699,7 @@ include('../session.php');
                           if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                         echo  "<div class='jumbotron' style='background-color: #c59744;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/memorize.png' class='center-block img-responsive' class='image'>";
@@ -715,7 +715,7 @@ include('../session.php');
                         else if (getDepartment() == "BSP"){
 
                          echo "<div id='container' class='col-xs-6 col-md-3'>";
-                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                         echo  "<div class='jumbotron' style='background-color: #c59744;'>";
                           echo  "<div class='container'>";
                                 echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
                                   echo "<img src='images/memorize.png' class='center-block img-responsive' class='image'>";
