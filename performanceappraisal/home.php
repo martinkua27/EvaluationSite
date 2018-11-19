@@ -209,7 +209,7 @@ include('../session.php');
 
                       <div class="item">
                           <div class="col-md-3 mb-3"><a href="#"><img src="images/regina.jpg" alt="Santos, Regina C." style="max-width: 100%;"></a><h4><center><b>Santos, Regina C.</b></center></h4></div>
-                          <div class="col-md-3 mb-3"><a href="#"><img src="images/lea.jpg" alt="Martinez, Lea" style="max-width: 100%;"></a><h4><center><b>Martinez, Lea</b></center></h4></div>
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/lea.jpg" alt="Martinez, Ma. Lea A." style="max-width: 100%;"></a><h4><center><b>Martinez, Ma. Lea A.</b></center></h4></div>
                           
 
                       </div>
@@ -787,7 +787,7 @@ include('../session.php');
                           <div class="col-xs-3" style="" ><a href="#"><img src="images/002.jpg" id="Musni, Aristotle" alt="Aristotle F. Musni" onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
                           <div class="col-xs-3"><a href="#"><img src="images/edgar.JPG" id="Torres, Edgardo" alt="Edgar Torres" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
                           <div class="col-xs-3"><a href="#"><img src="images/mark.JPG" id="Alejandria, Mark Cherwin L." alt="Mark Alejandria" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
-                           <div class="col-xs-3"><a href="#"><img src="images/lea.JPG"  id="Martinez, Ma. Lea A." alt="Lea Martinez" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
+                           <div class="col-xs-3"><a href="#"><img src="images/lea.jpg"  id="Martinez, Ma. Lea A." alt="Martinez, Ma. Lea A." onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
 						  
 						  
                       </div>
