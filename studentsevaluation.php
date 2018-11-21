@@ -257,8 +257,8 @@ include('includes/session.php');
         font-size: 40px;
     }
     .container{
-        width: 1590px !important;
-		margin-left: 155px !important;
+        width: 1226px !important;
+		margin-left: 121px !important;
     }
     h2 {
     font-size: 40px;
@@ -276,7 +276,7 @@ include('includes/session.php');
         font-size: 40px;    
     }
     .radio{
-        margin-left: 740px;
+        margin-left: 600px;
         margin-top: -40px;
     }
     .checkbox label, .radio label {
@@ -300,8 +300,14 @@ include('includes/session.php');
         margin-top: 9px;
     }
     
-    .profile {
-        height: 2354px !important;
+	.boxed_item {
+    border: 2px solid #fff;
+    text-align: center;
+    margin-right: 35px;
+	}
+    
+	.profile {
+        height: 2400px !important;
     }
     
     .footer-text {
@@ -353,7 +359,7 @@ include('includes/session.php');
       <div class="container">
          <div class="row">
           <div class="col-md-3">
-          <div class="profile" style="height: 2482px;">
+          <div class="profile">
     
                   <br>
             <img src="images/blank.png" id="profpic" style="display: none;" class="img-responsive center-block img-circle img-profile">

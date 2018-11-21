@@ -29,6 +29,36 @@ include('../session.php');
 
 }
 
+
+function getDepartment(){
+
+ include("../indexDB.php");
+include('../session.php');
+ 
+     $getdepartment = "";
+     $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM emp_details where emp_num = '".  $_SESSION['login_user'] ."' " ;
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+       $getdepartment = $row['emp_department'];
+
+      }
+       return $getdepartment;
+  }
+  else{
+     $getdepartment = "None";
+          
+      return $getdepartment;
+  }
+   
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -180,7 +210,7 @@ include('../session.php');
 
                       <div class="item">
                           <div class="col-md-3 mb-3"><a href="#"><img src="images/regina.jpg" alt="Santos, Regina C." style="max-width: 100%;"></a><h4><center><b>Santos, Regina C.</b></center></h4></div>
-                          <div class="col-md-3 mb-3"><a href="#"><img src="images/lea.jpg" alt="Martinez, Lea" style="max-width: 100%;"></a><h4><center><b>Martinez, Lea</b></center></h4></div>
+                          <div class="col-md-3 mb-3"><a href="#"><img src="images/lea.jpg" alt="Martinez, Ma. Lea A." style="max-width: 100%;"></a><h4><center><b>Martinez, Ma. Lea A.</b></center></h4></div>
                           
 
                       </div>
@@ -207,168 +237,506 @@ include('../session.php');
 
                       <div class="item active">
 
-                          <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #4E887F;">
-                                <div class="container">
-                                   <a data-toggle="modal" data-target="#bsit" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                    <img src="images/software.png" class="center-block img-responsive" class="image">
-                                    <hr>
-                                    <h3>BSIT</h3>
-                                   </a>
-                                   <div class="overlay">Select this</div>
-                                </div>
+                        <?php
 
-                            </div>
-                          </div> 
-                           <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #4C7FB0;">
-                                <div class="container">
-                                    <a data-toggle="modal" data-target="#bsa" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                      <img src="images/accounting.png" class="center-block img-responsive" class="image">
-                                      <hr>
-                                       <h3>BSA</h3>
-                                    </a>
-                                    <div class="overlay">Select this</div>
-                                </div>
+                        if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
 
-                            </div>
-                          </div>  
-                          <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #8d192c;">
-                                <div class="container">
-                                    <a data-toggle="modal" data-target="#bais" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                      <img src="images/planet-earth.png" class="center-block img-responsive" class="image">
-                                      <hr>
-                                       <h3>BAIS</h3>
-                                    </a>
-                                    <div class="overlay">Select this</div>
-                                </div>
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/software.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSIT</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
 
-                            </div>
-                          </div>  
-                          <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #c59744;">
-                                <div class="container">
-                                    <a data-toggle="modal" data-target="#bap" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                      <img src="images/brain.png" class="center-block img-responsive" class="image">
-                                      <hr>
-                                       <h3>BAP</h3>
-                                    </a>
-                                    <div class="overlay">Select this</div>
-                                </div>
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BSIT"){
 
-                            </div>
-                          </div>  
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/software.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSIT</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+
+                        }
+
+
+                       
+
+                          if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/software.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSA</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BSA"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/accounting.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSA</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+                          
+                        }
+
+
+                          ?>
+
+                        <?php
+
+                         if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/brain.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BAIS</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BAIS"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/brain.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BAIS</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+                          
+                        }
+
+
+                          ?>  
+
+                          <?php
+
+                          if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #c59744;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/brain.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BAP</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BAP"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/brain.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BAP</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+                          
+                        }
+
+
+                          ?>   
+                         
                       </div>
 
                       <div class="item">
-                          <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #4E887F;">
-                                <div class="container">
-                                   <a data-toggle="modal" data-target="#beed" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                    <img src="images/class-group.png" class="center-block img-responsive" class="image">
-                                    <hr>
-                                    <h3>BEEd</h3>
-                                   </a>
-                                   <div class="overlay">Select this</div>
-                                </div>
 
-                            </div>
-                          </div> 
-                          <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #4C7FB0;">
-                                <div class="container">
-                                    <a data-toggle="modal" data-target="#bacms" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                      <img src="images/video.png" class="center-block img-responsive" class="image">
-                                      <hr>
-                                       <h3>BACMS</h3>
-                                    </a>
-                                    <div class="overlay">Select this</div>
-                                </div>
+                         <?php
 
-                            </div>
-                          </div>  
-                          <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #8d192c;">
-                                <div class="container">
-                                    <a data-toggle="modal" data-target="#bsat" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                      <img src="images/profit.png" class="center-block img-responsive" class="image">
-                                      <hr>
-                                       <h3>BSAT</h3>
-                                    </a>
-                                    <div class="overlay">Select this</div>
-                                </div>
+                          if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
 
-                            </div>
-                          </div> 
-                         <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #c59744;">
-                                <div class="container">
-                                    <a data-toggle="modal" data-target="#bsba" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                      <img src="images/operation.png" class="center-block img-responsive" class="image">
-                                      <hr>
-                                       <h3>BSBA</h3>
-                                    </a>
-                                    <div class="overlay">Select this</div>
-                                </div>
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/class-group.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BEEd</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
 
-                            </div>
-                          </div>   
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BEEd"){
 
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/class-group.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BEEd</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+                          
+                        }
+
+
+                          ?> 
+
+                           <?php
+
+                         if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/video.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BACMS</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BACMS"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/video.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BACMS</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+                          
+                        }
+
+
+                          ?> 
+
+
+                           <?php
+
+                         if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/profit.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSAT</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BSAT"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/profit.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSAT</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+                          
+                        }
+
+
+                          ?> 
+
+                           <?php
+
+                          if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #c59744;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/operation.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSBA</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BSBA"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #c59744;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/operation.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSBA</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+                          
+                        }
+
+
+                          ?> 
+                         
                       </div>
+
                       <div class="item">
-                         <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #4E887F;">
-                                <div class="container">
-                                   <a data-toggle="modal" data-target="#bse" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                    <img src="images/entrepreneur.png" class="center-block img-responsive" class="image">
-                                    <hr>
-                                    <h3>BSE</h3>
-                                   </a>
-                                   <div class="overlay">Select this</div>
-                                </div>
+                         <?php
 
-                            </div>
-                         </div>  
-                         <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #4C7FB0;">
-                                <div class="container">
-                                    <a data-toggle="modal" data-target="#bsed" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                      <img src="images/books.png" class="center-block img-responsive" class="image">
-                                      <hr>
-                                       <h3>BSEd</h3>
-                                    </a>
-                                    <div class="overlay">Select this</div>
-                                </div>
+                          if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/entrepreneur.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSE</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
 
-                            </div>
-                         </div> 
-                         <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #8d192c;">
-                                <div class="container">
-                                    <a data-toggle="modal" data-target="#bslm" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                      <img src="images/auction.png" class="center-block img-responsive" class="image">
-                                      <hr>
-                                       <h3>BSLM</h3>
-                                    </a>
-                                    <div class="overlay">Select this</div>
-                                </div>
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BSE"){
 
-                            </div>
-                         </div>  
-                         <div id="container" class="col-xs-6 col-md-3">
-                            <div class="jumbotron" style="background-color: #c59744;">
-                                <div class="container">
-                                    <a data-toggle="modal" data-target="#bsp" style="text-decoration: none;color: #fff;text-align: center;"> 
-                                      <img src="images/memorize.png" class="center-block img-responsive" class="image">
-                                      <hr>
-                                       <h3>BSP</h3>
-                                    </a>
-                                    <div class="overlay">Select this</div>
-                                </div>
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4E887F;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/entrepreneur.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSE</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
 
-                            </div>
-                          </div>
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+                          
+                        }
+
+
+                          ?> 
+                        
+                        <?php
+
+                         if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/books.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSEd</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BSEd"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #4C7FB0;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/books.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSEd</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+                          
+                        }
+
+
+                          ?> 
+
+                           <?php
+
+                          if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/auction.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSLM</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BSLM"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #8d192c;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/auction.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSLM</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+                          
+                        }
+
+
+                          ?> 
+
+                   
+                   
+                           <?php
+
+                          if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #c59744;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/memorize.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSP</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else if (getDepartment() == "BSP"){
+
+                         echo "<div id='container' class='col-xs-6 col-md-3'>";
+                         echo  "<div class='jumbotron' style='background-color: #c59744;'>";
+                          echo  "<div class='container'>";
+                                echo   "<a data-toggle='modal' data-target='#bsit' style='text-decoration: none;color: #fff;text-align: center;'>"; 
+                                  echo "<img src='images/memorize.png' class='center-block img-responsive' class='image'>";
+                                  echo  "<hr>";
+                                    echo "<h3>BSP</h3>";
+                                  echo "</a>";
+                                  echo  "<div class='overlay'>Select this</div>";
+                               echo "</div>";
+
+                           echo "</div>";
+                         echo "</div>";
+                        }
+                        else{
+                          
+                        }
+
+
+                          ?> 
+
+                        
                          
                          
                       </div>
@@ -376,9 +744,18 @@ include('../session.php');
 
                       <!--  Example item end -->
                     </div>
-                    <a class="left carousel-control leftcontrol" href="#cCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-                    <a class="right carousel-control" href="#cCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
 
+                    <?php
+
+                     if (getDepartment() == "Dean" || getDepartment() == "Vice Dean"){
+                       echo "<a class='left carousel-control leftcontrol' href='#cCarousel' data-slide='prev'><i class='glyphicon glyphicon-chevron-left'></i></a>";
+
+                   echo "<a class='right carousel-control' href='#cCarousel' data-slide='next'><i class='glyphicon glyphicon-chevron-right'></i></a>";
+                    }
+
+                  
+
+                      ?>
                   </div>
                     <!--end-->          
          </div>
@@ -411,12 +788,15 @@ include('../session.php');
                           <div class="col-xs-3" style="" ><a href="#"><img src="images/002.jpg" id="Musni, Aristotle" alt="Aristotle F. Musni" onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
                           <div class="col-xs-3"><a href="#"><img src="images/edgar.JPG" id="Torres, Edgardo" alt="Edgar Torres" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
                           <div class="col-xs-3"><a href="#"><img src="images/mark.JPG" id="Alejandria, Mark Cherwin L." alt="Mark Alejandria" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
-                          <div class="col-xs-3"><a href="#"><img src="images/ponce.JPG"  id="Ponce, Consuelo C." alt="Connie Ponce" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
+                           <div class="col-xs-3"><a href="#"><img src="images/lea.jpg"  id="Martinez, Ma. Lea A." alt="Martinez, Ma. Lea A." onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
+						  
+						  
                       </div>
 
                       <div class="item" style="margin-left: 20px; margin-right: 20px;">
+					      <div class="col-xs-3"><a href="#"><img src="images/ponce.JPG"  id="Ponce, Consuelo C." alt="Connie Ponce" onClick="reply_click(this.id)" style="max-width: 100%;"></a></div>
                           <div class="col-xs-3"><a href="#"><img src="images/regina.jpg" id="Santos, Regina C." onClick="reply_click(this.id)" alt="Image" style="max-width: 100%;"></a></div>
-                          
+                         
 
                       </div>
                    
