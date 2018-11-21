@@ -232,6 +232,7 @@ include('session.php');
              <li><a href="performanceappraisal/home.php" style="color:#ecf0f1;" onMouseOver="this.style.color='#777'" onMouseOut="this.style.color='#ecf0f1'">Home</a></li>
       <li><a href="performanceappraisal/reports.php" style="color:#ecf0f1;" onMouseOver="this.style.color='#777'" onMouseOut="this.style.color='#ecf0f1'">Reports</a></li>
       <li><a href="performanceappraisal/summary.php">Summary</a></li>
+      <li><a href='performanceappraisal/upload.php'>Upload</a></li>
           </ul>
              <ul class="nav navbar-nav navbar-right">
              <li><a href="#" class="welcome-text">Welcome, <?php echo $welcome;?></a></li>

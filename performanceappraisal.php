@@ -285,7 +285,7 @@ include('includes/session.php');
                echo  "<li><a href='performanceappraisal/home.php'>Home</a></li>";
                echo  "<li><a href='performanceappraisal/reports.php'>Reports</a></li>";
                echo  "<li><a href='performanceappraisal/summary.php'>Summary</a></li>";
-            
+               echo  "<li><a href='performanceappraisal/upload.php'>Upload</a></li>";
 
             }
 
