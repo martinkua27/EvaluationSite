@@ -1052,7 +1052,7 @@ include('includes/session.php');
 
       
     <footer id="footer">
-      <p class="footer-text">Copyright @ 2018 San Beda College Alabang. All rights reserved.</p>
+      <p class="footer-text-a">Copyright @ 2018 San Beda College Alabang. All rights reserved.</p>
     </footer>  
       
       

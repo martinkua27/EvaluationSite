@@ -135,7 +135,7 @@ include('../session.php');
   <body style="background-color: #212121;">
 
   <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#9f0000;">
-      <div class="container">
+      <div class="container navbar-home">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -830,9 +830,9 @@ include('../session.php');
          
           <div class="modal-footer">
              <p id="pText" style="float: left;">Choose an option</p>
-            <input type="button" data-dismiss="modal" style="float: right;" value="Close"> 
-            <input type="button" id="fbtn" value="Go" onclick="go();" style="display: none; float: right;">
-           <input type="button" id="sbtn" value="Go" onclick="gotwo();" style="display: none; float: right;">
+            <input  class="btn btn-default" type="button" data-dismiss="modal" style="float: right;" value="Close"> 
+            <input class="btn btn-default" type="button" id="fbtn" value="Go" onclick="go();" style="display: none; float: right;">
+           <input class="btn btn-default" type="button" id="sbtn" value="Go" onclick="gotwo();" style="display: none; float: right;">
           </div>
           
         </div>

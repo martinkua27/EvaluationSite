@@ -190,6 +190,7 @@ body {
     color: #fff;
     background-color: #6c757d;
 }
+
 /* end */
 /*carousel course */
 .ccarousel-width-height {
@@ -296,6 +297,10 @@ body {
 }
 /*performance appraisal*/
 @media (max-width: 1920px) { 
+   /*home*/
+   .navbar-home {
+    width: 1745px;    
+  }
    /*performance appraisal*/
   .bg-top {
     max-width: 100%; 
@@ -415,9 +420,182 @@ body {
   input[type=radio], .radio-inline input[type=radio] {
     width: 20px;
   }
+  .footer-text-a {
+    margin-top:25px;
+    text-align-last: center !important;
+  }
  
 }
+/**/
+@media (max-width: 1680px) { 
+    /*home*/
+    .navbar-home {
+    width: 1400px !important;
+    }
+    /*performance*/
+    .navbar-performance {
+    width: 1400px !important;
+    }
+    .bg-top {
+    max-width: 100%; 
+    z-index: -30px;
+    }
+    .profile-bg {
+    margin-left: 255px;
+    }
+    .scoring-bg {
+    margin-left: 255px;
+    }
+    .bg-2 {
+    margin-left: 255px;
+    }
+}
+@media (max-width: 1600px) { 
+    /*performance*/
+    .profile-bg {
+    margin-left: 212px;
+    }
+    .scoring-bg {
+    margin-left: 212px;
+    }
+    .bg-2 {
+    max-width: 100%;
+    margin-left: 212px;
+    }
+}
+@media (max-width: 1440px) { 
+    /*home*/
+    .navbar-home {
+    width: 1255px !important;
+    }
+    /*performance*/
+    .navbar-performance {
+    width: 1255px !important;
+    }
+    .profile-bg {
+    margin-left: 135px;
+    }
+    .scoring-bg {
+    margin-left: 135px;
+    }
+    .bg-2 {
+    margin-left: 135px;
+    }
+}
+@media (max-width: 1366px) { 
+    .profile-bg {
+    margin-left: 93px;
+    }
+    .scoring-bg {
+    margin-left: 93px;
+    }
+    .bg-2 {
+    margin-left: 93px;
+    }
+}
+@media (max-width: 1300px) {
 
+}
+@media (max-width: 1280px) {
+    /*home*/
+	.navbar-home {
+    width: 1200px !important;
+    }
+    /*performance*/
+    .navbar-performance {
+    width: 1200px !important;
+    }
+    .profile-bg {
+    margin-left: 55px;
+    }
+     .scoring-bg {
+    margin-left: 55px;
+    }
+    .bg-2 {
+    margin-left: 55px;
+    }
+}
+@media (max-width: 1024px) {
+    /*home*/
+	.navbar-home {
+    width: 980px !important;
+    }
+   #theCarousel {
+    /* margin-right: 151px; */
+    margin-right: 369px;
+    }
+   /*performance*/
+   .navbar-performance {
+   width: 980px !important;
+   }
+   .profile-bg {
+    margin-left: 55px;
+    width: 915px;
+    margin-top: -65px;
+    height: 300px;
+    }
+    .line-prof {
+    width: 518px;
+    }
+    .profile-imgprof {
+    height: 212px;
+    width: 193px;
+    margin-left: 65px;
+    }
+    .img-top {
+    height: 300px;
+    }
+    .scoring-bg {
+    width: 915px;
+    }
+    .bg-2 {
+    width: 915px;
+    }
+    .radio-group {
+    margin-left: 24px;
+    margin-top: 18px;
+    margin-bottom: -25px;
+    }
+}
+@media (max-width: 960px) {
+    /*home*/
+     .navbar-home {
+    width: 875px !important;
+   }
+    .ccarousel-width-height {
+    width: 93% !important;
+    height: 625px;
+    margin-left: 20px;
+    }
+    .col-xs-6 {
+    margin-bottom: 50px;
+    }
+    #theCarousel {
+    /* margin-right: 151px; */
+    margin-right: 150px;
+    }
+    /*performance*/
+   .navbar-performance {
+    width: 875px !important;
+    }
+    
+    
+}
+@media (max-width: 800px) {
+    /*home*/
+    .navbar-home {
+    width: 769px !important;
+    }
+    .ccarousel-width-height {
+    width: 90% !important;
+    height: 625px;
+    margin-left: 36px;
+    }
+    /*performance*/
+   .navbar-performance {
+    width: 769px !important;
+    }
+}
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #ecf0f1;
@@ -446,3 +624,21 @@ body {
 
 }
 
+@media (max-width: 640px) {
+    /*home*/
+    .navbar-home {
+    width: 614px !important;
+   }
+    .ccarousel-width-height {
+    width: 93% !important;
+    height: 550px;
+    margin-left: 20px;
+    }
+    .col-xs-6 {
+    margin-bottom: 50px;
+    }
+    /*performance*/
+   .navbar-performance {
+    width: 614px !important;
+    }
+}

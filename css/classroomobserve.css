@@ -166,6 +166,36 @@ textarea {
     margin-top: 40px !important;
 }
 
+/*classroom observe*/
+@media (max-width: 1920px) { 
+    .navbar-classroom {
+        width: 1745px !important;
+    }
+    .bg-top {
+    z-index: -10px;
+    margin-top: -40px;
+    width: 15000px;
+    height: 1000px;
+    background-image: url('../classroomobservation/images/pattern3.png');
+    background-repeat-x: repeat !important;
+    }
+    .text-top {
+    margin-top: -875px;
+    }
+    .profile {
+    height: 1494px;
+    }
+}
+@media (max-width: 1680px) { 
+    .navbar-classroom {
+    width: 1400px !important;
+    }
+}
+@media (max-width: 1440px) { 
+    .navbar-classroom {
+    width: 1255px !important;
+    }
+}
 @media (max-width: 1300px) {
 	.title {
 		margin-left: -35px;
@@ -178,6 +208,40 @@ textarea {
 		margin-left: -47px;
 	}
 	
+}
+@media (max-width: 1280px) {
+	 .navbar-classroom {
+    width: 1200px !important;
+    }
+    .numbering {
+    margin-left: 1px;
+    }
+	
+}
+@media (max-width: 1024px) {
+	 .navbar-classroom {
+    width: 980px !important;
+    }
+    .profile {
+    height: 1526px;
+    }
+	
+}
+@media (max-width: 960px) {
+    .navbar-classroom {
+    width: 875px !important;
+    }
+    .profile {
+    height: 1202px;
+    margin-left: -8px;
+    margin-right: -11px;
+    }
+}
+@media (max-width: 800px) {
+    .navbar-classroom {
+    width: 769px !important;
+    }
+   
 }
 
 @media (max-width: 767px) {
@@ -200,4 +264,23 @@ textarea {
   #dropdownMenu1 {
     margin-left: 10px;    
   }
+}
+@media (max-width: 640px) {
+    .navbar-classroom {
+    width: 614px !important;
+   }
+    .numbering {
+    margin-left: -41px;
+    }
+   .checkbox-inline, .radio-inline {
+    position: relative;
+    display: inline-block;
+    padding-left: 18px;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-left: -33px;
+    }
+ 
 }

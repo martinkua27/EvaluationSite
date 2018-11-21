@@ -216,7 +216,7 @@ include('session.php');
   <body style="background-color: #f1bd60;">
 
   <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+      <div class="container navbar-classroom">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -251,9 +251,10 @@ include('session.php');
     
       
      
-      <div class="container-fluid" style="margin-top:70px;">
+      <div class="container-fluid" style="margin-top:35px;">
         <div class="row">
-             <img src="classroomobservation/images/pattern3.png" class="bg-top img-responsive">
+                 <div class="bg-top"></div>
+<!--             <img src="classroomobservation/images/pattern3.png" class="bg-top img-responsive">-->
              <h1 class="text-top">Classroom Observation<br>Sheet</h1>
         </div>
       </div>

@@ -171,6 +171,7 @@ textarea {
 		margin-left: 25px !important;
 	}
 }
+
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #f8f9f9;
