@@ -146,6 +146,95 @@ textarea {
     text-align: center;
     color: #fff;
 }
+table, td, th {
+    border: none !important;
+    padding: 5px;
+}
+/*responsiveness*/
+@media (max-width: 1920px) { 
+    .navbar-summary {
+        width: 1745px !important;
+    }
+     /*upload*/
+    .navbar-upload {
+        width: 1745px;         
+    }
+ 
+}
+@media (max-width: 1680px) { 
+    .navbar-summary {
+    width: 1400px !important;
+    }
+     /*upload*/
+    .navbar-upload {
+    width: 1400px !important;       
+    }
+}
+@media (max-width: 1440px) { 
+    .navbar-summary {
+    width: 1255px !important;
+    }
+    .navbar-upload {
+    width: 1255px !important;
+    }
+}
+@media (max-width: 1300px) {
+
+}
+@media (max-width: 1280px) {
+	 .navbar-summary {
+    width: 1200px !important;
+    }
+    .navbar-upload {
+    width: 1200px !important;
+    }
+
+	
+}
+@media (max-width: 1024px) {
+	 .navbar-summary {
+    width: 980px !important;
+    }
+     .navbar-upload {
+    width: 980px !important;
+    }
+    .boxed_item {
+    border: 2px solid #fff;
+    text-align: center;
+    margin-right: 85px !important;
+    }
+    .boxed-title {
+    max-width: 23% !important;
+    }
+    table {
+    width: 576px !important;
+    }
+    .rating-text {
+    margin-left: 246px !important;    
+    }
+    .signature {
+    margin-left: 400px !important;
+    }
+	
+}
+@media (max-width: 960px) {
+    .navbar-summary {
+    width: 875px !important;
+    }
+    .navbar-upload {
+    width: 875px !important;
+    }
+
+}
+@media (max-width: 800px) {
+    .navbar-summary {
+    width: 769px !important;
+    }
+    .navbar-upload {
+    width: 769px !important;
+    }
+   
+}
 
 
 
@@ -164,4 +253,17 @@ textarea {
     color: #fefeff;
     background-color: #443737;
   }
+}
+
+
+@media (max-width: 640px) {
+    .navbar-summary {
+    width: 614px !important;
+   }
+    .navbar-upload {
+    width: 614px !important;
+    }
+   /*upload ayos mo mamaya*/
+  
+ 
 }

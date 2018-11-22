@@ -93,7 +93,7 @@ include('../session.php');
   <body style="background-color: #212121;">
 
   <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#9f0000;">
-      <div class="container">
+      <div class="container navbar-summary">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -267,15 +267,15 @@ include('../session.php');
 		
 		<div class="col-md-12">
 		
-			<table class="table table-hover table-responsive"  style="width:770px;">
-				
+			<table class="table table-responsive"  style="width:770px;">
+				<th>
 				<tr>
 					<th><h4><b>Classroom Observation (35%)</b></h4></th>
-					<th><h4><b>Rating</b></h4></th>
-					<th><h4><b>%</b></h4></th>
-					<th><h4><b>Total</b></h4></th>
+					<th class="text-center"><h4><b>Rating</b></h4></th>
+					<th class="text-center"><h4><b>%</b></h4></th>
+					<th class="text-center"><h4><b>Total</b></h4></th>
 				</tr>
-					
+                </th>	
 				<!--1 Dean/VDAA-->
 				<tr>
 					
@@ -283,17 +283,17 @@ include('../session.php');
 						<h4>1. DEAN/VDAA (5%)</h4>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
 						<p id="vdaaClassroomObservationRating">-</p>
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
                   .05<?php echo $filterProf; ?>
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
 						<p id="vdaaClassroomObservationTotal">-</p>
 						</label>  
 					</td>
@@ -307,17 +307,17 @@ include('../session.php');
 						<h4>2. Chair/Coordinator (20%)</h4>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
 						<p id="chairClassroomObservationRating">-</p>
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
 					  .30
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
 						<p id="chairClassroomObservationTotal">-</p>
 						</label>       
 					</td>
@@ -349,17 +349,17 @@ include('../session.php');
 						<h4>1. Dean/VDAA (20%)</h4>
 					</td>
 				
-					<td><label>
+					<td class="text-center"><label>
 						<p id="deanVdaaPerformanceAppraisalRating">-</p>
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
                   .20<?php echo $filterProf; ?>
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
 						<p id="deanVdaaPerformanceAppraisalTotal">-</p>
 						</label>  
 					</td>
@@ -373,17 +373,17 @@ include('../session.php');
 						<h4>2. Chair/Coordinator (20%)</h4>
 					</td>
 				
-					<td><label>
+					<td class="text-center"><label>
 						<p id="chairPerformanceAppraisalRating">-</p>
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
                   .20<?php echo $filterProf; ?>
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
 						<p id="chairPerformanceAppraisalTotal">-</p>
 						</label>  
 					</td>
@@ -397,17 +397,17 @@ include('../session.php');
 						<h4><b>Students Evaluation (20%)</b></h4>
 					</td>
 				
-					<td><label>
+					<td class="text-center"><label>
 						<p id="studentsEvaluationRating">-</p>
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
                   .20<?php echo $filterProf; ?>
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
 						<p id="studentsEvaluationTotal">-</p>
 						</label>  
 					</td>
@@ -421,17 +421,17 @@ include('../session.php');
 						<h4><b>Self Evaluation (5%)</b></h4>
 					</td>
 				
-					<td><label>
+					<td class="text-center"><label>
 						<p id="selfEvaluationRating">-</p>
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
                   .05<?php echo $filterProf; ?>
 						</label>
 					</td>
 					
-					<td><label>
+					<td class="text-center"><label>
 						<p id="selfEvaluationTotal">-</p>
 						</label>  
 					</td>
@@ -444,10 +444,11 @@ include('../session.php');
                
 			<br><br><br>
 			  
-            <h3 class="panel-title" style="margin-left:400px;">OVER-ALL RATING</h3><h4 class="signature" style="margin-left: 550px; width:200px; margin-top:-20px;"><p style="margin-left: 90px;" id="overallTotal">-</p></h4>
+            <h3 class="panel-title rating-text" style="margin-left:400px;">OVER-ALL RATING</h3><h4 class="signature" style="margin-left: 550px; width:200px; margin-top:-20px;"><p style="margin-left: 90px;" id="overallTotal">-</p></h4>
 
 			<br><br>
 			
+<!--
                 <h5 class='department'>Prepared by:</h5>
 				<br>
 				<h1 class='name'><h4 class="signature" style="margin-left: 0px; width:220px; margin-top:-20px;"><img src="images/signatureOne.png" alt="Smiley face" height="42" width="200" style="display: none;" id="sign"></h4></h1>
@@ -462,8 +463,10 @@ include('../session.php');
 				<h1 class='name'><h4 class="signature" style="margin-left: 0px; width:220px; margin-top:-20px;"><img src="images/signatureTwo.png" alt="Smiley face" height="42" width="200" style="display: none;" id="signTwo"></h4></h1>
 	            
 				<h5 class='department' style="margin-left: 0px; margin-top:-10px;">Vice Dean for Academic Affairs</h5>
+-->
 				
 				
+<!--
 				<div style="margin-top: -90px">
 				<h5 class='department' style="margin-left: 450px; margin-top:30px;">Approved by:</h5>
 				<br>
@@ -478,6 +481,7 @@ include('../session.php');
 				<h1 class='name'><h4 class="signature" style="margin-left: 450px; width:220px; margin-top:-20px;">NONE</h4></h1>
            
               </div>
+-->
               </div>
             
               </div>

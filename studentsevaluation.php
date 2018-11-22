@@ -245,83 +245,14 @@ include('includes/session.php');
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <script src="sweetalert2/dist/sweetalert2.min.js"></script>
    
-   <style>
-   /*iMAC 21"*/
-/* 1920 x 1080 */
-@media screen and (max-width: 1920px) {
-    .navbar.navbar-default.navbar-fixed-top{
-        font-size: 25px;
-    }
-    .text-top{
-        margin-top: -844px;
-        font-size: 40px;
-    }
-    .container{
-        width: 1226px !important;
-		margin-left: 121px !important;
-    }
-    h2 {
-    font-size: 40px;
-    }
-    .boxed-title{
-        max-width: 37%;
-    }
-    h4 {
-        font-size: 20px;
-    }
-    h5 {
-        font-size: 30px;
-    }
-    h3 {
-        font-size: 40px;    
-    }
-    .radio{
-        margin-left: 600px;
-        margin-top: -40px;
-    }
-    .checkbox label, .radio label {
-        padding-left: 25px;
-        margin-left: -5px;
-    }
-    .img-profile {
-        height: 200px;
-    }
-    
-    .subj-code {
-        max-width: 88%;
-        font-size: 20px;
-    }
-    
-    .name {
-        font-size: 25px;
-    }
-    hr {
-        margin-right: 40px;
-        margin-top: 9px;
-    }
-    
-	.boxed_item {
-    border: 2px solid #fff;
-    text-align: center;
-    margin-right: 35px;
-	}
-    
-	.profile {
-        height: 2400px !important;
-    }
-    
-    .footer-text {
-        font-size: 25px  !important;
-    }
-}
-</style>
+  
 
   </head>
 
   <body style="background-color: #9f0000;">
 
   <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+      <div class="container navbar-student">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -455,7 +386,7 @@ include('includes/session.php');
 				<div class="radio">
                <div class="radio-group">
 		 <h4 class="title" class="radio-inline"><b>
-                  5&nbsp&nbsp&nbsp&nbsp&nbsp4&nbsp&nbsp&nbsp&nbsp&nbsp3&nbsp&nbsp&nbsp&nbsp2&nbsp&nbsp&nbsp&nbsp&nbsp1
+                 5<div class="scoring-space"></div>4<div class="scoring-space"></div>3<div class="scoring-space"></div>2<div class="scoring-space"></div>1
                 </b></h4>
                </div>
 			   </div>
@@ -483,7 +414,7 @@ include('includes/session.php');
               
               </div>
               </div>
-               
+              <br>
                <!-- 2 -->
                <h4>2. Clarifies the objective/s of the lesson.</h4>
                <div class="radio">
@@ -508,7 +439,7 @@ include('includes/session.php');
             
               </div>
               </div>
-               
+              <br>   
               <!-- 3 -->
               <h4>3. Makes the lesson practical and relevant<br>by relating it with everyday living.</h4>
                <div class="radio">
@@ -533,7 +464,7 @@ include('includes/session.php');
               
               </div>
               </div>
-              
+              <br>
               <!-- 4 -->
               <h4>4. Relates the lesson witch current issues<br>and other subject areas whenever posssible.</h4>
                <div class="radio">
@@ -558,7 +489,7 @@ include('includes/session.php');
               
               </div>
               </div>
-               
+              <br>   
               <!-- 5 -->
               <h4>5. Facilitates student's understanding by<br>rephrasing ques questions using synonyms,<br>giving examples and the like.</h4>
                <div class="radio">
@@ -583,7 +514,7 @@ include('includes/session.php');
               
               </div>
               </div>
-              
+              <br>
               <!-- 6 -->
               <h4>6. Formulates questions that challenge<br>the students' imaginations or reasoning ability.</h4>
                <div class="radio">
@@ -608,7 +539,7 @@ include('includes/session.php');
               
               </div>
               </div>
-              
+              <br>
                <!-- 7 -->
               <h4>7. Gives students learning tasks;<br>exercises related to the topics learned/being learned.</h4>
                <div class="radio">
@@ -633,7 +564,7 @@ include('includes/session.php');
               
               </div>
               </div>
-              
+              <br>
               <!-- 8 -->
               <h4>8. Uses instructional time productively<br>by properly apportioning it to all class activities.</h4>
                <div class="radio">
@@ -658,7 +589,7 @@ include('includes/session.php');
               
               </div>
               </div>
-              
+              <br>
               <!-- 9 -->
               <h4>9. Encourages maximum participation<br>of the students in all activities.</h4>
                <div class="radio">
@@ -683,7 +614,7 @@ include('includes/session.php');
               
               </div>
               </div>
-              
+              <br>
               <!-- 10 -->
               <h4>10. Makes use of the whiteboard and<br>otheraudiovisual materials like pictures, <br>graphs, and outlines to make the lesson<br>more interesting.</h4>
                <div class="radio">
@@ -708,7 +639,7 @@ include('includes/session.php');
               
               </div>
               </div>
-             
+             <br>
               <!-- 11 -->
               <h4>11. Provides students with more<br>oppurtunities for learning by<br>giving assignments, research work,<br>and the like which could be<br>accomplished within the allotted time.</h4>
                <div class="radio">
@@ -733,7 +664,7 @@ include('includes/session.php');
               
               </div>
               </div>
-              
+              <br>
               <!-- 12 -->
               <h4>12. Encourages students to ask<br>intelligent and relevant questions.
                <div class="radio">
@@ -758,7 +689,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+              <br>      
                <!-- 13 -->
               <h4>13. Establishes continuity and<br>unity of present and previous lessons.<br>Summarizes the lesson to bring out important points. 
                <div class="radio">
@@ -783,7 +714,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+              <br>      
                <!-- 14 -->
               <h4>14. Evaluates students performance<br>by giving quizzes from time to time. 
                <div class="radio">
@@ -808,7 +739,7 @@ include('includes/session.php');
               
               </div>
               </div>
-            
+              <br>
               <!-- 15 -->
               <h4>15. Informs students of test results<br>not later than two weeks after the exam. 
                <div class="radio">
@@ -833,7 +764,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+              <br>          
               <!-- 16 -->
               <h4>16. Explains the grading system and gives grades fairly. 
                <div class="radio">
@@ -859,7 +790,7 @@ include('includes/session.php');
               </div>
               </div>
              
-              <br>
+              <br><br>
               <!-- B -->
               <h4 class="title">B. <b>MASTERY OF THE SUBJECT MATTER (20%)</b></h4>
                <h4>1. Presents the lessons systematically.</h4>
@@ -885,7 +816,7 @@ include('includes/session.php');
               
               </div>
               </div>
-               
+              <br>  
               
                   
               <!-- B 2 -->
@@ -912,7 +843,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                
+              <br>  
               <!-- B 3 -->
               <h4>3. Answers question of the students<br>intelligently and satisfactorily. </h4>
                <div class="radio">
@@ -939,7 +870,7 @@ include('includes/session.php');
               </div>
                
 			   <br>
-              
+               <br>
               <!-- C -->
 
               <h4 class="title">C. <b>COMMUNICATION SKILLS (15%)</b></h4>
@@ -947,7 +878,7 @@ include('includes/session.php');
 			  <div class="radio">
                <div class="radio-group">
 		 <h4 class="title" class="radio-inline"><b>
-                  5&nbsp&nbsp&nbsp&nbsp&nbsp4&nbsp&nbsp&nbsp&nbsp&nbsp3&nbsp&nbsp&nbsp&nbsp2&nbsp&nbsp&nbsp&nbsp&nbsp1
+                 5<div class="scoring-space"></div>4<div class="scoring-space"></div>3<div class="scoring-space"></div>2<div class="scoring-space"></div>1
                 </b></h4>
                </div>
 			   </div>
@@ -975,7 +906,7 @@ include('includes/session.php');
               
               </div>
               </div>
-               
+              <br>
                <!-- C 2 -->
                <h4>2. Has a loud voice enough to be heard by<br>everyone in class.</h4>
                <div class="radio">
@@ -1001,7 +932,7 @@ include('includes/session.php');
               </div>
               </div>
 			  
-			  <br>
+			  <br><br>
                   
                <!-- D -->
 
@@ -1010,7 +941,7 @@ include('includes/session.php');
 			  <div class="radio">
                <div class="radio-group">
 		 <h4 class="title" class="radio-inline"><b>
-                  5&nbsp&nbsp&nbsp&nbsp&nbsp4&nbsp&nbsp&nbsp&nbsp&nbsp3&nbsp&nbsp&nbsp&nbsp2&nbsp&nbsp&nbsp&nbsp&nbsp1
+                 5<div class="scoring-space"></div>4<div class="scoring-space"></div>3<div class="scoring-space"></div>2<div class="scoring-space"></div>1
                 </b></h4>
                </div>
 			   </div>
@@ -1038,7 +969,7 @@ include('includes/session.php');
               
               </div>
               </div>
-            
+              <br>
                <!-- D 2 -->
                <h4>2. Maintains classroom discipline.</h4>
                <div class="radio">
@@ -1063,7 +994,7 @@ include('includes/session.php');
               
               </div>
               </div>
-               
+              <br>   
                <!-- D 3 -->
                <h4>3. Checks the attendance of students.</h4>
                <div class="radio">
@@ -1088,7 +1019,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+              <br>      
                <!-- D 4 -->
                <h4>4. Sees to it that the students wear<br>the prescribed uniform.</h4>
                <div class="radio">
@@ -1113,7 +1044,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+               <br>   
                <!-- D 5 -->
                <h4>5. Sees to it that all teaching materials<br>like whiteboard marker and erasers are prepared.</h4>
                <div class="radio">
@@ -1138,7 +1069,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+               <br>  
                <!-- D 6 -->
                <h4>6. Turns off airconditioning units, all lights,<br>and makes sure that the whiteboard is clean<br>before dismissing the class. </h4>
                <div class="radio">
@@ -1164,7 +1095,7 @@ include('includes/session.php');
               </div>
               </div>
 			  
-			  <br>                  
+			  <br><br>                  
 				  
               <!-- E -->
 
@@ -1173,7 +1104,7 @@ include('includes/session.php');
 			  <div class="radio">
                <div class="radio-group">
 		 <h4 class="title" class="radio-inline"><b>
-                  5&nbsp&nbsp&nbsp&nbsp&nbsp4&nbsp&nbsp&nbsp&nbsp&nbsp3&nbsp&nbsp&nbsp&nbsp2&nbsp&nbsp&nbsp&nbsp&nbsp1
+                 5<div class="scoring-space"></div>4<div class="scoring-space"></div>3<div class="scoring-space"></div>2<div class="scoring-space"></div>1
                 </b></h4>
                </div>
 			   </div>
@@ -1201,7 +1132,7 @@ include('includes/session.php');
               
               </div>
               </div>
-              
+              <br>
               <!-- E 2 -->
                <h4>1. Projects a respectable and a decent image.</h4>
                <div class="radio">
@@ -1226,7 +1157,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+                <br>  
                <!-- E 3 -->
                <h4>3. Practices what he/she preaches/advises.</h4>
                <div class="radio">
@@ -1251,7 +1182,7 @@ include('includes/session.php');
               
               </div>
               </div>
-            
+               <br>
                <!-- E 4 -->
                <h4>4. Manifests and promotes the Benedictine<br>charism of work and prayer. </h4>
                <div class="radio">
@@ -1276,7 +1207,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+                <br>  
                 <!-- E 5 -->
                <h4>5. Integrates positive values in the lesson. </h4>
                <div class="radio">
@@ -1301,7 +1232,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+               <br>      
                <!-- E 6 -->
                <h4>6. Recognizes students' participation in<br>institutional activities by giving proper considerations.</h4>
                <div class="radio">
@@ -1326,7 +1257,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+                <br>  
                <!-- E 7 -->
                <h4>7. Comes to class regularly.</h4>
                <div class="radio">
@@ -1351,7 +1282,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+                <br>  
                <!-- E 8 -->
                <h4>8. Comes to class on time. </h4>
                <div class="radio">
@@ -1376,7 +1307,7 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+               <br>      
                <!-- E 9 -->
                <h4>9. Is approachable and encourages<br>students toconsult him/her for assistance. </h4>
                <div class="radio">
@@ -1401,11 +1332,11 @@ include('includes/session.php');
               
               </div>
               </div>
-                  
+              <br>  
               <div class="start" class="form-group options"><h4> Other Comments:</h4>
             
               </div>
-              <textarea rows="4" name="comments" id="comments"></textarea><br>
+              <textarea rows="4" name="comments" id="comments"></textarea><br><br>
               <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit" name="action" id="saveevaluation" disabled="true">Save</button>
           </form>    
 

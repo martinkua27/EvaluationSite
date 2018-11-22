@@ -129,11 +129,12 @@ hr {
     margin-left: 35px;
 }
 .score {
+    margin-top: 27px;
     font-weight: bold;
 }
 .score2 {
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 27px;
 }
 .checkbox, .radio {
     position: relative;
@@ -144,10 +145,14 @@ hr {
 }
 
 textarea {
+/*
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+*/
+    resize: none !important;
     width: 82%;
+    background-color: #fffffb;
 }
 .footer-text {
     color: #fff;
@@ -155,81 +160,163 @@ textarea {
 }
 /*iMAC 21"*/
 /* 1920 x 1080 */
-@media screen and (max-width: 1920px) {
-    .navbar.navbar-default.navbar-fixed-top{
-        font-size: 25px;
+
+
+@media (max-width: 1920px) { 
+    .navbar-student {
+        width: 1745px !important;
     }
-    .bg-top {
+     .navbar.navbar-default.navbar-fixed-top{
+        font-size: 20px;
+    }
+     .bg-top {
     z-index: -10px;
     margin-top: -40px;
-    width: 15000px;
+    width: 1920px;
     height: 1000px;
     background-image: url('../images/redpattern.jpg');
-    background-repeat-x: repeat !important;
+    background-repeat:repeat-x !important;
     }
-    .text-top {
-        margin-top: -800px;
-        font-size: 70px;
+    .scoring-space {
+    display: inline;
+    margin-left: 28px;
     }
-    .container{
-        width: 1590px !important;
-		margin-left: 260px !important;
+    .text-top{
+        margin-top: -844px;
+        font-size: 40px;
     }
     h2 {
     font-size: 35px;
     }
     .boxed-title{
-        max-width: 25%;
+        max-width: 24%;
     }
     h4 {
-        font-size: 30px;
+        font-size: 18px;
     }
     h5 {
-    font-size: 21px;
+        font-size: 18px;
     }
     h3 {
-        font-size: 28px;    
+        font-size: 20px;    
     }
-    .radio{
-        margin-left: 830px;
-        margin-top: -39px;
+    .radio {
+    margin-left: 600px;
+    margin-top: -30px;
+    margin-bottom: -6px;
     }
     .checkbox label, .radio label {
-        padding-left: 43px;
-        margin-left: -21px;
+        padding-left: 25px;
+        margin-left: -5px;
     }
     .img-profile {
         height: 200px;
     }
     
     .subj-code {
-    max-width: 69%;
-    height: 38px;
-    font-size: 20px;
-    display: inline-block;
+        max-width: 88%;
+        font-size: 18px;
     }
-    button#verify {
-    margin-top: -10px;
-    }
+    
     .name {
-    font-size: 26px;
+        font-size: 18px;
     }
     hr {
         margin-right: 40px;
         margin-top: 9px;
     }
     
+	.boxed_item {
+    border: 2px solid #fff;
+    text-align: center;
+    margin-right: 35px;
+	}
+
     .profile {
-    height: 3397px !important;
-    }
-    .boxed-title {
-    max-width: 23%;
-    font-size: 42px;
+        height: 2832px !important;
     }
     
     .footer-text {
-        font-size: 25px  !important;
+        font-size: 20px  !important;
     }
+    
+    
+}
+
+@media (max-width: 1680px) { 
+    .navbar-student {
+    width: 1400px !important;
+    }
+    .bg-top {
+    z-index: -10px;
+    margin-top: -40px;
+    width: 1680px;
+    height: 1000px;
+    background-image: url('../images/redpattern.jpg');
+    background-repeat:repeat-x !important;
+    }
+  
+}
+@media (max-width: 1440px) { 
+    .navbar-student {
+    width: 1255px !important;
+    }
+    .bg-top {
+    width: 1440px;
+    }
+
+}
+@media (max-width: 1300px) {
+    .bg-top {
+    width: 1300px;
+    }
+}
+@media (max-width: 1280px) {
+	 .navbar-student {
+    width: 1200px !important;
+    }
+    .bg-top {
+    width: 1280px;
+    }
+	
+}
+@media (max-width: 1024px) {
+	 .navbar-student {
+    width: 980px !important;
+    }
+    .bg-top {
+    width: 1024px;
+    }
+    .radio {
+    margin-left: 478px;
+    margin-top: -30px;
+    margin-bottom: -6px;
+    }
+    .margin-questions {
+    margin-left: 24px;
+    }
+    .boxed-title {
+    max-width: 28%;
+    }
+ 
+}
+@media (max-width: 960px) {
+    .navbar-student {
+    width: 875px !important;
+    }
+    .bg-top {
+    width: 960px;
+    }
+   
+}
+@media (max-width: 800px) {
+    .navbar-student {
+    width: 769px !important;
+    }
+    .bg-top {
+    width: 800px;
+    }
+  
 }
 
 @media (max-width: 767px) {
@@ -246,4 +333,15 @@ textarea {
     color: #fefeff;
     background-color: #443737;
   }
+}
+
+@media (max-width: 640px) {
+    .navbar-student {
+    width: 614px !important;
+   }
+    .bg-top {
+    width: 640px;
+    }
+     
+ 
 }

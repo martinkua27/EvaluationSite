@@ -424,6 +424,11 @@ body {
     margin-top:25px;
     text-align-last: center !important;
   }
+  /*reports*/
+  .navbar-reports {
+    width: 1745px;      
+  }
+ 
  
 }
 /**/
@@ -449,6 +454,10 @@ body {
     .bg-2 {
     margin-left: 255px;
     }
+     /*reports*/
+    .navbar-reports {
+    width: 1400px !important;  
+    }
 }
 @media (max-width: 1600px) { 
     /*performance*/
@@ -462,6 +471,7 @@ body {
     max-width: 100%;
     margin-left: 212px;
     }
+    
 }
 @media (max-width: 1440px) { 
     /*home*/
@@ -480,6 +490,10 @@ body {
     }
     .bg-2 {
     margin-left: 135px;
+    }
+     /*reports*/
+    .navbar-reports {
+    width: 1255px !important;
     }
 }
 @media (max-width: 1366px) { 
@@ -514,6 +528,11 @@ body {
     .bg-2 {
     margin-left: 55px;
     }
+    /*reports*/
+    .navbar-reports {
+    width: 1200px !important;
+    }
+    
 }
 @media (max-width: 1024px) {
     /*home*/
@@ -556,6 +575,12 @@ body {
     margin-top: 18px;
     margin-bottom: -25px;
     }
+    
+    /*may problem pa */
+    /*reports*/
+    .navbar-reports {
+     width: 980px !important;
+    }
 }
 @media (max-width: 960px) {
     /*home*/
@@ -578,6 +603,10 @@ body {
    .navbar-performance {
     width: 875px !important;
     }
+     /*reports*/
+    .navbar-reports {
+     width: 875px !important;
+    }
     
     
 }
@@ -594,6 +623,10 @@ body {
     /*performance*/
    .navbar-performance {
     width: 769px !important;
+    }
+     /*reports*/
+    .navbar-reports {
+     width: 769px !important;
     }
 }
 @media (max-width: 767px) {
@@ -640,5 +673,9 @@ body {
     /*performance*/
    .navbar-performance {
     width: 614px !important;
+    }
+    /*reports*/
+    .navbar-reports {
+     width: 614px !important;
     }
 }
