@@ -75,6 +75,7 @@ var averageE = totalE / 9;
 var averagePercentE = averageE * 0.10;
 var finalValueE = averagePercentE.toFixed(2);
 
+   var radioButtons = document.getElementsByTagName("#input")
 
 
 
@@ -107,6 +108,10 @@ comments1: comments
 
 
 swal(data);
+
+for(var i=0;i<radioButtons.length;i++) {
+   radioButtons[i].disabled = true;
+}
 
 $('#myform')[0].reset(); // To reset form fields	
 });
