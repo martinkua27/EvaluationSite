@@ -1337,7 +1337,7 @@ include('includes/session.php');
             
               </div>
               <textarea rows="4" name="comments" id="comments"></textarea><br><br>
-              <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit" name="action" id="saveevaluation" onclick="resetRadio()" disabled="true">Save</button>
+              <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit" name="action" id="saveevaluation" disabled="true">Save</button>
           </form>    
 
 
@@ -1480,11 +1480,6 @@ for(var i=0;i<radioButtons.length;i++) {
         }
 
     }
-
-
-    
-
-
     
     function verifyEvaluation(){
       if (getvalue == "") {
