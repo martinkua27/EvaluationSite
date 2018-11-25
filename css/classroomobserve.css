@@ -174,7 +174,7 @@ textarea {
     .bg-top {
     z-index: -10px;
     margin-top: -40px;
-    width: 15000px;
+    width: 1920px;
     height: 1000px;
     background-image: url('../classroomobservation/images/pattern3.png');
     background-repeat-x: repeat !important;
@@ -190,11 +190,23 @@ textarea {
     .navbar-classroom {
     width: 1400px !important;
     }
+     .bg-top {
+    width: 1680px;
+    }
 }
 @media (max-width: 1440px) { 
     .navbar-classroom {
     width: 1255px !important;
     }
+     .bg-top {
+    width: 1440px;
+    }
+}
+@media (max-width: 1366px) {
+     .bg-top {
+    width: 1366px;
+    }
+	
 }
 @media (max-width: 1300px) {
 	.title {
@@ -207,6 +219,9 @@ textarea {
 	.numbering {
 		margin-left: -47px;
 	}
+     .bg-top {
+    width: 1300px;
+    }
 	
 }
 @media (max-width: 1280px) {
@@ -216,6 +231,9 @@ textarea {
     .numbering {
     margin-left: 1px;
     }
+     .bg-top {
+    width: 1280px;
+    }
 	
 }
 @media (max-width: 1024px) {
@@ -224,6 +242,9 @@ textarea {
     }
     .profile {
     height: 1526px;
+    }
+     .bg-top {
+    width: 1024px;
     }
 	
 }
@@ -235,11 +256,24 @@ textarea {
     height: 1202px;
     margin-left: -8px;
     margin-right: -11px;
+    border-radius: 100px;
+    }
+    .questions {
+    border-radius: 100px;
+    }
+     .bg-top {
+    width: 960px;
+    }
+    .margin-questions {
+    margin-left: 60px;
     }
 }
 @media (max-width: 800px) {
     .navbar-classroom {
     width: 769px !important;
+    }
+     .bg-top {
+    width: 800px;
     }
    
 }
@@ -282,5 +316,46 @@ textarea {
     cursor: pointer;
     margin-left: -33px;
     }
+     .bg-top {
+    width: 640px;
+    }
+    .profile {
+    height: 1202px;
+    margin-left: 33px;
+    margin-right: -11px;
+    border-radius: 100px;
+    width: 545px;
+    }
+    .questions {
+    border-radius: 100px;
+    width: 545px;
+    margin-left: 33px;
+    }
+    .margin-questions {
+    margin-left: 27px;
+    }
+    h4 {
+    font-size: 15px;
+    }
+    .radio-inline+.radio-inline {
+    margin-top: 0;
+    margin-left: -2px;
+    }
+    .radio-inline input[type=radio] {
+    position: absolute;
+    margin-top: 4px\9;
+    margin-left: -57px;
+    }
+    .numbering {
+    margin-left: -66px;
+    }
+    .submit-btn {
+    margin-bottom: 45px !important;    
+    }
+    #footer {
+    margin-top: -57px !important;
+    }
+
+
  
 }

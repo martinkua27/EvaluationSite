@@ -867,7 +867,7 @@ include('session.php');
 
               </div>
               <br>
-                  <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit" name="action" id="saveevaluation" disabled="">Submit</button>
+                  <button class="btn btn-primary submit-btn" style="margin-bottom: 20px;" type="submit" name="action" id="saveevaluation" disabled="">Submit</button>
               </form>
          </div>
       </div>

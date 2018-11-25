@@ -447,11 +447,14 @@ body {
     }
     .profile-bg {
     margin-left: 255px;
+    margin-top: -109px;
     }
     .scoring-bg {
     margin-left: 255px;
+    margin-top: 280px;
     }
     .bg-2 {
+    margin-top: 475px;
     margin-left: 255px;
     }
      /*reports*/
@@ -483,13 +486,27 @@ body {
     width: 1255px !important;
     }
     .profile-bg {
-    margin-left: 135px;
+    margin-left: 158px;
+    width: 1108px;
+    margin-top: -95px;
     }
     .scoring-bg {
-    margin-left: 135px;
+    width: 1108px;
+    margin-left: 158px;
+    margin-top: 290px;
+    }
+    .instructor {
+    font-size: 50px;
     }
     .bg-2 {
-    margin-left: 135px;
+    width: 1108px;
+    margin-left: 158px;
+    }
+    h4 {
+    font-size: 22px;
+    }
+    .radio {
+    margin-left: 638px;
     }
      /*reports*/
     .navbar-reports {
@@ -498,15 +515,33 @@ body {
 }
 @media (max-width: 1366px) { 
     .profile-bg {
-    margin-left: 93px;
+    margin-left: 155px;
+    width: 1036px;
+    margin-top: -91px;
     }
     .scoring-bg {
-    margin-left: 93px;
+    width: 1036px;
+    margin-left: 155px;
     }
     .bg-2 {
-    margin-left: 93px;
+    width: 1036px;
+    margin-left: 155px;
+    }
+    .line-prof {
+    width: 650px;
+    }
+    .radio {
+    margin-left: 585px;
+    }
+    .questions {
+    margin-left: 22px;
+    margin-top: 45px;
+    }
+    h4 {
+    font-size: 20px;
     }
 }
+
 @media (max-width: 1300px) {
 
 }
@@ -520,13 +555,23 @@ body {
     width: 1200px !important;
     }
     .profile-bg {
-    margin-left: 55px;
+    margin-left: 130px;
+    width: 1010px !important;
+    margin-top: -85px;
     }
      .scoring-bg {
-    margin-left: 55px;
+    margin-left: 130px;
+    width: 1010px !important;
     }
     .bg-2 {
-    margin-left: 55px;
+    margin-left: 130px;
+    width: 1010px !important;
+    }
+    h4 {
+    font-size: 21px;
+    }
+    .radio {
+    margin-left: 550px;
     }
     /*reports*/
     .navbar-reports {
@@ -548,35 +593,63 @@ body {
    width: 980px !important;
    }
    .profile-bg {
-    margin-left: 55px;
-    width: 915px;
-    margin-top: -65px;
-    height: 300px;
+    margin-left: 95px;
+    width: 830px !important;
+    margin-top: -69px;
+    height: 270px;
     }
     .line-prof {
-    width: 518px;
+    width: 455px;
+    margin-left: 305px;
     }
     .profile-imgprof {
-    height: 212px;
-    width: 193px;
-    margin-left: 65px;
+    height: 200px;
+    width: 165px;
+    margin-left: 60px;
+    margin-top: 32px;
+    }
+    .instructor {
+    font-size: 40px;
+    margin-top: 39px;
+    margin-left: 305px;
     }
     .img-top {
-    height: 300px;
+    height: 270px;
     }
     .scoring-bg {
-    width: 915px;
+    margin-left: 95px;
+    width: 830px !important;
+    margin-top: 226px;
     }
     .bg-2 {
-    width: 915px;
+    margin-left: 95px;
+    width: 830px !important;
+    margin-top: 410px;
+    }
+    .scoring-top {
+    color: #fff;
+    font-size: 20px;
+    }
+    .scoring-bottom {
+    color: #fff;
+    font-size: 20px;
     }
     .radio-group {
     margin-left: 24px;
     margin-top: 18px;
     margin-bottom: -25px;
     }
-    
-    /*may problem pa */
+    h4 {
+    font-size: 18px !important;
+    }
+    .radio {
+    margin-left: 610px;
+    }
+    .questions {
+    margin-left: 22px;
+    }
+
+
     /*reports*/
     .navbar-reports {
      width: 980px !important;
@@ -603,6 +676,51 @@ body {
    .navbar-performance {
     width: 875px !important;
     }
+    .profile-bg {
+    width: 730px !important;
+    margin-left: 110px;
+    margin-top: -63px;
+    }
+    .profile-imgprof {
+    height: 202px;
+    width: 165px;
+    margin-left: 53px;
+    margin-top: 34px;
+    }
+    .line-prof {
+    width: 363px;
+    margin-left: 292px;
+    margin-top: 5px;
+    }
+    .scoring-bg {
+    margin-left: 110px;
+    width: 730px !important;
+    margin-top: 226px;
+    }
+    .instructor {
+    font-size: 40px;
+    margin-left: 295px;
+    }
+    .bg-2 {
+    margin-left: 95px;
+    /* width: 830px !important; */
+    margin-top: 410px;
+    margin-left: 110px;
+    width: 730px !important;
+    }
+    .questions {
+    margin-left: 15px;
+    }
+    .radio {
+    margin-left: 521px;
+    }
+    h4 {
+    font-size: 15px !important;
+    }
+    .scoring-space {
+    display: inline;
+    margin-left: 27px;
+    }
      /*reports*/
     .navbar-reports {
      width: 875px !important;
@@ -623,6 +741,59 @@ body {
     /*performance*/
    .navbar-performance {
     width: 769px !important;
+    }
+    .profile-bg {
+    width: 650px !important;
+    margin-left: 73px;
+    margin-top: -63px;
+    }
+    .profile-imgprof {
+    height: 190px;
+    width: 155px;
+    margin-left: 50px;
+    margin-top: 40px;
+    }
+    .line-prof {
+    width: 313px;
+    margin-left: 238px;
+    margin-top: 5px;
+    }
+    .scoring-bg {
+    width: 650px !important;
+    margin-left: 73px;
+    margin-top: 226px;
+    height: 130px;
+    }
+    .bg-2 {
+    width: 650px !important;
+    margin-left: 73px;
+    margin-top: 380px;
+    }
+    .instructor {
+    font-size: 35px;
+    margin-left: 235px;
+    }
+    .scoring-top {
+    font-size: 16px;
+    }
+    .scoring-bottom {
+    font-size: 16px;
+    margin-top: 10px;
+    }
+    .border-scoring {
+    border: 5px solid #fff;
+    margin: 17px;
+    height: 103px;
+    margin-top: 13px;
+    }
+    .radio-group {
+    margin-left: -501px;
+    margin-top: 44px;
+    margin-bottom: -25px;
+    }
+    .questions {
+    margin-left: 15px;
+    margin-top: 25px;
     }
      /*reports*/
     .navbar-reports {
@@ -674,6 +845,64 @@ body {
    .navbar-performance {
     width: 614px !important;
     }
+    .bg-top {
+    max-width: 100%;
+    z-index: -30px;
+    margin-top: -9px;
+    }
+    .profile-bg {
+    width: 485px !important;
+    margin-left: 78px;
+    margin-top: -41px;
+    height: 230px;
+    }
+    .scoring-bg {
+    width: 485px !important;
+    margin-left: 78px;
+    margin-top: 213px;
+    height: 111px;
+    }
+    .scoring-top {
+    font-size: 12px;
+    }
+    .scoring-bottom {
+    font-size: 12px;
+    margin-top: 3px;
+    }
+    .border-scoring {
+    border: 5px solid #fff;
+    margin: 17px;
+    height: 84px;
+    margin-top: 13px;
+    }
+    .bg-2 {
+    width: 485px !important;
+    margin-left: 78px;
+    margin-top: 350px;
+    }
+    h4 {
+    font-size: 13px !important;
+    }
+    .img-top {
+    height: 230px;
+    }
+    .profile-imgprof {
+    height: 171px;
+    width: 137px;
+    margin-left: 34px;
+    margin-top: 32px;
+    }
+    .instructor {
+    font-size: 30px;
+    margin-left: 195px;
+    }
+    .line-prof {
+    width: 249px;
+    margin-left: 193px;
+    margin-top: 5px;
+    }
+
+
     /*reports*/
     .navbar-reports {
      width: 614px !important;
