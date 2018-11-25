@@ -246,7 +246,7 @@ include('../session.php');
              
           </div>      
 
-          <div  class="col-md-9" style="color: #000; margin-bottom: 40px;">
+          <div  class="col-md-9 class-observe" style="color: #000; margin-bottom: 40px;">
           <div class="questions">
           <br>
           <div>
@@ -267,7 +267,7 @@ include('../session.php');
 		
 		<div class="col-md-12">
 		
-			<table class="table table-responsive"  style="width:770px;">
+			<table class="table table-responsive table-class"  style="width:770px;">
 				<th>
 				<tr>
 					<th><h4><b>Classroom Observation (35%)</b></h4></th>
@@ -444,7 +444,7 @@ include('../session.php');
                
 			<br><br><br>
 			  
-            <h3 class="panel-title rating-text" style="margin-left:400px;">OVER-ALL RATING</h3><h4 class="signature" style="margin-left: 550px; width:200px; margin-top:-20px;"><p style="margin-left: 90px;" id="overallTotal">-</p></h4>
+            <h3 class="panel-title rating-text" style="margin-left:400px;">OVER-ALL RATING</h3><h4 class="signature" style="margin-left: 550px; width:200px; margin-top:-20px;"><p class="signature-text" style="margin-left: 90px;" id="overallTotal">-</p></h4>
 
 			<br><br>
 			
