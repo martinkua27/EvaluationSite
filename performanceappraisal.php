@@ -302,7 +302,7 @@ include('includes/session.php');
                   <span class="caret" style="color:#fff;"></span></button>
                        
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a type="button" data-toggle="modal" data-target="#addPage">Settings</a></li>
+                <li><a type="button" onclick="changePass()" data-toggle="modal" data-target="#addPage">Change Password</a></li>
                 <li><a href="logout.php">Log Out</a></li>
               </ul>
           </ul>
@@ -363,7 +363,11 @@ include('includes/session.php');
                 
                 <form id="myform" name="myform" onsubmit="return false">
 
-                  <input type="text"  name="empideval" id="empideval" style="display: none;"  value="<?php include('session.php'); if($emptype == "chairperson" && $empnum != $_SESSION['login_user']){echo $emptype;}else{echo $_SESSION['login_user'];} ?>"  form="myform" >
+
+
+                  <input type="text"  name="pass" id="pass" style="display: none;"  value="<?php include('session.php'); echo $_SESSION['login_pass'];?>"  form="myform" >
+
+                    <input type="text"  name="empideval" id="empideval" style="display: none;"  value="<?php include('session.php'); if($emptype == "chairperson" && $empnum != $_SESSION['login_user']){echo $emptype;}else{echo $_SESSION['login_user'];} ?>"  form="myform" >
 
                   <input type="text"  name="prof" id="prof" style="display: none;" value="<?php include('session.php'); echo $profname; $_SESSION['profnamesession'] = $profname;?>"  form="myform" >
 
@@ -1076,6 +1080,86 @@ include('includes/session.php');
         }
       }
 
+      function changePass(){
+        swal.mixin({
+  input: 'text',
+  confirmButtonText: 'Next &rarr;',
+  showCancelButton: true,
+  progressSteps: ['1', '2', '3']
+}).queue([
+  {
+    title: 'Old Password',
+    text: 'Enter old password'
+  },
+  'Enter new password',
+  'Enter new passoword again'
+]).then((result) => {
+
+var values =  result.value;
+var verpass = document.getElementById("pass").value;
+
+  if (result.value) {
+
+      if (values[0] != verpass){
+      swal({
+      title: 'Error',
+      html:
+       'Incorrect old password',
+      confirmButtonText: 'Lovely!'
+      })
+ }
+  else if(values[1] != values[2]){
+     swal({
+      title: 'Error',
+      html:
+       'New Password does not match',
+      confirmButtonText: 'Lovely!'
+      })
+  }
+
+   else{
+
+     if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+myFunction();
+               
+swal({
+      title: 'All done!',
+      html:
+        'Change password successful',
+      confirmButtonText: 'Continue!'
+    })
+
+document.getElementById("pass").value = value[1];
+                   //document.getElementById("txtHint").innerHTML = this.responseText;
+             
+               
+                }
+            };
+            xmlhttp.open("POST","changepass.php?q=" + values[1],true);
+            xmlhttp.send();
+
+
+      
+      }
+
+function myFunction() {
+    document.getElementById("pass").value = values[1];
+}
+    
+  }
+
+
+})
+      }
     </script>
 
    
