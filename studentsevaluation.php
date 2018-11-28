@@ -334,7 +334,7 @@ include('includes/session.php');
                              ?> 
 							 
 				<br><br>			 
-                        <button id="verify" name="verify" type="button" class="btn btn-default btn-verify" onclick="verifyEvaluation()" >Verify</button>
+                        <button id="verify" name="verify" type="button" class="btn btn-default btn-verify" onclick="verifyEvaluation()" >Evaluate</button>
                 <hr>   
                 <!-- profImage and subj info -->
                 <div id="txtHint"></div>
@@ -1516,7 +1516,7 @@ for(var i=0;i<radioButtons.length;i++) {
   'Existing Evaluation Found',
   'error'
 );
-             
+             verifyBtn.disabled = true;
             }else{
               submitBtn.disabled = false;
 
@@ -1535,6 +1535,8 @@ for(var i=0;i<radioButtons.length;i++) {
           };
            xmlhttp.open("GET","verifySubj.php?q=" + getvalue,true);
           xmlhttp.send();
+
+          verifyBtn.disabled = true;
     }
   }
 

@@ -51,6 +51,8 @@ include('../session.php');
  
 	
 	<link href="css/summary.css" rel="stylesheet">
+
+
 	
 	<style>
 	html, body{
@@ -88,6 +90,11 @@ include('../session.php');
 	
 	</style>
 
+	 <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
+
   </head>
 
   <body style="background-color: #212121;">
@@ -118,7 +125,7 @@ include('../session.php');
                   <span class="caret" style="color:#fff;"></span></button>
                        
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a type="button" data-toggle="modal" data-target="#addPage">Settings</a></li>
+                 <li><a type="button" data-toggle="modal" onclick="changePass()" data-target="#addPage">Change Password</a></li>
                 <li><a href="../logout.php">Log Out</a></li>
               </ul>
           </ul>
@@ -609,6 +616,7 @@ include('../session.php');
 
             return;
         } else { 
+        	  openpdf.disabled = false;
             document.getElementById('nameprof').innerHTML = "Professor: " + str;
 
             document.getElementById("inviData").innerHTML = "";
@@ -741,6 +749,86 @@ function resetSignature(){
 
         }
 
+function changePass(){
+        swal.mixin({
+  input: 'text',
+  confirmButtonText: 'Next &rarr;',
+  showCancelButton: true,
+  progressSteps: ['1', '2', '3']
+}).queue([
+  {
+    title: 'Old Password',
+    text: 'Enter old password'
+  },
+  'Enter new password',
+  'Enter new passoword again'
+]).then((result) => {
+
+var values =  result.value;
+var verpass = document.getElementById("pass").value;
+
+  if (result.value) {
+
+      if (values[0] != verpass){
+      swal({
+      title: 'Error',
+      html:
+       'Incorrect old password',
+      confirmButtonText: 'Lovely!'
+      })
+ }
+  else if(values[1] != values[2]){
+     swal({
+      title: 'Error',
+      html:
+       'New Password does not match',
+      confirmButtonText: 'Lovely!'
+      })
+  }
+
+   else{
+
+     if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+myFunction();
+               
+swal({
+      title: 'All done!',
+      html:
+        'Change password successful',
+      confirmButtonText: 'Continue!'
+    })
+
+document.getElementById("pass").value = value[1];
+                   //document.getElementById("txtHint").innerHTML = this.responseText;
+             
+               
+                }
+            };
+            xmlhttp.open("POST","../changepass.php?q=" + values[1],true);
+            xmlhttp.send();
+
+
+      
+      }
+
+function myFunction() {
+    document.getElementById("pass").value = values[1];
+}
+    
+  }
+
+
+})
+      }
   
 
 </script>

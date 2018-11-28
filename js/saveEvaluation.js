@@ -105,6 +105,10 @@ section1: section,
 comments1: comments
 }, function(data) {
 
+$("input[type=radio]").attr('disabled', true);
+
+
+ $("#verify").removeAttr('disabled');
 
 swal(data);
 
