@@ -103,6 +103,10 @@ include('../session.php');
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+
+.hidetext { -webkit-text-security: square; }
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -420,7 +424,7 @@ $(document).ready(function(){
                          <td data-label="e_average"><?php echo $row['e_average']?></td>
                          <td data-label="Comments"><?php echo $row['comments']?></td>
                          <td data-label="Section"><?php echo $row['section']?></td>
-                         <td data-label="Student ID"><?php echo $row['student_id']?></td>
+                         <td data-label="Student ID" class="hidetext"><?php echo $row['student_id']?></td>
                          <td data-label="Semester"><?php echo $row['semester']?></td>
                          <td data-label="Academic Year"><?php echo $row['academic_year']?></td>
                          <td data-label="Date Posted"><?php echo $row['date_posted']?></td>
