@@ -31,6 +31,9 @@ include('session.php');
 
 }
 
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +80,7 @@ include('session.php');
                        
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <li><a type="button" data-toggle="modal" data-target="#addPage">Settings</a></li>
-                <li><a href="../logout.php">Log Out</a></li>
+                <li><a href="logout.php">Log Out</a></li>
               </ul>
           </ul>
         </div>
@@ -85,9 +88,22 @@ include('session.php');
     </nav>
       
     <div class="container-fluid">
-        <div class="row">
-        
+
+        <div style="color: white; font-size: 20px; margin-top: 150px; margin-left: 50px;">
+         
+         <h1>Upload</h1>
+
+<form method="POST" action="excelUpload.php" enctype="multipart/form-data">
+<div class="form-group">
+<label>Upload Excel File</label>
+<input type="file" name="file" class="form-control">
+</div>
+<div class="form-group">
+<button type="submit" name="Submit" class="btn btn-success">Upload</button>
+</div>
+</form>
         </div>
+       
     </div>
     
       

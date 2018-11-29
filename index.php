@@ -65,6 +65,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                        header("location: studentsevaluation.php");
           
              
+                    
+                    }else if ($role == "Admin - MIS"){
+               
+                       $_SESSION['login_user'] = $empID;
+                       $_SESSION['login_userStat'] = $role;
+                       $_SESSION['login_pass'] = $empPass;
+                       
+                       header("location: upload.php");
+          
+             
                     }else{
                     	     
                        $_SESSION['login_user'] = $empID;
