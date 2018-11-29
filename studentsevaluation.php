@@ -245,7 +245,11 @@ include('includes/session.php');
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <script src="sweetalert2/dist/sweetalert2.min.js"></script>
    
-  
+<style>
+	.profile {
+        height: 2860px !important;
+    }
+</style>	
 
   </head>
 
@@ -466,7 +470,7 @@ include('includes/session.php');
               </div>
               <br>
               <!-- 4 -->
-              <h4>4. Relates the lesson witch current issues<br>and other subject areas whenever posssible.</h4>
+              <h4>4. Relates the lesson with current issues<br>and other subject areas whenever possible.</h4>
                <div class="radio">
                <div class="radio-group">
                
@@ -491,7 +495,7 @@ include('includes/session.php');
               </div>
               <br>   
               <!-- 5 -->
-              <h4>5. Facilitates student's understanding by<br>rephrasing ques questions using synonyms,<br>giving examples and the like.</h4>
+              <h4>5. Facilitates student's understanding by<br>rephrasing questions using synonyms,<br>giving examples and the like.</h4>
                <div class="radio">
                <div class="radio-group">
                
@@ -616,7 +620,7 @@ include('includes/session.php');
               </div>
               <br>
               <!-- 10 -->
-              <h4>10. Makes use of the whiteboard and<br>otheraudiovisual materials like pictures, <br>graphs, and outlines to make the lesson<br>more interesting.</h4>
+              <h4>10. Makes use of the whiteboard and<br>other audiovisual materials like pictures, <br>graphs, and outlines to make the lesson<br>more interesting.</h4>
                <div class="radio">
                <div class="radio-group">
                
@@ -845,7 +849,7 @@ include('includes/session.php');
               </div>
               <br>  
               <!-- B 3 -->
-              <h4>3. Answers question of the students<br>intelligently and satisfactorily. </h4>
+              <h4>3. Answers questions of the students<br>intelligently and satisfactorily. </h4>
                <div class="radio">
                <div class="radio-group">
              
@@ -883,7 +887,7 @@ include('includes/session.php');
                </div>
 			   </div>
 			  
-               <h4>1. Speaks correct English and/or Filipino<br>and communications his/her ideas well.</h4>
+               <h4>1. Speaks correct English and/or Filipino<br>and communicates his/her ideas well.</h4>
                <div class="radio">
                <div class="radio-group">
                
@@ -1134,7 +1138,7 @@ include('includes/session.php');
               </div>
               <br>
               <!-- E 2 -->
-               <h4>1. Projects a respectable and a decent image.</h4>
+               <h4>2. Projects a respectable and a decent image.</h4>
                <div class="radio">
                <div class="radio-group">
                
@@ -1309,7 +1313,7 @@ include('includes/session.php');
               </div>
                <br>      
                <!-- E 9 -->
-               <h4>9. Is approachable and encourages<br>students toconsult him/her for assistance. </h4>
+               <h4>9. Is approachable and encourages<br>students to consult him/her for assistance. </h4>
                <div class="radio">
                <div class="radio-group">
                
