@@ -4,8 +4,8 @@ $dateNow = date("l") . " " . date("Y-m-d");
 
 function getImage(){
 
- include("../indexDB.php");
-include('../session.php');
+ include("indexDB.php");
+include('session.php');
  
      $getimage = "";
      $conn = new mysqli($servername, $username, $password, $dbname);
@@ -43,11 +43,11 @@ include('../session.php');
     <meta name="author" content="">
     <link rel="icon" href="images/logo.ico">
 
-    <title>Summary | San Beda College Alabang</title>
+    <title>Upload | San Beda College Alabang</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
- 	<link href="css/summary.css" rel="stylesheet">
+ 	<link href="css/upload.css" rel="stylesheet">
 
   </head>
 
@@ -67,13 +67,10 @@ include('../session.php');
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="home.php">Home</a></li>
-			<li><a href="reports.php">Reports</a></li>
-			<li><a href="summary.php">Summary</a></li>
-            <li><a href="upload.php">Upload</a></li>
+           
           </ul>
              <ul class="nav navbar-nav navbar-right">
-             <li><a href="#" class="welcome-text">Welcome, <?php include('../session.php'); echo $_SESSION['login_userStat']; ?>!</a></li>
+             <li><a href="#" class="welcome-text">Welcome, <?php include('session.php'); echo $_SESSION['login_userStat']; ?>!</a></li>
              <li class="dropdown create">
                   <button id="dropdownMenu1" style="background-color: #9f0000;border-style: none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="<?php echo getImage(); ?>" class="img-rounded img-responsive" style="width:36px; display:inline-block; margin-top: 5px;">         
                   <span class="caret" style="color:#fff;"></span></button>
@@ -96,7 +93,7 @@ include('../session.php');
       
 	
 
-    <footer id="footer" style="margin-top: 10px">
+    <footer id="footer" style="margin-top:50px;">
       <p class="footer-text">Copyright @ 2018 San Beda College Alabang. All rights reserved.</p>
     </footer>  
 	 <!-- Bootstrap core JavaScript

@@ -116,7 +116,6 @@ include('../session.php');
             <li><a href="home.php">Home</a></li>
 			<li><a href="reports.php">Reports</a></li>
 			<li><a href="summary.php">Summary</a></li>
-            <li><a href="upload.php">Upload</a></li>
           </ul>
              <ul class="nav navbar-nav navbar-right">
              <li><a href="#" class="welcome-text">Welcome, <?php include('../session.php'); echo $_SESSION['login_userStat']; ?>!</a></li>

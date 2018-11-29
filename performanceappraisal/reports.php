@@ -145,7 +145,6 @@ $(document).ready(function(){
             <li><a href="home.php" onclick="openHome()">Home</a></li>
 			<li><a href="reports.php">Reports</a></li>
             <li><a href="summary.php" onclick="openSummary()">Summary</a></li>
-            <li><a href='performanceappraisal/upload.php'>Upload</a></li>
           </ul>
              <ul class="nav navbar-nav navbar-right">
              <li><a href="#" class="welcome-text">Welcome, <?php include('../session.php'); echo $_SESSION['login_userStat']; ?>!</a></li>
