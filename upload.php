@@ -100,15 +100,27 @@ include('session.php');
          
          <h1 style="color:#fff">Upload</h1>
 
+         <select id="option" onchange="getvalue(this.value)">
+            <option value="">Select</option>
+            <option value="student">Student List</option>
+            <option value="studentSched">Student Schedule</option>
+            <option value="empLogin">Employee Login</option>
+         </select>
+
+<br><br>
+
              <input type="text"  name="pass" id="pass" style="display: none; font-size: 50px; position: absolute; margin-top: 20px; color: black;"  value="<?php include('session.php'); echo $_SESSION['login_pass'];?>" >
 
-<form method="POST" action="excelUpload.php" enctype="multipart/form-data">
+<form method="POST" name="myform" enctype="multipart/form-data" onsubmit="return OnSubmitForm();">
+
+   <input type="text"  name="valuedropdown" id="valuedropdown" style="display: none; font-size: 50px; position: absolute; margin-top: 20px;" >
+
 <div class="form-group">
 <label style="color:#fff">Upload Excel File</label>
 <input type="file" name="file" class="form-control">
 </div>
 <div class="form-group">
-<button type="submit" name="Submit" class="btn btn-danger">Upload</button>
+<button id="uploadBtn" type="submit" name="Submit" class="btn btn-danger" disabled>Upload</button>
 </div>
 </form>
         </div>
@@ -217,6 +229,49 @@ function myFunction() {
 
 })
       }
+
+var getdropdown = "";
+
+function getvalue(str)  {
+
+       var uploadbtn = document.getElementById("uploadBtn");
+
+        //var div = document.getElementById("evaluationform");
+
+        
+
+        if (str == "") {
+            document.getElementById("valuedropdown").value = "";
+            getdropdown = "";
+            uploadbtn.disabled = true;
+
+            return;
+        } else { 
+
+  document.getElementById("valuedropdown").value = str;
+  getdropdown = str;
+            uploadbtn.disabled = false;
+
+
+        }
+
+    }
+
+    function OnSubmitForm()
+{
+  if(getdropdown == "student")
+  {
+    document.myform.action ="excelUpload.php";
+  }
+  else if(getdropdown == "empLogin"){
+    document.myform.action ="excelUploadEmpLogin.php";
+  }
+  else{
+    document.myform.action ="excelUploadSched.php";
+  }
+  
+  return true;
+}
 
 </script>
 
