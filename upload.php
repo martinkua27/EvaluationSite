@@ -74,7 +74,8 @@ include('session.php');
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-           
+           <li><a href="upload.php">Upload</a></li>
+		   <li><a href="accounts.php">Accounts</a></li>
           </ul>
              <ul class="nav navbar-nav navbar-right">
              <li><a href="#" class="welcome-text">Welcome, <?php include('session.php'); echo $_SESSION['login_userStat']; ?>!</a></li>
@@ -90,22 +91,24 @@ include('session.php');
         </div>
       </div>
     </nav>
+	
+	<br><br><br>
       
-    <div class="container-fluid">
-
-        <div style="color: white; font-size: 20px; margin-top: 150px; margin-left: 50px;">
+    <div class="container">
+ <div class="col-md-12">
+        
          
-         <h1>Upload</h1>
+         <h1 style="color:#fff">Upload</h1>
 
              <input type="text"  name="pass" id="pass" style="display: none; font-size: 50px; position: absolute; margin-top: 20px; color: black;"  value="<?php include('session.php'); echo $_SESSION['login_pass'];?>" >
 
 <form method="POST" action="excelUpload.php" enctype="multipart/form-data">
 <div class="form-group">
-<label>Upload Excel File</label>
+<label style="color:#fff">Upload Excel File</label>
 <input type="file" name="file" class="form-control">
 </div>
 <div class="form-group">
-<button type="submit" name="Submit" class="btn btn-success">Upload</button>
+<button type="submit" name="Submit" class="btn btn-danger">Upload</button>
 </div>
 </form>
         </div>
