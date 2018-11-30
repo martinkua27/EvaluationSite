@@ -56,6 +56,14 @@ include('session.php');
     <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <script src="sweetalert2/dist/sweetalert2.min.js"></script>
+
+    <style type="text/css">
+      .hidetext { -webkit-text-security: circle; }
+    </style>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/resetPass.js"></script>
+
   </head>
 
   <body style="background-color: #212121;">
@@ -112,23 +120,41 @@ include('session.php');
                 <div class="row">
                   <div class="col-md-12">
                     <input class="form-control" type="text" id="search" placeholder="Filter Employees...">
+
+                    <button type="button" data-toggle="modal" id="addUserBtn" data-toggle="modal" data-target=".showEmployee" style="display: none;">Users</button> 
                   </div>
                 </div>
                 <br>
                 <div class="table-responsive"> 
-                <table class="table table-striped table-hover" id="usersTbl">
-                    <thead class="thead-dark">                            
+                <table class="table table-striped table-hover" id="empTbl">
+                  <thead class="thead-dark">                            
                        <tr>
-                         <td>ID Number</td>
+                         <td>Username</td>
                          <td>Password</td>
                        </tr>
                     </thead>                            
                 
-                
+                    <?php
+                       include("indexDB.php");
+                      $conn = new mysqli($servername, $username, $password, $dbname);
+                       $sql = "SELECT * FROM login_table where emp_type != 'Admin - MIS' and emp_id != emp_pass";
+                       $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                       while($row = $result->fetch_assoc()) {
+                    ?>
+          
                      <tr>
-                         <td data-label="idNO">2015300689</td>
-                         <td data-label="password" class="hidetext" data-toggle="modal" data-target=".showEmployee">2015300689</td>                                           
-                     </tr>                                                   
+                  <td data-label="id"><?php echo $row['emp_id']?></td>
+                  <td data-label="pass" class="hidetext"><?php echo $row['emp_pass']?></td>
+                    
+                     </tr>
+                  <?php
+                        }
+                       }
+                    ?>
+            
+                                                
                                             
                 </table>
                 </div>
@@ -199,15 +225,15 @@ include('session.php');
 <div class="modal fade showEmployee" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
-          <form id="myform" name="myform" method="post">
+          <form id="myformOne" name="myformOne" method="post" onsubmit="return false">
           <div class="modal-header">
             <button type="button" class="close" onclick="clearText()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Employee</h4>
           </div>
           <div class="modal-body">
             <div class="form-group">
-                <label>Do you want to reset the password?</label>
-                
+                <label id="empnumLbl">Do you want to reset the password?</label>
+                 <input type="text" id="emp" style="display: none;" class="form-control" form="myformOne" required>
             </div>
 			
            <!--<div class="form-group">
@@ -217,13 +243,9 @@ include('session.php');
 			
           </div>
           <div class="modal-footer">
-            <button type="button" onclick="clearText()" id="closeBtn" class="btn btn-warning" data-dismiss="modal">Yes</button>
-              <button type="button" class="btn btn-danger" id="delBtn" onclick="clickDel()" style=" float: right;">No</button>
+            <button type="submit" name="action" id="confirmBtn" class="btn btn-warning" data-dismiss="modal">Yes</button>
+              <button type="button" class="btn btn-danger" id="closeBtn" data-dismiss="modal" style=" float: right;">No</button>
 
-             
-            <button type="button" onclick="clickNo();" class="btn btn-primary"  id="noBtn" style="display: none; float: right; margin-right: 5px;">No</button>
-             <button type="submit" class="btn btn-danger" value="Delete"  id="yesBtn" name="action"  style="display: none; float: right; margin-right: 5px;">Yes</button>
-             <p id="confirmationTag" style="margin-right: 5px; display: none; float: right;">Are you sure?</p>
           </div>
           </form>
         </div>
@@ -242,7 +264,7 @@ include('session.php');
           <div class="modal-body">
             <div class="form-group">
                 <label>Do you want to reset the password?</label>
-                
+                 
             </div>
            
 		   <!--<div class="form-group">
@@ -333,5 +355,29 @@ include('session.php');
     });
     </script>
 
+     <script type="text/javascript">
+      
+
+    
+                var table = document.getElementById('empTbl');
+                
+                for(var i = 1; i < table.rows.length; i++)
+                {
+                    table.rows[i].onclick = function()
+                    {
+                         //rIndex = this.rowIndex;
+                  document.getElementById('empnumLbl').innerHTML = 'Do you want to reset the password for employee number' + ' "'+this.cells[0].innerHTML+'"';
+                  
+      document.getElementById('emp').value = this.cells[0].innerHTML;
+
+                          var addUsers = document.getElementById('addUserBtn');
+                          addUsers.click();
+                        
+
+                        
+
+                    };
+                }
+</script>
     
 </html>
