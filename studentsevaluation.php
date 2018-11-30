@@ -268,13 +268,17 @@ include('includes/session.php');
             <a class="navbar-brand" href="#"><img src="images/bedalogocas.png"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href=""></a></li>
-          </ul>
-             <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
              <li><a href="#" class="welcome-text">Welcome, <?php include('session.php'); echo $_SESSION['login_user']; ?>!</a></li>
-             <li><a href="logout.php">Log Out</a></li>
-             </ul>
+             <li class="dropdown create">
+                  <button id="dropdownMenu1" style="background-color: #9f0000;border-style: none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">       
+                  <span class="caret" style="color:#fff;"></span></button>
+                       
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a type="button" data-toggle="modal" onclick="changePass()" data-target="#addPage">Change Password</a></li>
+                <li><a href="logout.php">Log Out</a></li>
+              </ul>
+          </ul>
         
         </div>
       </div>
@@ -375,6 +379,8 @@ include('includes/session.php');
               <br>
               <br>
           </div>
+
+
              
           </div>
           <div class="col-md-9" style="color: #000; margin-bottom: 40px;">
@@ -384,6 +390,8 @@ include('includes/session.php');
           <h2 class="boxed-title">RESPONSE CODE</h2>
           <h4 class="text-center score">5 - Outstanding | 4 - Very Satisfactory | 3 - Satisfactory </h4>
           <h4 class="text-center score2">2 - Moderately Satisfactory | 1 - Needs Improvement</h4>
+
+             <input type="text"  name="pass" id="pass" style="display: none; font-size: 50px; position: absolute; margin-top: 20px;"  value="<?php include('session.php'); echo $_SESSION['login_pass'];?>"  form="myform" >
         
           <h4 class="title">A. <b>METHODS AND STRATEGIES OF TEACHING (40%)</b></h4>
 		 
@@ -1545,6 +1553,87 @@ for(var i=0;i<radioButtons.length;i++) {
   }
 
     
+
+      function changePass(){
+        swal.mixin({
+  input: 'text',
+  confirmButtonText: 'Next &rarr;',
+  showCancelButton: true,
+  progressSteps: ['1', '2', '3']
+}).queue([
+  {
+    title: 'Old Password',
+    text: 'Enter old password'
+  },
+  'Enter new password',
+  'Enter new passoword again'
+]).then((result) => {
+
+var values =  result.value;
+var verpass = document.getElementById("pass").value;
+
+  if (result.value) {
+
+      if (values[0] != verpass){
+      swal({
+      title: 'Error',
+      html:
+       'Incorrect old password',
+      confirmButtonText: 'Lovely!'
+      })
+ }
+  else if(values[1] != values[2]){
+     swal({
+      title: 'Error',
+      html:
+       'New Password does not match',
+      confirmButtonText: 'Lovely!'
+      })
+  }
+
+   else{
+
+     if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+myFunction();
+               
+swal({
+      title: 'All done!',
+      html:
+        'Change password successful',
+      confirmButtonText: 'Continue!'
+    })
+
+document.getElementById("pass").value = value[1];
+                   //document.getElementById("txtHint").innerHTML = this.responseText;
+             
+               
+                }
+            };
+            xmlhttp.open("POST","changepassStudent.php?q=" + values[1],true);
+            xmlhttp.send();
+
+
+      
+      }
+
+function myFunction() {
+    document.getElementById("pass").value = values[1];
+}
+    
+  }
+
+
+})
+      }
 
 
     </script>

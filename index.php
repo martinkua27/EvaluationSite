@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     while($row = $result->fetch_assoc()) {
       
         
-        if($row["student_id"] == $empID && $row["student_id"] == $empPass){
+        if($row["student_id"] == $empID && $row["student_pass"] == $empPass){
             $verify = "match";
             $role = $row["emp_type"]; 
             $position = $row["postion"];

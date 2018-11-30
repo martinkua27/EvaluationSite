@@ -63,6 +63,7 @@ include('session.php');
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/resetPass.js"></script>
+    <script src="js/resetPassStudent.js"></script>
 
   </head>
 
@@ -137,7 +138,7 @@ include('session.php');
                     <?php
                        include("indexDB.php");
                       $conn = new mysqli($servername, $username, $password, $dbname);
-                       $sql = "SELECT * FROM login_table where emp_type != 'Admin - MIS' and emp_id != emp_pass";
+                       $sql = "SELECT * FROM login_table where emp_type != 'Admin - MIS' and emp_id != emp_pass group by emp_id";
                        $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                         // output data of each row
@@ -182,23 +183,41 @@ include('session.php');
                 <div class="row">
                   <div class="col-md-12">
                     <input class="form-control" type="text" id="search" placeholder="Filter Students...">
+
+                      <button type="button" data-toggle="modal" id="studentBtn" data-toggle="modal" data-target=".showStudent" style="display: none;">Users</button> 
                   </div>
                 </div>
                 <br>
                 <div class="table-responsive"> 
-                <table class="table table-striped table-hover" id="usersTbl">
-                    <thead class="thead-dark">                            
+                <table class="table table-striped table-hover" id="studentTbl">
+                  <thead class="thead-dark">                            
                        <tr>
-                         <td>ID Number</td>
+                         <td>Username</td>
                          <td>Password</td>
                        </tr>
                     </thead>                            
                 
-                
+                    <?php
+                       include("indexDB.php");
+                      $conn = new mysqli($servername, $username, $password, $dbname);
+                       $sql = "SELECT * FROM student_list where student_id != student_pass group by student_id";
+                       $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                       while($row = $result->fetch_assoc()) {
+                    ?>
+          
                      <tr>
-                         <td data-label="idNO">2015300689</td>
-                         <td data-label="password" class="hidetext" data-toggle="modal" data-target=".showStudent">2015300689</td>                                           
-                     </tr>                                                   
+                  <td data-label="id"><?php echo $row['student_id']?></td>
+                  <td data-label="pass" class="hidetext"><?php echo $row['student_pass']?></td>
+                    
+                     </tr>
+                  <?php
+                        }
+                       }
+                    ?>
+            
+                                                
                                             
                 </table>
                 </div>
@@ -255,15 +274,14 @@ include('session.php');
 	<!-- 2 Students -->
     <div class="modal fade showStudent" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-          <form id="myform" name="myform" method="post">
+    <div class="modal-content"> <form id="myformTwo" name="myformOne" method="post" onsubmit="return false"> 
           <div class="modal-header">
             <button type="button" class="close" onclick="clearText()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Student</h4>
           </div>
           <div class="modal-body">
             <div class="form-group">
-                <label>Do you want to reset the password?</label>
+               <label id="studentNumLbl">Do you want to reset the password?</label>
                  
             </div>
            
@@ -274,13 +292,9 @@ include('session.php');
 			
           </div>
           <div class="modal-footer">
-            <button type="button" onclick="clearText()" id="closeBtn" class="btn btn-warning" data-dismiss="modal">Yes</button>
-              <button type="button" class="btn btn-danger" id="delBtn" onclick="clickDel()" style=" float: right;">No</button>
+            <button type="submit" name="action" id="confirmBtnStudent" class="btn btn-warning" data-dismiss="modal">Yes</button>
+              <button type="button" class="btn btn-danger" id="closeBtn" data-dismiss="modal" style=" float: right;">No</button>
 
-             
-            <button type="button" onclick="clickNo();" class="btn btn-primary"  id="noBtn" style="display: none; float: right; margin-right: 5px;">No</button>
-             <button type="submit" class="btn btn-danger" value="Delete"  id="yesBtn" name="action"  style="display: none; float: right; margin-right: 5px;">Yes</button>
-             <p id="confirmationTag" style="margin-right: 5px; display: none; float: right;">Are you sure?</p>
           </div>
           </form>
         </div>
@@ -371,6 +385,31 @@ include('session.php');
       document.getElementById('emp').value = this.cells[0].innerHTML;
 
                           var addUsers = document.getElementById('addUserBtn');
+                          addUsers.click();
+                        
+
+                        
+
+                    };
+                }
+</script>
+
+ <script type="text/javascript">
+      
+
+    
+                var table = document.getElementById('studentTbl');
+                
+                for(var i = 1; i < table.rows.length; i++)
+                {
+                    table.rows[i].onclick = function()
+                    {
+                         //rIndex = this.rowIndex;
+                  document.getElementById('studentNumLbl').innerHTML = 'Do you want to reset the password for username' + ' "'+this.cells[0].innerHTML+'"';
+                  
+      document.getElementById('emp').value = this.cells[0].innerHTML;
+
+                          var addUsers = document.getElementById('studentBtn');
                           addUsers.click();
                         
 
