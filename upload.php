@@ -100,14 +100,14 @@ include('session.php');
          
          <h1 style="color:#fff">Upload</h1>
 
-         <select id="option" onchange="getvalue(this.value)">
+         <select id="option" class="form-control subj-code" style="width:15%;" onchange="getvalue(this.value)">
             <option value="">Select</option>
             <option value="student">Student List</option>
             <option value="studentSched">Student Schedule</option>
             <option value="empLogin">Employee Login</option>
          </select>
 
-<br><br>
+<br><br><br><br>
 
              <input type="text"  name="pass" id="pass" style="display: none; font-size: 50px; position: absolute; margin-top: 20px; color: black;"  value="<?php include('session.php'); echo $_SESSION['login_pass'];?>" >
 
