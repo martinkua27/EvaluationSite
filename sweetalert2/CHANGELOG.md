@@ -1,3 +1,74 @@
+## [7.32.2](https://github.com/sweetalert2/sweetalert2/compare/v7.32.1...v7.32.2) (2018-12-09)
+
+
+### Bug Fixes
+
+* do not throw warnings when inputValue is a promise ([#1333](https://github.com/sweetalert2/sweetalert2/issues/1333)) ([3607b72](https://github.com/sweetalert2/sweetalert2/commit/3607b72))
+
+## [7.32.1](https://github.com/sweetalert2/sweetalert2/compare/v7.32.0...v7.32.1) (2018-12-09)
+
+
+### Bug Fixes
+
+* **ie11:** do not fail on <svg>.contains() ([#1331](https://github.com/sweetalert2/sweetalert2/issues/1331)) ([f7cb2c2](https://github.com/sweetalert2/sweetalert2/commit/f7cb2c2))
+
+# [7.32.0](https://github.com/sweetalert2/sweetalert2/compare/v7.31.1...v7.32.0) (2018-12-08)
+
+
+### Features
+
+* **api:** add .isTimerRunning() ([#1330](https://github.com/sweetalert2/sweetalert2/issues/1330)) ([0624e7a](https://github.com/sweetalert2/sweetalert2/commit/0624e7a))
+
+## [7.31.1](https://github.com/sweetalert2/sweetalert2/compare/v7.31.0...v7.31.1) (2018-12-07)
+
+
+### Bug Fixes
+
+* check this.running in timer methods ([#1327](https://github.com/sweetalert2/sweetalert2/issues/1327)) ([418b8d3](https://github.com/sweetalert2/sweetalert2/commit/418b8d3))
+* support HTMLElement for setting title/html/footer ([#1328](https://github.com/sweetalert2/sweetalert2/issues/1328)) ([6f35e48](https://github.com/sweetalert2/sweetalert2/commit/6f35e48))
+
+# [7.31.0](https://github.com/sweetalert2/sweetalert2/compare/v7.30.0...v7.31.0) (2018-12-06)
+
+
+### Features
+
+* **api:** add .resumeTimer(), .toggleTimer(), .increaseTimer() ([#1325](https://github.com/sweetalert2/sweetalert2/issues/1325)) ([77649ee](https://github.com/sweetalert2/sweetalert2/commit/77649ee))
+
+# [7.30.0](https://github.com/sweetalert2/sweetalert2/compare/v7.29.2...v7.30.0) (2018-12-05)
+
+
+### Features
+
+* **api:** add .stopTimer() ([#1322](https://github.com/sweetalert2/sweetalert2/issues/1322)) ([654caf2](https://github.com/sweetalert2/sweetalert2/commit/654caf2))
+
+## [7.29.2](https://github.com/sweetalert2/sweetalert2/compare/v7.29.1...v7.29.2) (2018-11-26)
+
+
+### Bug Fixes
+
+* **validators:** support long top level domain names in URL validator ([#1307](https://github.com/sweetalert2/sweetalert2/issues/1307)) ([3263217](https://github.com/sweetalert2/sweetalert2/commit/3263217))
+
+## [7.29.1](https://github.com/sweetalert2/sweetalert2/compare/v7.29.0...v7.29.1) (2018-11-18)
+
+
+### Bug Fixes
+
+* avoid Edge from crashing ([#1299](https://github.com/sweetalert2/sweetalert2/issues/1299)) ([69965e0](https://github.com/sweetalert2/sweetalert2/commit/69965e0))
+
+# [7.29.0](https://github.com/sweetalert2/sweetalert2/compare/v7.28.13...v7.29.0) (2018-11-08)
+
+
+### Features
+
+* **input:** add .checkValidity() support ([#1284](https://github.com/sweetalert2/sweetalert2/issues/1284)) ([361d2bd](https://github.com/sweetalert2/sweetalert2/commit/361d2bd))
+
+## [7.28.13](https://github.com/sweetalert2/sweetalert2/compare/v7.28.12...v7.28.13) (2018-11-08)
+
+
+### Bug Fixes
+
+* allow inputAttributes.placeholder ([#1279](https://github.com/sweetalert2/sweetalert2/issues/1279)) ([7ec7291](https://github.com/sweetalert2/sweetalert2/commit/7ec7291))
+
 ## [7.28.12](https://github.com/sweetalert2/sweetalert2/compare/v7.28.11...v7.28.12) (2018-11-06)
 
 

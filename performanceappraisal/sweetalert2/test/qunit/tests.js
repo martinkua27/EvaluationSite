@@ -12,6 +12,21 @@ QUnit.test('modal shows up', (assert) => {
   assert.ok(Swal.isVisible())
 })
 
+QUnit.test('modal scrolled to top on open', (assert) => {
+  const done = assert.async()
+  Swal({
+    imageUrl: 'https://placeholder.pics/svg/300x1500',
+    imageHeight: 1500,
+    imageAlt: 'A tall image',
+    onOpen: () => {
+      setTimeout(() => {
+        assert.equal(Swal.getContainer().scrollTop, 0)
+        done()
+      })
+    }
+  })
+})
+
 QUnit.test('should throw console error about missing arguments', (assert) => {
   const _consoleError = console.error
   const spy = sinon.spy(console, 'error')
@@ -44,6 +59,16 @@ QUnit.test('should not throw console error about undefined params and treat them
   assert.ok(spy.notCalled)
 })
 
+QUnit.test('should not throw console error when <svg> tags are present (#1289)', (assert) => {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  document.body.appendChild(svg)
+  const _consoleError = console.error
+  const spy = sinon.spy(console, 'error')
+  Swal({})
+  console.error = _consoleError
+  assert.ok(spy.notCalled)
+})
+
 QUnit.test('should show the popup with OK button in case of empty object passed as an argument', (assert) => {
   Swal({})
   assert.ok(isVisible(Swal.getConfirmButton()))
@@ -66,7 +91,7 @@ QUnit.test('the vertical scrollbar should be hidden and the according padding-ri
   const bodyStyles = window.getComputedStyle(document.body);
 
   assert.equal(bodyStyles.paddingRight, (scrollbarWidth + 30) + 'px')
-  assert.equal(bodyStyles.overflowY, 'hidden')
+  assert.equal(bodyStyles.overflow, 'hidden')
 
   document.body.removeChild(talltDiv)
 })
@@ -204,19 +229,19 @@ QUnit.test('set and reset defaults', (assert) => {
   Swal.clickCancel()
 })
 
-QUnit.test('validation error', (assert) => {
+QUnit.test('validation message', (assert) => {
   const done = assert.async()
   const inputValidator = (value) => Promise.resolve(!value && 'no falsy values')
 
   SwalWithoutAnimation({ input: 'text', inputValidator })
-  assert.ok(isHidden($('.swal2-validationerror')))
+  assert.ok(isHidden(Swal.getValidationMessage()))
   setTimeout(() => {
     const initialModalHeight = $('.swal2-modal').offsetHeight
 
     Swal.clickConfirm()
     setTimeout(() => {
-      assert.ok(isVisible($('.swal2-validationerror')))
-      assert.equal($('.swal2-validationerror').textContent, 'no falsy values')
+      assert.ok(isVisible(Swal.getValidationMessage()))
+      assert.equal(Swal.getValidationMessage().textContent, 'no falsy values')
       assert.ok($('.swal2-input').getAttribute('aria-invalid'))
       assert.ok($('.swal2-modal').offsetHeight > initialModalHeight)
 
@@ -228,7 +253,7 @@ QUnit.test('validation error', (assert) => {
       event.initEvent('input', true, true)
       $('.swal2-input').dispatchEvent(event)
 
-      assert.ok(isHidden($('.swal2-validationerror')))
+      assert.ok(isHidden(Swal.getValidationMessage()))
       assert.notOk($('.swal2-input').getAttribute('aria-invalid'))
       assert.ok($('.swal2-modal').offsetHeight === initialModalHeight)
       done()
@@ -788,27 +813,5 @@ QUnit.test('Custom content', (assert) => {
   }).then(result => {
     assert.ok(result.value)
     done()
-  })
-})
-
-QUnit.test('inputValue as a Promise', (assert) => {
-  const inputTypes = ['text', 'email', 'number', 'tel', 'textarea']
-  const done = assert.async(inputTypes.length)
-  const value = '1.1 input value'
-  const inputValue = new Promise((resolve) => {
-    resolve('1.1 input value')
-  })
-  inputTypes.forEach(input => {
-    SwalWithoutAnimation({
-      input,
-      inputValue,
-      onOpen: (modal) => {
-        setTimeout(() => {
-          const inputEl = input === 'textarea' ? modal.querySelector('.swal2-textarea') : modal.querySelector('.swal2-input')
-          assert.equal(inputEl.value, input === 'number' ? parseFloat(value) : value)
-          done()
-        }, TIMEOUT)
-      }
-    })
   })
 })

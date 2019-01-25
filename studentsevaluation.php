@@ -1579,7 +1579,7 @@ var verpass = document.getElementById("pass").value;
       title: 'Error',
       html:
        'Incorrect old password',
-      confirmButtonText: 'Lovely!'
+      confirmButtonText: 'Successful'
       })
  }
   else if(values[1] != values[2]){
@@ -1587,7 +1587,7 @@ var verpass = document.getElementById("pass").value;
       title: 'Error',
       html:
        'New Password does not match',
-      confirmButtonText: 'Lovely!'
+      confirmButtonText: 'Continue'
       })
   }
 

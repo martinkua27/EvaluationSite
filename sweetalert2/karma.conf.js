@@ -7,36 +7,36 @@ const isSauce = process.argv.includes('--sauce')
 
 module.exports = function (config) {
   const sauceLabsLaunchers = {
-    sauce_edge_15: {
-      base: 'SauceLabs',
-      browserName: 'MicrosoftEdge',
-      version: '15.15063'
-    },
-    sauce_edge_17: {
-      base: 'SauceLabs',
-      browserName: 'MicrosoftEdge',
-      version: '17.17134'
-    },
-    sauce_iphone: {
+    safari: {
       base: 'SauceLabs',
       browserName: 'Safari',
-      deviceName: 'iPhone XS Simulator',
-      platformName: 'iOS',
-      platformVersion: '12.0'
+      version: 'latest',
     },
-    sauce_android_kitkat: {
+    edge: {
+      base: 'SauceLabs',
+      browserName: 'MicrosoftEdge',
+      version: 'latest'
+    },
+    iphone: {
+      base: 'SauceLabs',
+      browserName: 'Safari',
+      deviceName: 'iPhone Simulator',
+      platformName: 'iOS',
+      platformVersion: 'latest'
+    },
+    android_kitkat: {
       base: 'SauceLabs',
       deviceName: 'Android Emulator',
       browserName: 'Browser',
       platformVersion: '4.4',
       platformName: 'Android'
     },
-    sauce_android_marshmallow: {
+    android_latest: {
       base: 'SauceLabs',
       deviceName: 'Android Emulator',
       browserName: 'Chrome',
-      platformVersion: '6.0',
-      platformName: 'Android'
+      platformName: 'Android',
+      platformVersion: 'latest'
     }
   }
   let browsers = []
@@ -70,10 +70,10 @@ module.exports = function (config) {
     } else if (isCi) {
       // AppVeyor
       if (isWindows) {
-        browsers = ['IE', 'ChromeHeadless', 'Firefox']
+        browsers = ['IE', 'ChromeHeadless', 'FirefoxHeadless']
       // Travis
       } else {
-        browsers = ['ChromeHeadless', 'Firefox']
+        browsers = ['ChromeHeadless', 'FirefoxHeadless']
         if (!testMinified) {
           reporters.push('coverage')
         }
