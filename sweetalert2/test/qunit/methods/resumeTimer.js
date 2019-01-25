@@ -3,8 +3,8 @@ import { Swal, SwalWithoutAnimation } from '../helpers.js'
 QUnit.test('resumeTimer() method', (assert) => {
   const done = assert.async()
 
-  SwalWithoutAnimation({
-    timer: 500
+  SwalWithoutAnimation.fire({
+    timer: 100
   })
 
   Swal.stopTimer()
@@ -12,18 +12,18 @@ QUnit.test('resumeTimer() method', (assert) => {
   setTimeout(() => {
     assert.ok(Swal.isVisible())
     Swal.resumeTimer()
-  }, 600)
+  }, 200)
 
   setTimeout(() => {
     assert.notOk(Swal.isVisible())
     done()
-  }, 1500)
+  }, 700)
 })
 
 QUnit.test('resumeTimer() method called twice', (assert) => {
   const done = assert.async()
 
-  SwalWithoutAnimation({
+  SwalWithoutAnimation.fire({
     timer: 500
   })
 

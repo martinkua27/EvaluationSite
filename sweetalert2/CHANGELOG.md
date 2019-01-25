@@ -1,3 +1,80 @@
+## [8.0.1](https://github.com/sweetalert2/sweetalert2/compare/v8.0.0...v8.0.1) (2019-01-19)
+
+
+### Bug Fixes
+
+* use .js in imports to support ES modules ([0e3e89e](https://github.com/sweetalert2/sweetalert2/commit/0e3e89e))
+
+# [8.0.0](https://github.com/sweetalert2/sweetalert2/compare/v7.33.1...v8.0.0) (2019-01-19)
+
+
+* BREAKING CHANGE: remove getButtonsWrapper() ([c93b5e3](https://github.com/sweetalert2/sweetalert2/commit/c93b5e3))
+* BREAKING CHANGE: close() as instance method (#1379) ([2519c17](https://github.com/sweetalert2/sweetalert2/commit/2519c17)), closes [#1379](https://github.com/sweetalert2/sweetalert2/issues/1379)
+* BREAKING CHANGE: replace deprecated `jsnext:main` with `module` in package.json (#1378) ([1785905](https://github.com/sweetalert2/sweetalert2/commit/1785905)), closes [#1378](https://github.com/sweetalert2/sweetalert2/issues/1378)
+* BREAKING CHANGE: drop Bower support (#1377) ([cb4ef28](https://github.com/sweetalert2/sweetalert2/commit/cb4ef28)), closes [#1377](https://github.com/sweetalert2/sweetalert2/issues/1377)
+* BREAKING CHANGE: remove withNoNewKeyword enhancer (#1372) ([f581352](https://github.com/sweetalert2/sweetalert2/commit/f581352)), closes [#1372](https://github.com/sweetalert2/sweetalert2/issues/1372)
+* BREAKING CHANGE: remove swal.noop() ([40d6fbb](https://github.com/sweetalert2/sweetalert2/commit/40d6fbb))
+* BREAKING CHANGE: rename $swal2-validationerror -> $swal2-validation-message (#1370) ([9d1b13b](https://github.com/sweetalert2/sweetalert2/commit/9d1b13b)), closes [#1370](https://github.com/sweetalert2/sweetalert2/issues/1370)
+* BREAKING CHANGE: inputValidator and preConfirm should always resolve (#1383) ([fc70cf9](https://github.com/sweetalert2/sweetalert2/commit/fc70cf9)), closes [#1383](https://github.com/sweetalert2/sweetalert2/issues/1383)
+* BREAKING CHANGE: remove setDefault and resetDefaults (#1365) ([97c1d7c](https://github.com/sweetalert2/sweetalert2/commit/97c1d7c)), closes [#1365](https://github.com/sweetalert2/sweetalert2/issues/1365)
+* BREAKING CHANGE: remove extraParams (#1363) ([5125491](https://github.com/sweetalert2/sweetalert2/commit/5125491)), closes [#1363](https://github.com/sweetalert2/sweetalert2/issues/1363)
+* BREAKING CHANGE: remove showValidationError and resetValidationError (#1367) ([50a1eff](https://github.com/sweetalert2/sweetalert2/commit/50a1eff)), closes [#1367](https://github.com/sweetalert2/sweetalert2/issues/1367)
+* BREAKING CHANGE: remove useRejections and expectRejections (#1362) ([f050caf](https://github.com/sweetalert2/sweetalert2/commit/f050caf)), closes [#1362](https://github.com/sweetalert2/sweetalert2/issues/1362)
+* BREAKING CHANGE: dismissReason: overlay -> backdrop (#1360) ([d05bf33](https://github.com/sweetalert2/sweetalert2/commit/d05bf33)), closes [#1360](https://github.com/sweetalert2/sweetalert2/issues/1360)
+* BREAKING CHANGE: drop Android 4.4 support (#1359) ([c0eddf3](https://github.com/sweetalert2/sweetalert2/commit/c0eddf3)), closes [#1359](https://github.com/sweetalert2/sweetalert2/issues/1359)
+
+
+### Features
+
+* **api:** add update() method ([#1186](https://github.com/sweetalert2/sweetalert2/issues/1186)) ([348e8b7](https://github.com/sweetalert2/sweetalert2/commit/348e8b7))
+
+
+### BREAKING CHANGES
+
+* close() as instance method (#1379)
+* drop Android 4.4 support (#1359)
+* replace deprecated `jsnext:main` with `module` in package.json (#1378)
+* drop Bower support (#1377)
+* remove withNoNewKeyword enhancer (#1372)
+* remove swal.noop()
+* rename $swal2-validationerror -> $swal2-validation-message (#1370)
+* inputValidator and preConfirm should always resolve (#1383)
+* remove setDefault and resetDefaults (#1365)
+* remove extraParams (#1363)
+* remove showValidationError and resetValidationError (#1367)
+* remove useRejections and expectRejections (#1362)
+* dismissReason: overlay -> backdrop (#1360)
+* remove getButtonsWrapper()
+
+## [7.33.1](https://github.com/sweetalert2/sweetalert2/compare/v7.33.0...v7.33.1) (2018-12-22)
+
+
+### Bug Fixes
+
+* **d.ts:** add customContainerClass definition ([#1351](https://github.com/sweetalert2/sweetalert2/issues/1351)) ([c5f11e7](https://github.com/sweetalert2/sweetalert2/commit/c5f11e7))
+
+# [7.33.0](https://github.com/sweetalert2/sweetalert2/compare/v7.32.4...v7.33.0) (2018-12-22)
+
+
+### Features
+
+* **API:** add customContainerClass for specifying custom container class ([#1347](https://github.com/sweetalert2/sweetalert2/issues/1347)) ([c5ef1aa](https://github.com/sweetalert2/sweetalert2/commit/c5ef1aa))
+
+## [7.32.4](https://github.com/sweetalert2/sweetalert2/compare/v7.32.3...v7.32.4) (2018-12-15)
+
+
+### Bug Fixes
+
+* remove excessive args check ([#1344](https://github.com/sweetalert2/sweetalert2/issues/1344)) ([d302584](https://github.com/sweetalert2/sweetalert2/commit/d302584))
+* trigger release ([f70362c](https://github.com/sweetalert2/sweetalert2/commit/f70362c))
+
+## [7.32.3](https://github.com/sweetalert2/sweetalert2/compare/v7.32.2...v7.32.3) (2018-12-15)
+
+
+### Bug Fixes
+
+* Remove excessive args check ([#1344](https://github.com/sweetalert2/sweetalert2/issues/1344))
+
 ## [7.32.2](https://github.com/sweetalert2/sweetalert2/compare/v7.32.1...v7.32.2) (2018-12-09)
 
 

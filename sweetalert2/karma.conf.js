@@ -11,6 +11,8 @@ module.exports = function (config) {
       base: 'SauceLabs',
       browserName: 'Safari',
       version: 'latest',
+      // TODO(@limonte): remove this line, the current latest 10.14 doesn't work (#1349)
+      platform: 'macOS 10.13'
     },
     edge: {
       base: 'SauceLabs',
@@ -24,16 +26,9 @@ module.exports = function (config) {
       platformName: 'iOS',
       platformVersion: 'latest'
     },
-    android_kitkat: {
+    android: {
       base: 'SauceLabs',
-      deviceName: 'Android Emulator',
-      browserName: 'Browser',
-      platformVersion: '4.4',
-      platformName: 'Android'
-    },
-    android_latest: {
-      base: 'SauceLabs',
-      deviceName: 'Android Emulator',
+      deviceName: 'Android GoogleAPI Emulator',
       browserName: 'Chrome',
       platformName: 'Android',
       platformVersion: 'latest'

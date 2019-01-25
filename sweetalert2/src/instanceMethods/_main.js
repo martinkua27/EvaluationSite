@@ -1,12 +1,13 @@
-import defaultParams, { showWarningsForParams } from '../utils/params'
-import * as dom from '../utils/dom/index'
-import { swalClasses } from '../utils/classes'
-import Timer from '../utils/Timer'
-import { formatInputOptions, error, warn, callIfFunction, isPromise } from '../utils/utils'
-import setParameters from '../utils/setParameters'
-import globalState from '../globalState'
-import { openPopup } from '../utils/openPopup'
-import privateProps from '../privateProps'
+import defaultParams, { showWarningsForParams } from '../utils/params.js'
+import * as dom from '../utils/dom/index.js'
+import { swalClasses } from '../utils/classes.js'
+import Timer from '../utils/Timer.js'
+import { formatInputOptions, error, warn, callIfFunction, isPromise } from '../utils/utils.js'
+import setParameters from '../utils/setParameters.js'
+import globalState from '../globalState.js'
+import { openPopup } from '../utils/openPopup.js'
+import privateProps from '../privateProps.js'
+import privateMethods from '../privateMethods.js'
 
 export function _main (userParams) {
   showWarningsForParams(userParams)
@@ -40,28 +41,16 @@ export function _main (userParams) {
 
   const constructor = this.constructor
 
-  return new Promise((resolve, reject) => {
-    // functions to handle all resolving/rejecting/settling
+  return new Promise((resolve) => {
+    // functions to handle all closings/dismissals
     const succeedWith = (value) => {
-      constructor.closePopup(innerParams.onClose, innerParams.onAfterClose) // TODO: make closePopup an *instance* method
-      if (innerParams.useRejections) {
-        resolve(value)
-      } else {
-        resolve({ value })
-      }
+      this.closePopup({ value })
     }
     const dismissWith = (dismiss) => {
-      constructor.closePopup(innerParams.onClose, innerParams.onAfterClose)
-      if (innerParams.useRejections) {
-        reject(dismiss)
-      } else {
-        resolve({ dismiss })
-      }
+      this.closePopup({ dismiss })
     }
-    const errorWith = (error) => {
-      constructor.closePopup(innerParams.onClose, innerParams.onAfterClose)
-      reject(error)
-    }
+
+    privateMethods.swalPromiseResolve.set(this, resolve)
 
     // Close on timer
     if (innerParams.timer) {
@@ -106,29 +95,16 @@ export function _main (userParams) {
 
       if (innerParams.preConfirm) {
         this.resetValidationMessage()
-        const preConfirmPromise = Promise.resolve().then(() => innerParams.preConfirm(value, innerParams.extraParams))
-        if (innerParams.expectRejections) {
-          preConfirmPromise.then(
-            (preConfirmValue) => succeedWith(preConfirmValue || value),
-            (validationMessage) => {
+        const preConfirmPromise = Promise.resolve().then(() => innerParams.preConfirm(value, innerParams.validationMessage))
+        preConfirmPromise.then(
+          (preConfirmValue) => {
+            if (dom.isVisible(domCache.validationMessage) || preConfirmValue === false) {
               this.hideLoading()
-              if (validationMessage) {
-                this.showValidationMessage(validationMessage)
-              }
+            } else {
+              succeedWith(preConfirmValue || value)
             }
-          )
-        } else {
-          preConfirmPromise.then(
-            (preConfirmValue) => {
-              if (dom.isVisible(domCache.validationMessage) || preConfirmValue === false) {
-                this.hideLoading()
-              } else {
-                succeedWith(preConfirmValue || value)
-              }
-            },
-            (error) => errorWith(error)
-          )
-        }
+          }
+        )
       } else {
         succeedWith(value)
       }
@@ -151,36 +127,18 @@ export function _main (userParams) {
 
               if (innerParams.inputValidator) {
                 this.disableInput()
-                const validationPromise = Promise.resolve().then(() => innerParams.inputValidator(inputValue, innerParams.extraParams))
-                if (innerParams.expectRejections) {
-                  validationPromise.then(
-                    () => {
-                      this.enableButtons()
-                      this.enableInput()
+                const validationPromise = Promise.resolve().then(() => innerParams.inputValidator(inputValue, innerParams.validationMessage))
+                validationPromise.then(
+                  (validationMessage) => {
+                    this.enableButtons()
+                    this.enableInput()
+                    if (validationMessage) {
+                      this.showValidationMessage(validationMessage)
+                    } else {
                       confirm(inputValue)
-                    },
-                    (validationMessage) => {
-                      this.enableButtons()
-                      this.enableInput()
-                      if (validationMessage) {
-                        this.showValidationMessage(validationMessage)
-                      }
                     }
-                  )
-                } else {
-                  validationPromise.then(
-                    (validationMessage) => {
-                      this.enableButtons()
-                      this.enableInput()
-                      if (validationMessage) {
-                        this.showValidationMessage(validationMessage)
-                      } else {
-                        confirm(inputValue)
-                      }
-                    },
-                    error => errorWith(error)
-                  )
-                }
+                  }
+                )
               } else if (!this.getInput().checkValidity()) {
                 this.enableButtons()
                 this.showValidationMessage(innerParams.validationMessage)
