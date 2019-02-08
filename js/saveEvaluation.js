@@ -75,7 +75,7 @@ var averageE = totalE / 9;
 var averagePercentE = averageE * 0.10;
 var finalValueE = averagePercentE.toFixed(2);
 
-
+var totalValue = (finalValueA + finalValueB + finalValueC + finalValueD + finalValueE) / 5;
 
 
 
@@ -102,7 +102,8 @@ prof1: prof,
 subjectcode1: subjectcode,
 empid1: empid,
 section1: section,
-comments1: comments
+comments1: comments,
+totalValue1: totalValue
 }, function(data) {
 
 $("input[type=radio]").attr('disabled', true);

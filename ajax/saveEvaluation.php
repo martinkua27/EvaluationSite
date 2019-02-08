@@ -110,6 +110,7 @@ include("../includes/session.php");
                   $finalValueC = $_POST["finalValueC1"];
                   $finalValueD = $_POST["finalValueD1"];
                   $finalValueE = $_POST["finalValueE1"];
+                  $totalValue =  $_POST["totalValue1"];
 
                   $ay = getAY($subjectcode);
                   $sem = getSem($subjectcode);
@@ -128,7 +129,7 @@ include("../includes/session.php");
                   $conn = new mysqli($servername, $username, $password, $dbname);
          
         
-                 $sql = "INSERT INTO evaluation_average_per_stduents (subject_code, emp_code, emp_name, a_average, b_average, c_average, d_average, e_average, comments, section, student_id, semester, academic_year, date_posted) VALUES ('$storeSubectCode', '$storeProfid', '$storeProfName','$finalValueA','$finalValueB','$finalValueC','$finalValueD','$finalValueE','$comments','$section' ,'$studentid','$sem','$ay','$dateNow')";
+                 $sql = "INSERT INTO evaluation_average_per_stduents (subject_code, emp_code, emp_name, a_average, b_average, c_average, d_average, e_average, comments, section, student_id, semester, academic_year, date_posted, totalValue) VALUES ('$storeSubectCode', '$storeProfid', '$storeProfName','$finalValueA','$finalValueB','$finalValueC','$finalValueD','$finalValueE','$comments','$section' ,'$studentid','$sem','$ay','$dateNow','$totalValue')";
       
 
           
