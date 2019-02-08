@@ -49,6 +49,8 @@ var averageC = totalC / 9;
 var averagePercentC = averageC * 0.10;
 var finalValueC = averagePercentC.toFixed(2);
 
+var totalValue = parseFloat(finalValueA) + parseFloat(finalValueB) + parseFloat(finalValueC);
+
 
 
 if ($('input[name="question1a"]:checked').val() && $('input[name="question2a"]:checked').val() && $('input[name="question3a"]:checked').val() &&
@@ -66,7 +68,8 @@ finalValueA1: finalValueA,
 finalValueB1: finalValueB,
 finalValueC1: finalValueC,
 empid1: empid,
-comments1: comments
+comments1: comments,
+totalValue1: totalValue
 }, function(data) {
 
 

@@ -75,7 +75,7 @@ var averageE = totalE / 9;
 var averagePercentE = averageE * 0.10;
 var finalValueE = averagePercentE.toFixed(2);
 
-var totalValue = (finalValueA + finalValueB + finalValueC + finalValueD + finalValueE) / 5;
+var totalValue = parseFloat(finalValueA) + parseFloat(finalValueB) + parseFloat(finalValueC) + parseFloat(finalValueD) + parseFloat(finalValueE);
 
 
 

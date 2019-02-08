@@ -152,6 +152,7 @@ include("../includes/session.php");
                   $finalValueB = $_POST["finalValueB1"];
                   $finalValueC = $_POST["finalValueC1"];
                   $finalValueD = $_POST["finalValueD1"];
+                  $totalValue = $_POST["totalValue1"];
                   
 
                   $comments = $_POST["comments1"];
@@ -171,7 +172,7 @@ include("../includes/session.php");
                   $conn = new mysqli($servername, $username, $password, $dbname);
          
         
-                 $sql = "INSERT INTO observation_sheet_per_prof (evaluator, position, emp_name_evaluated, a_average, b_average, c_average, d_average, subject_code,subject_name, semester, academic_year,comments, date_posted) VALUES ('$empid','$pos','$prof','$finalValueA','$finalValueB','$finalValueC' ,'$finalValueD','$subjectcodeStore','$subjectName','$sem','$ay','$comments','$dateNow')";
+                 $sql = "INSERT INTO observation_sheet_per_prof (evaluator, position, emp_name_evaluated, a_average, b_average, c_average, d_average, subject_code,subject_name, semester, academic_year,comments, date_posted, totalValue) VALUES ('$empid','$pos','$prof','$finalValueA','$finalValueB','$finalValueC' ,'$finalValueD','$subjectcodeStore','$subjectName','$sem','$ay','$comments','$dateNow','$totalValue')";
       
 
           

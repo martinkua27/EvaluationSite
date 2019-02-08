@@ -52,6 +52,8 @@ var totalD = (question1d + question2d + question3d + question4d);
 
 var finalValueD = totalD.toFixed(2);
 
+var totalValue = parseFloat(finalValueA) + parseFloat(finalValueB) + parseFloat(finalValueC) + parseFloat(finalValueD);
+
 
 if (isNaN(totalA) && isNaN(totalB) && isNaN(totalC) && isNaN(totalD)) {
 
@@ -74,7 +76,8 @@ prof1: prof,
 subjectcode1: subjectcode,
 empid1: empid,
 section1: section,
-comments1: comments
+comments1: comments,
+totalValue1: totalValue
 }, function(data) {
 
 
