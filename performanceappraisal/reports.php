@@ -29,6 +29,64 @@ include('../session.php');
 
 }
 
+function getAY(){
+
+ include("../indexDB.php");
+include('../session.php');
+ 
+     $ay = "";
+     $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM assigned_schedule";
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+       $ay = $row['academic_year'];
+
+      }
+       return $ay;
+  }
+  else{
+     $ay = "None";
+          
+      return $ay;
+  }
+   
+
+}
+
+function getSem(){
+
+ include("../indexDB.php");
+include('../session.php');
+ 
+     $sem = "";
+     $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM assigned_schedule";
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+       $sem = $row['semester'];
+
+      }
+       return $sem;
+  }
+  else{
+     $sem = "None";
+          
+      return $sem;
+  }
+   
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -212,7 +270,7 @@ $(document).ready(function(){
                     <?php
                        include("../indexDB.php");
                       $conn = new mysqli($servername, $username, $password, $dbname);
-                       $sql = "SELECT * FROM evaluation_average_per_prof";
+                       $sql = "SELECT * FROM evaluation_average_per_prof where semester like '".getSem()."' and academic_year like '".getAY()."'";
                        $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                         // output data of each row
@@ -395,7 +453,7 @@ $(document).ready(function(){
                          <td>E Average</td>
                          <td>Comments</td>
                          <td>Section</td>
-                         <td>Student ID</td>
+                       <!--  <td>Student ID</td> -->
                          <td>Semester</td>
                          <td>Academic Year</td>
                          <td>Date Posted</td>
@@ -406,7 +464,7 @@ $(document).ready(function(){
                     <?php
                        include("../indexDB.php");
                       $conn = new mysqli($servername, $username, $password, $dbname);
-                       $sql = "SELECT * FROM evaluation_average_per_stduents";
+                       $sql = "SELECT * FROM evaluation_average_per_stduents where semester like '".getSem()."' and academic_year like '".getAY()."'";
                        $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                         // output data of each row
@@ -423,7 +481,7 @@ $(document).ready(function(){
                          <td data-label="e_average"><?php echo $row['e_average']?></td>
                          <td data-label="Comments"><?php echo $row['comments']?></td>
                          <td data-label="Section"><?php echo $row['section']?></td>
-                         <td data-label="Student ID" class="hidetext"><?php echo $row['student_id']?></td>
+                      <!--   <td data-label="Student ID" class="hidetext"><?php //echo $row['student_id']?></td> -->
                          <td data-label="Semester"><?php echo $row['semester']?></td>
                          <td data-label="Academic Year"><?php echo $row['academic_year']?></td>
                          <td data-label="Date Posted"><?php echo $row['date_posted']?></td>
@@ -509,7 +567,7 @@ $(document).ready(function(){
                     <?php
                        include("../indexDB.php");
                       $conn = new mysqli($servername, $username, $password, $dbname);
-                       $sql = "SELECT * FROM observation_sheet_per_prof";
+                       $sql = "SELECT * FROM observation_sheet_per_prof where semester like '".getSem()."' and academic_year like '".getAY()."'";
                        $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                         // output data of each row

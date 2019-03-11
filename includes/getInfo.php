@@ -32,13 +32,32 @@ $result = mysqli_query($con,$sql);
 
 while($row = mysqli_fetch_array($result)) {
 
-  echo "  
+	if($result->num_rows == 0){
+
+	
+		echo "  
+	
+			
+				<img src='images/blank.png' id='profpic' class='img-responsive center-block img-circle img-profile' style='margin-bottom:50px; margin-left:50px;'>
+			<hr>
+	     "; 
+echo "<br><br><br>";
+	}
+	else{
+
+	
+		echo "  
 	
 			
 				<img src='".$row['emp_image']."' id='profpic' class='img-responsive center-block img-circle img-profile' style='margin-bottom:50px; margin-left:50px;'>
 			<hr>
 	     "; 
 echo "<br><br><br>";
+	}
+
+	
+
+  
 }
 }
 

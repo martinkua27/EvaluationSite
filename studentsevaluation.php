@@ -1413,6 +1413,7 @@ for(var i=0;i<radioButtons.length;i++) {
 
     function showUser(str)  {
 
+
 for(var i=0;i<radioButtons.length;i++) {
    radioButtons[i].disabled = true;
    radioButtons[i].checked = false;
@@ -1447,10 +1448,7 @@ for(var i=0;i<radioButtons.length;i++) {
                    document.getElementById("txtHint").innerHTML = this.responseText;
                     
                      verifyBtn.disabled = false;
-
-                   var myObj = JSON.parse(this.responseText);
-                    document.getElementById("imagename").value = myObj.name;
-                 
+                  
                     //var empid = document.getElementById("emp_id").value 
                      // showImg(empid);
                 }
