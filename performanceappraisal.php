@@ -278,6 +278,7 @@ include('includes/session.php');
             if($type == "Employee"){
 
 
+                echo  "<li><a href='#' data-toggle='modal' data-target='#historyModal'>History</a></li>";
 
             }
             else{
@@ -300,15 +301,83 @@ include('includes/session.php');
                   <span class="caret" style="color:#fff;"></span></button>
                        
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a type="button" onclick="changePass()" data-toggle="modal" data-target="#addPage">Change Password</a></li>
+                <li><a type="button" onclick="changePass()" data-toggle="modal" data-target="#historyModal">Change Password</a></li>
                 <li><a href="logout.php">Log Out</a></li>
               </ul>
           </ul>
         </div>
       </div>
     </nav>
-    
+
+    <!-- Modal -->
+    <div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        
+          <div class="modal-header">
+            <button type="button" class="close" onclick="clearDropdown()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">History</h4>
+          </div>
+
+         
+            <div class="form-group">
+                
+                <?php
+
+                          include("indexDB.php");
+                          include('session.php');
+
+                          $conn = new mysqli($servername, $username, $password, $dbname)
+                                  or die ('Cannot connect to db');
+
+                                  $result = $conn->query("SELECT * FROM evaluation_average_per_stduents group by academic_year");
+
+
+
+                     ?>
+            
+                          <select class= "form-control subj-code" name="department" style="width: 270px;" id="department" onchange="showSemester(this.value)">
+                             <?php
+
+                                  echo "<option value='' selected>Select Academic Year</option>";
+
+                                  while ($row = $result->fetch_assoc()) {
+
+                                       unset($option1);
+                                    $option1 = $row['academic_year'];
+                                    echo "<option value='$option1'>$option1</option>";
+                                    
+                                   
+
+                                   }
+
+                                    echo "</select>";
+
+                                         if(isset($_POST['department'])){ //check if $_POST['examplePHP'] exists
+          
+                        echo '<script>alert('. $_POST['department'] .')</script>'; // echo the data
+                          die(); // stop execution of the script.
+                       }
+
+                             ?> 
+
+                 <select class= "form-control subj-code" style="width: 270px; display: none;" id="semDropdown" onchange="showHistory(this.value)" required>
+                    <option value="" selected >Select Semester</option>
+                    <option value="1st">1st Sem</option>
+                    <option value="2nd">2nd Sem</option>
+                </select>
+
+                <div id="txtHint"></div>
+            </div>
+            
+          </div>
       
+      
+        </div>
+      </div>
+    </div>
+    
+      <!-- END OF MODAL -->
      
       <div class="container-fluid" style="margin-top:40px;">
         <div class="row">
@@ -345,6 +414,8 @@ include('includes/session.php');
           <h4 class="title">A. <b>PROFESSIONAL RESPONSIBILITIES (70%)</b></h4>
 		  
 		  <br>
+
+      <input type="text" id="profName" style="display: none;" value="<?php echo $profname; ?>">
 		  
 		  <div class="radio">
                <div class="radio-group">
@@ -1158,6 +1229,60 @@ function myFunction() {
 
 })
       }
+    </script>
+
+    <script type="text/javascript">
+
+      var ay = "";
+
+     function showSemester(str){
+         document.getElementById("semDropdown").value = "";
+
+      if(str == ""){
+         document.getElementById('semDropdown').style.display = "none";
+         document.getElementById("txtHint").innerHTML = "";
+      }
+      else{
+        ay = str;
+        document.getElementById('semDropdown').style.display = "block";
+      }
+
+     }
+
+     function showHistory(str){
+
+          var profname = document.getElementById('profName').value;
+
+       if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+        
+                  document.getElementById("txtHint").innerHTML = this.responseText;
+             
+               
+                }
+            };
+
+            xmlhttp.open("POST","includes/gethistory.php?sem=" + str + "&prof=" + profname + "&ay=" + ay,true);
+            xmlhttp.send();
+     }
+
+     function clearDropdown(){
+      document.getElementById("department").value = "";
+      document.getElementById('semDropdown').style.display = "none";
+         document.getElementById("txtHint").innerHTML = "";
+              document.getElementById("semDropdown").value = "";
+
+
+     }
+
     </script>
 
    

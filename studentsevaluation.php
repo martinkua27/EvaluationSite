@@ -1537,7 +1537,7 @@ for(var i=0;i<radioButtons.length;i++) {
 
                 swal(
   'System',
-  'Ready for Evaluation',
+  this.responseText,
   'success'
 );
             }

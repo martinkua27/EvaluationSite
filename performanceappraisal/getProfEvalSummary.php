@@ -28,6 +28,64 @@ if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
 
+function getayNOW(){
+
+ include("../indexDB.php");
+include('../session.php');
+ 
+     $ay = "";
+     $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM assigned_schedule";
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+       $ay = $row['academic_year'];
+
+      }
+       return $ay;
+  }
+  else{
+     $ay = "None";
+          
+      return $ay;
+  }
+   
+
+}
+
+function getsemNOW(){
+
+ include("../indexDB.php");
+include('../session.php');
+ 
+     $sem = "";
+     $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM assigned_schedule";
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+       $sem = $row['semester'];
+
+      }
+       return $sem;
+  }
+  else{
+     $sem = "None";
+          
+      return $sem;
+  }
+   
+
+}
+
 $aTotalStudent = 0;
 $bTotalStudent = 0;
 $cTotalStudent = 0;
@@ -85,7 +143,7 @@ $totalPaDeanViceDean = 0;
 $totalCoDeanViceDean = 0;
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT COUNT(id) as id, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c, SUM(d_average) as d, SUM(e_average) as e  FROM evaluation_average_per_stduents where emp_name like '". $q ."'";
+$sql="SELECT COUNT(id) as id, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c, SUM(d_average) as d, SUM(e_average) as e  FROM evaluation_average_per_stduents where emp_name like '". $q ."'and academic_year like '". getayNOW() ."' and semester like '". getsemNOW() ."'";
 $result = mysqli_query($con,$sql);
 
 
@@ -112,7 +170,7 @@ while($row = mysqli_fetch_array($result)) {
 echo "<p id='studentTotal'>".$totalStudent."</p>";
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT evaluator, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c FROM evaluation_average_per_prof where evaluator != 'dean' and evaluator != 'vicedean' and evaluator != 'chairperson' and emp_name_evaluated like '". $q ."'";
+$sql="SELECT evaluator, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c FROM evaluation_average_per_prof where evaluator != 'dean' and evaluator != 'vicedean' and evaluator != 'chairperson' and emp_name_evaluated like '". $q ."'and academic_year like '". getayNOW() ."' and semester like '". getsemNOW() ."'";
 $result = mysqli_query($con,$sql);
 
 
@@ -133,7 +191,7 @@ $totalSelf = $aTotalSelf + $bTotalSelf + $cTotalSelf;
 echo "<p id='selfTotal'>".$totalSelf."</p>";
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT evaluator, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c FROM evaluation_average_per_prof where evaluator like 'dean' and emp_name_evaluated like '". $q ."'";
+$sql="SELECT evaluator, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c FROM evaluation_average_per_prof where evaluator like 'dean' and emp_name_evaluated like '". $q ."'and academic_year like '". getayNOW() ."' and semester like '". getsemNOW() ."'";
 $result = mysqli_query($con,$sql);
 
 
@@ -150,7 +208,7 @@ $totalDeanPa = $aTotalDeanPa + $bTotalDeanPa + $cTotalDeanPa;
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT evaluator, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c FROM evaluation_average_per_prof where evaluator like 'vicedean' and emp_name_evaluated like '". $q ."'";
+$sql="SELECT evaluator, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c FROM evaluation_average_per_prof where evaluator like 'vicedean' and emp_name_evaluated like '". $q ."'and academic_year like '". getayNOW() ."' and semester like '". getsemNOW() ."'";
 $result = mysqli_query($con,$sql);
 
 
@@ -172,7 +230,7 @@ $totalPaDeanViceDean = ($totalDeanPa + $totalViceDeanPa)/2;
 echo "<p id='deanvicedeanPa'>".$totalPaDeanViceDean."</p>";
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT evaluator,COUNT(id) as id,SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c, SUM(d_average) as d FROM observation_sheet_per_prof where evaluator like 'dean' and emp_name_evaluated like '". $q ."'";
+$sql="SELECT evaluator,COUNT(id) as id,SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c, SUM(d_average) as d FROM observation_sheet_per_prof where evaluator like 'dean' and emp_name_evaluated like '". $q ."'and academic_year like '". getayNOW() ."' and semester like '". getsemNOW() ."'";
 $result = mysqli_query($con,$sql);
 
 
@@ -197,7 +255,7 @@ $TotalDeanCo = (($aTotalDeanCo + $bTotalDeanCo + $cTotalDeanCo + $dTotalDeanCo)/
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT evaluator,COUNT(id) as id, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c, SUM(d_average) as d FROM observation_sheet_per_prof where evaluator like 'vicedean' and emp_name_evaluated like '". $q ."'";
+$sql="SELECT evaluator,COUNT(id) as id, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c, SUM(d_average) as d FROM observation_sheet_per_prof where evaluator like 'vicedean' and emp_name_evaluated like '". $q ."'and academic_year like '". getayNOW() ."' and semester like '". getsemNOW() ."'";
 $result = mysqli_query($con,$sql);
 
 
@@ -226,7 +284,7 @@ $totalCoDeanViceDean = ($TotalDeanCo + $TotalViceDeanCo)/2;
 echo "<p id='deanvicedeanCo'>".$totalCoDeanViceDean."</p>";
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT evaluator,COUNT(id) as id, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c, SUM(d_average) as d FROM observation_sheet_per_prof where evaluator like 'chairperson' and emp_name_evaluated like '". $q ."'";
+$sql="SELECT evaluator,COUNT(id) as id, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c, SUM(d_average) as d FROM observation_sheet_per_prof where evaluator like 'chairperson' and emp_name_evaluated like '". $q ."'and academic_year like '". getayNOW() ."' and semester like '". getsemNOW() ."'";
 $result = mysqli_query($con,$sql);
 
 
@@ -254,7 +312,7 @@ $totalChairCo = (($aTotalChairCo + $bTotalChairCo + $cTotalChairCo + $dTotalChai
 echo "<p id='chairpersonCo'>".$totalChairCo."</p>";
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT evaluator, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c FROM evaluation_average_per_prof where evaluator like 'chairperson' and emp_name_evaluated like '". $q ."'";
+$sql="SELECT evaluator, SUM(a_average) as a, SUM(b_average) as b, SUM(c_average) as c FROM evaluation_average_per_prof where evaluator like 'chairperson' and emp_name_evaluated like '". $q ."'and academic_year like '". getayNOW() ."' and semester like '". getsemNOW() ."'";
 $result = mysqli_query($con,$sql);
 
 

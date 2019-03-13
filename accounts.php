@@ -262,7 +262,7 @@ include('session.php');
 			
           </div>
           <div class="modal-footer">
-            <button type="submit" name="action" id="confirmBtn" class="btn btn-warning" data-dismiss="modal">Yes</button>
+            <button type="submit" name="action" id="confirmBtn" class="btn btn-warning" data-dismiss="modal" onClick = "location.reload();">Yes</button>
               <button type="button" class="btn btn-danger" id="closeBtn" data-dismiss="modal" style=" float: right;">No</button>
 
           </div>

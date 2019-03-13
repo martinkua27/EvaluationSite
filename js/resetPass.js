@@ -12,6 +12,7 @@ empid1: empid
 
 swal(data);
 
+
 $('#empTbl').reset(); // To reset form fields	
 });
 

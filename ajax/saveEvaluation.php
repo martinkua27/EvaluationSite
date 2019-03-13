@@ -58,6 +58,64 @@ include("../includes/session.php");
       return $getsem;
   }
 }
+
+function getayNOW(){
+
+ include("../indexDB.php");
+include('../session.php');
+ 
+     $ay = "";
+     $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM assigned_schedule";
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+       $ay = $row['academic_year'];
+
+      }
+       return $ay;
+  }
+  else{
+     $ay = "None";
+          
+      return $ay;
+  }
+   
+
+}
+
+function getsemNOW(){
+
+ include("../indexDB.php");
+include('../session.php');
+ 
+     $sem = "";
+     $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM assigned_schedule";
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+       $sem = $row['semester'];
+
+      }
+       return $sem;
+  }
+  else{
+     $sem = "None";
+          
+      return $sem;
+  }
+   
+
+}
    
 
 
@@ -85,9 +143,11 @@ include("../includes/session.php");
     while($row = $result->fetch_assoc()) {
       
         
-        if($row["subject_code"] == $subjectcode && $row["student_id"] == $studentid){
+
+         if($row["subject_code"] == $subjectcode && $row["student_id"] == $studentid && $row["semester"] == getsemNOW() && $row["academic_year"] == getayNOW() ){
             $verify = "match";
         }
+
     }
   }
     
