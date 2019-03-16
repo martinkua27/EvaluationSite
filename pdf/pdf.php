@@ -4,6 +4,8 @@ require('fpdf.php');
 //default margin: 10mm each side
 //writable horizontal: 219-(10*2) = 189mm
 $name = $_GET['varr'];
+$ay = $_GET['ay'];
+$sem = $_GET['sem'];
 
 ////connect to database
    $servername = "localhost";
@@ -96,20 +98,20 @@ include('../../session.php');
 //Cell(width, height, text, border 0(no border) 1(border), end line 0(continue) 1(new line), [align] (L/empty string (default value) C (center) R (right))
 //queries 
 //classroom observation
-$query1 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated,semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.05)/COUNT(id),3) as totala FROM observation_sheet_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '".$name."' AND semester like '". getsemNOW() ."' AND academic_year like '". getayNOW() ."' GROUP BY emp_name_evaluated, semester, academic_year");
+$query1 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated,semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.05)/COUNT(id),3) as totala FROM observation_sheet_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '".$name."' AND semester like '". $sem ."' AND academic_year like '". $ay ."' GROUP BY emp_name_evaluated, semester, academic_year");
 
-$query2 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.30)/COUNT(id) ,3) as totalb FROM observation_sheet_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '".$name."' AND semester like '". getsemNOW() ."' AND academic_year like '". getayNOW() ."' GROUP BY emp_name_evaluated, semester, academic_year");
+$query2 = mysqli_query($conn, "SELECT COUNT(id) as classroom_count, emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21)/COUNT(id) ,3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average) + SUM(d_average)) / 21 * 0.30)/COUNT(id) ,3) as totalb FROM observation_sheet_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '".$name."' AND semester like '". $sem ."' AND academic_year like '". $ay ."' GROUP BY emp_name_evaluated, semester, academic_year");
 
 //performance appraisal
-$query3 = mysqli_query($conn,"SELECT COUNT(id) as performance_count,emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2),3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2)*.20,3) as totalc FROM evaluation_average_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '".$name."' AND semester like '". getsemNOW() ."' AND academic_year like '". getayNOW() ."' GROUP BY emp_name_evaluated, semester, academic_year");
+$query3 = mysqli_query($conn,"SELECT COUNT(id) as performance_count,emp_name_evaluated, semester, academic_year, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2),3) as rating, FORMAT(((SUM(a_average) + SUM(b_average) + SUM(c_average))/2)*.20,3) as totalc FROM evaluation_average_per_prof WHERE position Like '%dean' AND emp_name_evaluated Like '".$name."' AND semester like '". $sem ."' AND academic_year like '". $ay ."' GROUP BY emp_name_evaluated, semester, academic_year");
 
-$query4 = mysqli_query($conn,"SELECT COUNT(id) as performance_count, emp_name_evaluated, semester, academic_year, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)),3) as rating, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)) * .20,3) as totald FROM evaluation_average_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '".$name."' AND semester like '". getsemNOW() ."' AND academic_year like '". getayNOW() ."' GROUP BY emp_name_evaluated, semester, academic_year");
+$query4 = mysqli_query($conn,"SELECT COUNT(id) as performance_count, emp_name_evaluated, semester, academic_year, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)),3) as rating, FORMAT((SUM(a_average) + SUM(b_average) + SUM(c_average)) * .20,3) as totald FROM evaluation_average_per_prof WHERE position Like 'chairperson' AND emp_name_evaluated Like '".$name."' AND semester like '". $sem ."' AND academic_year like '". $ay ."' GROUP BY emp_name_evaluated, semester, academic_year");
 
 //studentsevaluation
-$query5 = mysqli_query($conn,"SELECT COUNT(id) as students_count,emp_name, semester, academic_year,  FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id), 3) as rating, FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id) * 0.20, 3) as totale FROM evaluation_average_per_stduents WHERE emp_name Like '".$name."' AND semester like '". getsemNOW() ."' AND academic_year like '". getayNOW() ."' GROUP BY emp_name, semester, academic_year");
+$query5 = mysqli_query($conn,"SELECT COUNT(id) as students_count,emp_name, semester, academic_year,  FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id), 3) as rating, FORMAT(SUM(a_average + b_average + c_average + d_average + e_average) / COUNT(student_id) * 0.20, 3) as totale FROM evaluation_average_per_stduents WHERE emp_name Like '".$name."' AND semester like '". $sem ."' AND academic_year like '". $ay ."' GROUP BY emp_name, semester, academic_year");
 
 //self-evaluation
-$query6 = mysqli_query($conn,"SELECT COUNT(id) as selfeval_count, evaluator, emp_name_evaluated, semester, academic_year, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) as rating, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) * 0.05 as totalf FROM evaluation_average_per_prof INNER JOIN emp_details ON evaluation_average_per_prof.position = emp_details.position WHERE evaluation_average_per_prof.evaluator = emp_details.emp_num AND emp_name_evaluated LIKE '".$name."' AND semester like '". getsemNOW() ."' AND academic_year like '". getayNOW() ."' AND evaluation_average_per_prof.evaluator != 'dean' AND evaluation_average_per_prof.position != 'vicedean' AND evaluation_average_per_prof.position != 'chairperson' GROUP BY evaluation_average_per_prof.evaluator, evaluation_average_per_prof.semester, evaluation_average_per_prof.academic_year");
+$query6 = mysqli_query($conn,"SELECT COUNT(id) as selfeval_count, evaluator, emp_name_evaluated, semester, academic_year, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) as rating, FORMAT(SUM(evaluation_average_per_prof.a_average) + SUM(evaluation_average_per_prof.b_average) + SUM(evaluation_average_per_prof.c_average), 3) * 0.05 as totalf FROM evaluation_average_per_prof INNER JOIN emp_details ON evaluation_average_per_prof.position = emp_details.position WHERE evaluation_average_per_prof.evaluator = emp_details.emp_num AND emp_name_evaluated LIKE '".$name."' AND semester like '". $sem ."' AND academic_year like '". $ay ."' AND evaluation_average_per_prof.evaluator != 'dean' AND evaluation_average_per_prof.position != 'vicedean' AND evaluation_average_per_prof.position != 'chairperson' GROUP BY evaluation_average_per_prof.evaluator, evaluation_average_per_prof.semester, evaluation_average_per_prof.academic_year");
 
 
 //end
@@ -141,13 +143,13 @@ $pdf->Cell(74,  5, '', 0, 1); //end of line
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(26,  5, 'School Year:', 0, 0); 
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(88,  5, $info['academic_year'], 0, 0); 
+$pdf->Cell(88,  5, $ay, 0, 0); 
 $pdf->Cell(74,  5, '', 0, 1); //end of line
 
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(26,  5, 'Semester:', 0, 0); 
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(88,  5, $info['semester'], 0, 0); 
+$pdf->Cell(88,  5, $sem, 0, 0); 
 $pdf->Cell(74,  5, '', 0, 1); //end of line
 
 $pdf->Ln(15);

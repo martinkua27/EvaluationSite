@@ -318,7 +318,8 @@ include('includes/session.php');
             <button type="button" class="close" onclick="clearDropdown()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">History</h4>
           </div>
-
+      
+        <button style="float: right; margin-right: 10px;" id="openpdf" type="button" onclick="printpdf();" disabled>Print</button>
          
             <div class="form-group">
                 
@@ -335,7 +336,10 @@ include('includes/session.php');
 
 
                      ?>
-            
+                       
+                          <div class = "row">
+
+                              <div class = "col-md-9">
                           <select class= "form-control subj-code" name="department" style="width: 270px;" id="department" onchange="showSemester(this.value)">
                              <?php
 
@@ -360,12 +364,23 @@ include('includes/session.php');
                        }
 
                              ?> 
+</div>
+      <div class = "col-md-3">                       
+
+
+
+
+                      
+                               </div>
+                               </div>
 
                  <select class= "form-control subj-code" style="width: 270px; display: none;" id="semDropdown" onchange="showHistory(this.value)" required>
                     <option value="" selected >Select Semester</option>
                     <option value="1st">1st Sem</option>
                     <option value="2nd">2nd Sem</option>
                 </select>
+
+               
 
                 <div id="txtHint"></div>
             </div>
@@ -1234,16 +1249,22 @@ function myFunction() {
     <script type="text/javascript">
 
       var ay = "";
+      var getsem = "";
+
+       var openpdf = document.getElementById("openpdf");
+        
 
      function showSemester(str){
          document.getElementById("semDropdown").value = "";
 
       if(str == ""){
+          openpdf.disabled = true;
          document.getElementById('semDropdown').style.display = "none";
          document.getElementById("txtHint").innerHTML = "";
       }
       else{
         ay = str;
+        document.getElementById("semDropdown").value = "";
         document.getElementById('semDropdown').style.display = "block";
       }
 
@@ -1251,6 +1272,8 @@ function myFunction() {
 
      function showHistory(str){
 
+        openpdf.disabled = false;
+          getsem = str; 
           var profname = document.getElementById('profName').value;
 
        if (window.XMLHttpRequest) {
@@ -1279,9 +1302,23 @@ function myFunction() {
       document.getElementById('semDropdown').style.display = "none";
          document.getElementById("txtHint").innerHTML = "";
               document.getElementById("semDropdown").value = "";
+                openpdf.disabled = true;
 
 
      }
+
+      function printpdf()  {
+     
+          
+      name =  document.getElementById("profName").value;
+      var win = window.open("pdf/pdf.php?varr=" + name + "&ay=" + ay+ "&sem=" + getsem, '_blank');
+      win.focus();
+
+    //window.location="pdf/pdf.php?varr=" + name;
+
+        }
+
+
 
     </script>
 

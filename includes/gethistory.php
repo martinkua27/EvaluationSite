@@ -182,6 +182,14 @@ while($row = mysqli_fetch_array($result)) {
 
 }
 
+$finalDeanViceDeanPa = $totalPaDeanViceDean * 0.20;
+$finalDeanViceDeanCo = $totalCoDeanViceDean * 0.05;
+$finalChairPa = $aTotalChairpersonPa * 0.20;
+$finalChairCo = $totalChairCo * 0.30;
+$finalStudents = $totalStudent * 0.20;
+$finalSelf = $aTotalSelf * 0.05;
+$finalGrade = $finalDeanViceDeanPa + $finalDeanViceDeanCo + $finalChairPa + $finalChairCo + $finalStudents + $finalSelf; 
+
 
 echo "<div class='panel panel-default'>
               <div class='panel-heading main-color-bg'>
@@ -190,47 +198,47 @@ echo "<div class='panel panel-default'>
               <div class='panel-body'>
                 <div class='col-md-3'>
                   <div class='well dash-box bg-color'>
-                    <h2 style='text-align:center;'> ".$totalPaDeanViceDean ." </h2>
-                    <h6 style='text-align: center;'>Dean/VDAA Performance Appraisal</h6>
+                    <h2 style='text-align:center;'> ". $finalDeanViceDeanPa ." </h2>
+                    <h6 style='text-align: center;'>Dean/VDAA Performance Appraisal (20%)</h6>
                   </div>
                 </div>
                 <div class='col-md-3'>
                   <div class='well dash-box bg-color1'>
-                    <h2 style='text-align: center;'> ".$totalCoDeanViceDean." </h2>
-                     <h6 style='text-align: center;'>Dean/VDAA Classroom Observation</h6>
+                    <h2 style='text-align: center;'> ".$finalDeanViceDeanCo." </h2>
+                     <h6 style='text-align: center;'>Dean/VDAA Classroom Observation (5%)</h6>
                   </div>
                 </div>
                 <div class='col-md-3'>
                   <div class='well dash-box bg-color2'>
-                    <h2>". $aTotalChairpersonPa ."</h2>
-                     <h6 style='text-align: center;'>Chairperson Performance Appraisal</h6>
+                    <h2 style='text-align: center;'>". $finalChairPa ."</h2>
+                     <h6 style='text-align: center;'>Chairperson Performance Appraisal (20%)</h6>
                   </div>
                 </div>
                 <div class='col-md-3'>
                   <div class='well dash-box bg-color3'>
-                    <h2> ".$totalChairCo."</h2>
-                    <h6 style='text-align: center;'>Chairperson Classroom Observation</h6>
-                  </div>
-                </div>
-
-                <div class='col-md-3'>
-                  <div class='well dash-box bg-color3'>
-                    <h2 style='text-align: center;'> ".$totalStudent." </h2>
-                    <h6 style='text-align: center;'>Student Evaluation</h6>
+                    <h2 style='text-align: center;'> ".$finalChairCo."</h2>
+                    <h6 style='text-align: center;'>Chairperson Classroom Observation (30%)</h6>
                   </div>
                 </div>
 
                 <div class='col-md-3'>
                   <div class='well dash-box bg-color3'>
-                    <h2 style='text-align: center;'> ".$aTotalSelf."</h2>
-                    <h6 style='text-align: center;'>Self Evaluation</h6>
+                    <h2 style='text-align: center;'> ".$finalStudents." </h2>
+                    <h6 style='text-align: center;'>Student Evaluation (20%)</h6>
                   </div>
                 </div>
 
                 <div class='col-md-3'>
                   <div class='well dash-box bg-color3'>
-                    <h2><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span> <?php echo countAbsent(); ?> </h2>
-                    <h6 style='text-align: center;'>Final <br> Grade</h6>
+                    <h2 style='text-align: center;'> ".$finalSelf."</h2>
+                    <h6 style='text-align: center;'>Self Evaluation (5%)</h6>
+                  </div>
+                </div>
+
+                <div class='col-md-3'>
+                  <div class='well dash-box bg-color3'>
+                    <h2 style='text-align: center;'> ". $finalGrade ." </h2>
+                    <h6 style='text-align: center;'><br>Final <br> Grade </h6>
                   </div>
                 </div>
 
