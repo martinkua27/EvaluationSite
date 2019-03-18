@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                        $_SESSION['login_userStat'] = "User";
                        $_SESSION['login_pass'] = $empPass;
                        
-                       header("location: studentsevaluation.php");
+                       header("location: dashboard.php");
           
         
     }else{

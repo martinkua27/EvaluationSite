@@ -8,7 +8,8 @@
 <?php
 include('session.php');
 $q = $_GET['q'];
-$getsection = $_GET['section'];
+$getsectionajax = $_GET['section'];
+
 $dateToday = date("l") . " " . date("Y-m-d");
 
 $con = mysqli_connect('localhost','root','','evaluationdb');
@@ -17,6 +18,36 @@ if (!$con) {
 }
 $academicYearEnd = date('Y', strtotime('+1 year'));
 $academicYearStart = date('Y'); 
+
+function getStudSection($a){
+
+
+include('session.php');
+ 
+     $section = "";
+     $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM student_list where student_id = '".$_SESSION['login_user'] ."'and subject_code_enrolled like '".$a."'";
+
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+       $section = $row['section'];
+
+      }
+       return $section;
+  }
+  else{
+     $section = "None";
+          
+      return $section;
+  }
+}
+
+$getsection = getStudSection($q);
 
 function pic($a){
 	include('session.php');
@@ -60,6 +91,8 @@ echo "<br><br><br>";
   
 }
 }
+
+
 
 
 
@@ -133,6 +166,9 @@ while($row = mysqli_fetch_array($result)) {
 	     ";	   
 
 }
+
+
+
 
 mysqli_close($con);
 

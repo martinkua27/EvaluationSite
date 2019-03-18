@@ -375,7 +375,7 @@ include('includes/session.php');
                                </div>
 
                  <select class= "form-control subj-code" style="width: 270px; display: none;" id="semDropdown" onchange="showHistory(this.value)" required>
-                    <option value="" selected >Select Semester</option>
+                    <option value="" selected disabled>Select Semester</option>
                     <option value="1st">1st Sem</option>
                     <option value="2nd">2nd Sem</option>
                 </select>

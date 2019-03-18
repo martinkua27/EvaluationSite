@@ -269,6 +269,11 @@ include('includes/session.php');
             <a class="navbar-brand" href="#"><img src="images/bedalogocas.png"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="dashboard.php">Dashboard</a></li>
+            
+
+          </ul>
         <ul class="nav navbar-nav navbar-right">
              <li><a href="#" class="welcome-text">Welcome, <?php include('session.php'); echo $_SESSION['login_user']; ?>!</a></li>
              <li class="dropdown create">

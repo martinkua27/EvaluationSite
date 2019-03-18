@@ -1,51 +1,37 @@
 <?php
 
-$var = $_GET['varr'];
-$profname = $var;
-$emptype = "";
 
-echo str_replace("%20"," ",$var);
+function getStudentName(){
 
-if(getDepartment() == "Dean" || getDepartment() == "Vice Dean" || getemptype() == "Chairperson"){
+  include("includes/indexDB.php");
+ include('includes/session.php');
 
-if(getDepartment() == "Dean"){
-  $welcome = "Dean";
-}
-else if(getDepartment() == "Vice Dean"){
-  $welcome = "Vice Dean";
+  $name = "";
+  $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM student_list where student_id = '". $_SESSION['login_user'] ."'" ;
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
 
-}
-else{
-  include('includes/session.php');
- 
-  $empnum = getEmpNum($var);
-  $welcome = "Chairperson";
-  $emptype = "chairperson";
-}
-$getImage = getImageEmployee($profname);
-}
+        $name = $row['student_name'];
 
-
-else{
-
-$welcome = getEmpName();
-$getImage = getImage();
-$profname = getEmpName();
-
+      }
+        
+  }
+  return $name;
 }
 
-    //absent
-function countAbsent(){
+function countUsers(){
 
-$totalUsers = countUsers();
-$dateCheck = date("l") . " " . date("Y-m-d");
- 
  include("indexDB.php");
 
  
      $count = "";
      $conn = new mysqli($servername, $username, $password, $dbname);
-     $sql = "SELECT COUNT(emp_id) as 'total' FROM temp_time WHERE remarks = 'Time In'" ;
+     $sql = "SELECT COUNT(emp_id) as 'total' FROM users_information where emp_type = 'User'" ;
      $result = $conn->query($sql);
     
     
@@ -58,126 +44,10 @@ $dateCheck = date("l") . " " . date("Y-m-d");
       }
         
   }
-
-  $sum = (int)$totalUsers - (int)$count;
-
-  return $sum;
-} 
-
-function getDepartment(){
-
-include("includes/indexDB.php");
-include('includes/session.php');
- 
-     $getdepartment = "";
-     $conn = new mysqli($servername, $username, $password, $dbname);
-     $sql = "SELECT * FROM emp_details where emp_num = '".  $_SESSION['login_user'] ."' " ;
-     $result = $conn->query($sql);
-    
-    
-    if ($result->num_rows > 0) {
-    // output data of each row
-      while($row = $result->fetch_assoc()) {
-
-       $getdepartment = $row['emp_department'];
-
-      }
-       return $getdepartment;
-  }
-  else{
-     $getdepartment = "None";
-          
-      return $getdepartment;
-  }
-   
-
+  return $count;
 }
+ //admin
 
-function getEmpType(){
-
-include("includes/indexDB.php");
-include('includes/session.php');
- 
-     $getemptype = "";
-     $conn = new mysqli($servername, $username, $password, $dbname);
-     $sql = "SELECT * FROM login_table where emp_id = '".  $_SESSION['login_user'] ."' " ;
-     $result = $conn->query($sql);
-    
-    
-    if ($result->num_rows > 0) {
-    // output data of each row
-      while($row = $result->fetch_assoc()) {
-
-       $getemptype = $row['emp_type'];
-
-      }
-       return $getemptype;
-  }
-  else{
-     $getemptype = "None";
-          
-      return $getemptype;
-  }
-   
-
-}
-
-function getImage(){
-
-include("includes/indexDB.php");
-include('includes/session.php');
- 
-     $getimage = "";
-     $conn = new mysqli($servername, $username, $password, $dbname);
-     $sql = "SELECT * FROM emp_details where emp_num = '".  $_SESSION['login_user'] ."' " ;
-     $result = $conn->query($sql);
-    
-    
-    if ($result->num_rows > 0) {
-    // output data of each row
-      while($row = $result->fetch_assoc()) {
-
-       $getimage = $row['emp_image'];
-
-      }
-       return $getimage;
-  }
-  else{
-     $getimage = "None";
-          
-      return $getimage;
-  }
-   
-
-}
-
-function getEmpName(){
-  
-include("includes/indexDB.php");
-include('includes/session.php');
- 
-     $getempname = "";
-     $conn = new mysqli($servername, $username, $password, $dbname);
-     $sql = "SELECT * FROM emp_details where emp_num = '".  $_SESSION['login_user'] ."' " ;
-     $result = $conn->query($sql);
-    
-    
-    if ($result->num_rows > 0) {
-    // output data of each row
-      while($row = $result->fetch_assoc()) {
-
-       $getempname = $row['emp_name'];
-
-      }
-       return $getempname;
-  }
-  else{
-     $getempname = "None";
-          
-      return $getempname;
-  }
-
-}
 
 ?>
 
@@ -191,6 +61,7 @@ include('includes/session.php');
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
+    <link href="css/studenteval.css" rel="stylesheet">
 
 
     <!-- Bootstrap core CSS -->
@@ -198,17 +69,22 @@ include('includes/session.php');
     <link href="css/style.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
+
      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
   <script src="js/morris.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
   <script src="js/example.js"></script>
+    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
   
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
   <link rel="stylesheet" href="css/morris.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <title>Admin Dashboard</title>
+    <title>Student Dashboard</title>
 
    
 
@@ -216,24 +92,47 @@ include('includes/session.php');
 
 
 
-  <body>
-    
+  <body background="images/redpattern.jpg" style="background-color: #9f0000;">
+
     <div id="wrapper">
         <!-- Sidebar -->
-      
-        
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <div class="sidebar-brand">
+                    <a href="#"><img src="images/bedalogo.png" class="img-responsive center-block"></a>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded" src="images/man.png" alt="User picture">
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">
+                            <strong><?php echo getStudentName(); ?></strong>
+                        </span>
+                        <span class="user-role">Student</span>
+                        
+                    </div>
+                </div>
+               
+                <li class=""><a href="#" onclick="changePass()" data-target="#addPage"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Change Password</a></li>
+                <li class="active"><a href="studentsevaluation.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Evaluation</a></li>
+                <li class="active"><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Summary</a></li>
+               
+            </ul>
+        </div>
+         
         <!-- Page Content -->
         <div id="page-content-wrapper">
           <header id="header">
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col-md-9">
+                  <div class="col-md-8">
                       <!--when clicked, it will change layout-->
-                     
-                    <h1 class="dashboard-text">Dashboard <small>Manage Your Site</small></h1>
+                      <span><a href="#" class="btn btn-danger glyphicon glyphicon-tasks" id="menu-toggle"></a></span>
+                    <h1 class="dashboard-text">Student <small>Dashboard</small></h1>
                   </div>    
-                  <div class="col-md-2 admin-text">
-                    <h4>Welcome, <?php echo $login_session_fname; ?>!</h4>
+                  <div class="col-md-3 admin-text">
+                    <h4>Welcome, <?php echo $_SESSION['login_user']; ?>!</h4>
                   </div>
                   <div class="col-md-1 logout-text">
                     <h4><a href="logout.php">Logout</a></h4>
@@ -244,36 +143,36 @@ include('includes/session.php');
         
           <div class="panel panel-default">
               <div class="panel-heading main-color-bg">
-                  <h3 class="panel-title"><b>Website Overview</b></h3>
+                  <h3 class="panel-title"><b>Overview</b></h3>
               </div>
               <div class="panel-body">
                 <div class="col-md-3">
                   <div class="well dash-box bg-color">
-                    <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo countUsers(); ?></h2>
-                    <h4>Users</h4>
+                    <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php  ?></h2>
+                    <h4>Total Subjects Enrolled</h4>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="well dash-box bg-color1">
-                    <h2><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> <?php echo countAdmins(); ?></h2>
-                    <h4>Admins</h4>
+                    <h2><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> <?php  ?></h2>
+                    <h4>Total Evaluations Submitted</h4>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="well dash-box bg-color2">
-                    <h2><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> <?php echo countLate(); ?></h2>
-                    <h4>Late</h4>
+                    <h2><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> <?php  ?></h2>
+                    <h4>Number of Subjects to Evaluate</h4>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="well dash-box bg-color3">
-                    <h2><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> <?php echo countAbsent(); ?> </h2>
-                    <h4>Absent</h4>
+                    <h2><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> <?php  ?> </h2>
+                    <h4>Evaluation Status</h4>
                   </div>
                 </div>
               </div>
             </div>
-         
+          <input type="text"  name="pass" id="pass" style="display: none; font-size: 50px; position: absolute; margin-top: 1110px;"  value="<?php include('session.php'); echo $_SESSION['login_pass'];?>"  form="myform" >
             <!-- Latest Users -->
             <div class="col-md-6">
             <div class="panel panel-default latest-users">
@@ -527,7 +426,88 @@ include('includes/session.php');
     });
     </script>
    
-     
+     <script type="text/javascript">
+         function changePass(){
+        swal.mixin({
+  input: 'text',
+  confirmButtonText: 'Next &rarr;',
+  showCancelButton: true,
+  progressSteps: ['1', '2', '3']
+}).queue([
+  {
+    title: 'Old Password',
+    text: 'Enter old password'
+  },
+  'Enter new password',
+  'Enter new passoword again'
+]).then((result) => {
+
+var values =  result.value;
+var verpass = document.getElementById("pass").value;
+
+  if (result.value) {
+
+      if (values[0] != verpass){
+      swal({
+      title: 'Error',
+      html:
+       'Incorrect old password',
+      confirmButtonText: 'Successful'
+      })
+ }
+  else if(values[1] != values[2]){
+     swal({
+      title: 'Error',
+      html:
+       'New Password does not match',
+      confirmButtonText: 'Continue'
+      })
+  }
+
+   else{
+
+     if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+myFunction();
+               
+swal({
+      title: 'All done!',
+      html:
+        'Change password successful',
+      confirmButtonText: 'Continue!'
+    })
+
+document.getElementById("pass").value = value[1];
+                   //document.getElementById("txtHint").innerHTML = this.responseText;
+             
+               
+                }
+            };
+            xmlhttp.open("POST","changepassStudent.php?q=" + values[1],true);
+            xmlhttp.send();
+
+
+      
+      }
+
+function myFunction() {
+    document.getElementById("pass").value = values[1];
+}
+    
+  }
+
+
+})
+      }
+     </script>
     
 
   </body>
