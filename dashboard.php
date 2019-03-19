@@ -24,14 +24,15 @@ function getStudentName(){
   return $name;
 }
 
-function countUsers(){
+function countSubjects(){
 
- include("indexDB.php");
+ include("includes/indexDB.php");
+ include('includes/session.php');
 
  
      $count = "";
      $conn = new mysqli($servername, $username, $password, $dbname);
-     $sql = "SELECT COUNT(emp_id) as 'total' FROM users_information where emp_type = 'User'" ;
+     $sql = "SELECT COUNT(subject_code_enrolled) as 'totalNumber' FROM student_list where student_id = '".$_SESSION['login_user']."'" ;
      $result = $conn->query($sql);
     
     
@@ -39,14 +40,100 @@ function countUsers(){
     // output data of each row
       while($row = $result->fetch_assoc()) {
 
-        $count = $row['total'];
+        $count = $row['totalNumber'];
 
       }
         
   }
   return $count;
 }
- //admin
+
+function countEvaluationSubmitted(){
+
+ include("includes/indexDB.php");
+ include('includes/session.php');
+
+ 
+     $count = "";
+     $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT COUNT(student_id) as 'totalNumber' FROM evaluation_average_per_stduents where student_id = '".$_SESSION['login_user']."'" ;
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+        $count = $row['totalNumber'];
+
+      }
+        
+  }
+  return $count;
+}
+
+function subjectLeftCount(){
+  $count = 0;
+  $getCountSubject =  countSubjects();
+  $getSubjectLeft = countEvaluationSubmitted();
+  $count = $getCountSubject - $getSubjectLeft;
+  return $count;
+}
+
+function evaluationStatus(){
+  $status = "On-Going";
+  $subjectLeft = subjectLeftCount();
+
+  if($subjectLeft == "0"){
+    $status = "COMPLETE";
+  }
+  return $status;
+}
+
+function evaluationStatusColor(){
+  $status = "well dash-box bg-color2";
+  $getstatus = evaluationStatus();
+
+  if($getstatus == "Complete"){
+    $status = "well dash-box bg-color1";
+  }
+  return $status;
+
+}
+
+function evaluationStatusSign(){
+  $status = "glyphicon glyphicon-warning-sign";
+  $getstatus = evaluationStatus();
+
+  if($getstatus == "Complete"){
+    $status = "glyphicon glyphicon-ok";
+  }
+  return $status;
+
+}
+
+function getStudentSection(){
+
+  include("includes/indexDB.php");
+ include('includes/session.php');
+
+  $section = "";
+  $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM student_list where student_id = '". $_SESSION['login_user'] ."'" ;
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+        $section = $row['section'];
+
+      }
+        
+  }
+  return $section;
+}
 
 
 ?>
@@ -147,86 +234,101 @@ function countUsers(){
               </div>
               <div class="panel-body">
                 <div class="col-md-3">
-                  <div class="well dash-box bg-color">
-                    <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php  ?></h2>
-                    <h4>Total Subjects Enrolled</h4>
+                  <div class="well dash-box bg-color1">
+                    <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo countSubjects(); ?></h2>
+                    <h4>Total Subjects <br> Enrolled</h4>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="well dash-box bg-color1">
-                    <h2><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> <?php  ?></h2>
+                    <h2><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> <?php echo countEvaluationSubmitted(); ?></h2>
                     <h4>Total Evaluations Submitted</h4>
                   </div>
                 </div>
                 <div class="col-md-3">
-                  <div class="well dash-box bg-color2">
-                    <h2><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> <?php  ?></h2>
-                    <h4>Number of Subjects to Evaluate</h4>
+                  <div class="well dash-box bg-color1">
+                    <h2><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> <?php echo subjectLeftCount(); ?></h2>
+                    <h4>Subjects left to <br> evaluate</h4>
                   </div>
                 </div>
                 <div class="col-md-3">
-                  <div class="well dash-box bg-color3">
-                    <h2><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> <?php  ?> </h2>
-                    <h4>Evaluation Status</h4>
+                  <div class="<?php echo evaluationStatusColor(); ?>">
+                    <h2><span class="<?php echo evaluationStatusSign(); ?>" aria-hidden="true"></span> <?php echo evaluationStatus(); ?> </h2>
+                    <h4>Evaluation <br> Status</h4>
                   </div>
                 </div>
               </div>
             </div>
           <input type="text"  name="pass" id="pass" style="display: none; font-size: 50px; position: absolute; margin-top: 1110px;"  value="<?php include('session.php'); echo $_SESSION['login_pass'];?>"  form="myform" >
+
             <!-- Latest Users -->
-            <div class="col-md-6">
-            <div class="panel panel-default latest-users">
+            
+      <div class="col-md-12" style="padding-left: 0px;padding-right: 0px;padding-top:0px;">
+            <!-- Website Overview-->
+            <div class="panel panel-default">
               <div class="panel-heading main-color-bg">
-                  <h3 class="panel-title"><b>Registered Users</b></h3>
+                <h3 class="panel-title">Subjects Enrolled</h3>
               </div>
               <div class="panel-body">
-                 <!-- Table -->
-                      <div class="table-responsive">
-                      <table class="table table-striped table-hover" id="usersTbl">
-                        <thead class="thead-dark">                    
-                           <tr>
-                             <td scope="col">Employee ID</td>
-                             <td scope="col">Name</td>
-                             <td scope="col">Email</td>
-                           </tr>
-                        </thead>                        
-                                                
-                                                
-                           <?php
-                              include("indexDB.php");
-                              $conn = new mysqli($servername, $username, $password, $dbname);
-                              $sql = "SELECT * FROM users where emp_type = 'User'" ;
-                             $result = $conn->query($sql);
-                              if ($result->num_rows > 0) {
-                               // output data of each row
-                               while($row = $result->fetch_assoc()) {
-                           ?>
-                            <tr>
-                                <td data-label="Employee ID"><?php echo $row['emp_id']?></td>
-                                <td data-label="Name"><?php echo $row['emp_name']." ".$row['emp_lname']?></td>
-                                <td data-label="Email"><?php echo $row['email']?></td>
-                           
-                            </tr>
-                           <?php
-                               }
-                              }
-                           ?>
+                <div class="row">
+                  <div class="col-md-12">
+            
+
+                  </div>
+                </div>
+                <br>
+                <div class="table-responsive"> 
+                <table class="table table-striped table-hover" id="profreport">
+                    <thead class="thead-dark">                            
+                       <tr>
+                         <td>Subject Code</td>
+                         <td>Subject Name</td>
+                         <td>Schedule</td>
+                         <td>Room</td>
+                         <td>Professor</td>
+
+                       </tr>
+                    </thead>                            
+                
+                    <?php
+                       include("includes/indexDB.php");
+                      $conn = new mysqli($servername, $username, $password, $dbname);
+                       $sql = "SELECT course_code, course_title, schedule, room, faculty, class_section FROM assigned_schedule INNER JOIN student_list ON assigned_schedule.course_code = student_list.subject_code_enrolled where student_id = '".$_SESSION['login_user']."' and class_section = '".getStudentSection()."'";
+
+                       $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                       while($row = $result->fetch_assoc()) {
+
+                      
+                    ?>
+          
+                     <tr>
+                        <td data-label="Subject Code"><?php echo $row['course_code']; ?></td>
+                        <td data-label="Subject Name"><?php echo $row['course_title']; ?></td>
+                        <td data-label="Subject Name"><?php echo $row['schedule']; ?></td>
+                        <td data-label="Subject Name"><?php echo $row['room']; ?></td>
+                        <td data-label="Subject Name"><?php echo $row['faculty']; ?></td>
+                        
+                    
+                     </tr>
+                  <?php
+                        }
+                       }
+                    ?>
             
                                                 
                                             
                 </table>
-                  </div>
-                  </div>   
-                    <nav>
-                      <ul class="pager">
-                          <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
-                          <li class="next"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
-                      </ul>
-                    </nav>   
+                </div>
+                 
+               
               </div>
+            </div>
               
-         
-           </div>
+                     
+                  
+          </div>
 
            <!-- PROGRESS BAR -->
             <div class="col-md-6">
@@ -276,12 +378,7 @@ function countUsers(){
                       </table>
                   </div>
               </div> 
-               <nav>
-                      <ul class="pager">
-                          <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
-                          <li class="next"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
-                      </ul>
-                </nav>     
+                    
             </div>
             </div>            
            
