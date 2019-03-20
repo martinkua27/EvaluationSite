@@ -279,13 +279,13 @@ function progressbarColor(){
                 <div class="col-md-3">
                   <div class="well dash-box bg-color1">
                     <h2><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> <?php echo countEvaluationSubmitted(); ?></h2>
-                    <h4>Total Evaluations Submitted</h4>
+                    <h4>Total Evaluations <br> Submitted</h4>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="well dash-box bg-color1">
-                    <h2><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> <?php echo subjectLeftCount(); ?></h2>
-                    <h4>Subjects left to <br> evaluate</h4>
+                    <h2><span class="glyphicon glyphicon glyphicon-tasks" aria-hidden="true"></span> <?php echo subjectLeftCount(); ?></h2>
+                    <h4>Subjects left to evaluate</h4>
                   </div>
                 </div>
                 <div class="col-md-3">

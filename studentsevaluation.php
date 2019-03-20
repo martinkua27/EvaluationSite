@@ -1570,7 +1570,7 @@ for(var i=0;i<radioButtons.length;i++) {
     text: 'Enter old password'
   },
   'Enter new password',
-  'Enter new passoword again'
+  'Enter new password again'
 ]).then((result) => {
 
 var values =  result.value;
@@ -1590,7 +1590,7 @@ var verpass = document.getElementById("pass").value;
      swal({
       title: 'Error',
       html:
-       'New Password does not match',
+       'Password does not match',
       confirmButtonText: 'Continue'
       })
   }
@@ -1612,7 +1612,7 @@ myFunction();
 swal({
       title: 'All done!',
       html:
-        'Change password successful',
+        'Password updated successfully',
       confirmButtonText: 'Continue!'
     })
 

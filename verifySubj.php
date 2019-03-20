@@ -90,7 +90,7 @@ include('session.php');
          echo "Existing Evaluation Found";
         
     }else{
-         echo "No Evlautaion Found";
+         echo "No Evaluation Found";
     }
 
 ?>
