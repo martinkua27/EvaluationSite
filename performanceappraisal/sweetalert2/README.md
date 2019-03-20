@@ -4,19 +4,6 @@
   </a>
 </p>
 
-<br>
-
-<p align="center">
-  <a href="https://travis-ci.org/sweetalert2/sweetalert2"><img alt="Build Status: Linux" src="https://travis-ci.org/sweetalert2/sweetalert2.svg?branch=master"></a>
-  <a href="https://ci.appveyor.com/project/limonte/sweetalert2/branch/master"><img alt="Build Status: Windows" src="https://ci.appveyor.com/api/projects/status/paqdtx0snu53w5c1/branch/master?svg=true"></a>
-  <a href="https://coveralls.io/github/sweetalert2/sweetalert2?branch=master"><img src="https://coveralls.io/repos/github/sweetalert2/sweetalert2/badge.svg?branch=master&" alt="Coverage Status"></a>
-  <a href="https://www.npmjs.com/package/sweetalert2"><img alt="Version" src="https://img.shields.io/npm/v/sweetalert2.svg"></a>
-  <a href="https://github.com/sweetalert2/sweetalert2/blob/master/CHANGELOG.md"><img alt="semantic-release badge" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"></a>
-  <a href="https://www.jsdelivr.com/package/npm/sweetalert2"><img alt="jsdelivr" src="https://data.jsdelivr.com/v1/package/npm/sweetalert2/badge?style=rounded"></a>
-  <a href="https://www.patreon.com/limonte"><img alt="Support me on Patreon" src="http://ionicabizau.github.io/badges/patreon.svg"></a>
-  <a href="https://www.paypal.me/limonte/5eur"><img alt="PayPal Donate" src="http://ionicabizau.github.io/badges/paypal.svg"></a>
-</p>
-
 <p align="center">
   A beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes. Zero dependencies.
 </p>
@@ -28,9 +15,20 @@
   </a>
 </p>
 
+<p align="center">
+  <a href="https://travis-ci.org/sweetalert2/sweetalert2"><img alt="Build Status: Linux" src="https://travis-ci.org/sweetalert2/sweetalert2.svg?branch=master"></a>
+  <a href="https://ci.appveyor.com/project/limonte/sweetalert2/branch/master"><img alt="Build Status: Windows" src="https://ci.appveyor.com/api/projects/status/paqdtx0snu53w5c1/branch/master?svg=true"></a>
+  <a href="https://coveralls.io/github/sweetalert2/sweetalert2?branch=master"><img src="https://coveralls.io/repos/github/sweetalert2/sweetalert2/badge.svg?branch=master&" alt="Coverage Status"></a>
+  <a href="https://www.npmjs.com/package/sweetalert2"><img alt="Version" src="https://img.shields.io/npm/v/sweetalert2.svg"></a>
+  <a href="https://github.com/sweetalert2/sweetalert2/blob/master/CHANGELOG.md"><img alt="semantic-release badge" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"></a>
+  <a href="https://www.jsdelivr.com/package/npm/sweetalert2"><img alt="jsdelivr" src="https://data.jsdelivr.com/v1/package/npm/sweetalert2/badge?style=rounded"></a>
+  <a href="https://www.paypal.me/limonte/5eur"><img alt="PayPal Donate" src="http://ionicabizau.github.io/badges/paypal.svg"></a>
+</p>
+
 ---
 
-:point_right: **Upgrading from v6.x to v7.x?** [Read the release notes!](https://github.com/sweetalert2/sweetalert2/releases/tag/v7.0.0)
+:point_right: **Upgrading from v7.x to v8.x?** [Read the release notes!](https://github.com/sweetalert2/sweetalert2/releases/tag/v8.0.0)
+<br>If you're upgrading from v6.x, please [upgrade from v6 to v7](https://github.com/sweetalert2/sweetalert2/releases/tag/v7.0.0) first!
 
 :point_right: **Migrating from [SweetAlert](https://github.com/t4t5/sweetalert)?** [SweetAlert 1.x to SweetAlert2 migration guide](https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2)
 
@@ -43,12 +41,6 @@ Installation
 npm install --save sweetalert2
 ```
 
-Or:
-
-```bash
-bower install --save sweetalert2
-```
-
 Or download from CDN: [jsdelivr.com/package/npm/sweetalert2](https://www.jsdelivr.com/package/npm/sweetalert2)
 
 
@@ -58,7 +50,7 @@ Usage
 ```html
 <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
 
-<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
+<!-- Include a polyfill for ES6 Promises (optional) for IE11 and UC Browser support -->
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
 ```
 
@@ -73,7 +65,7 @@ Or:
 
 ```js
 // ES6 Modules or TypeScript
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2.js'
 
 // CommonJS
 const Swal = require('sweetalert2')
@@ -82,7 +74,7 @@ const Swal = require('sweetalert2')
 It's possible to import JS and CSS separately, e.g. if you need to customize styles:
 
 ```js
-import swal from 'sweetalert2/dist/sweetalert2.js'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 import 'sweetalert2/src/sweetalert2.scss'
 ```
@@ -96,19 +88,19 @@ Examples
 The most basic message:
 
 ```js
-Swal('Hello world!')
+Swal.fire('Hello world!')
 ```
 
 A message signaling an error:
 
 ```js
-Swal('Oops...', 'Something went wrong!', 'error')
+Swal.fire('Oops...', 'Something went wrong!', 'error')
 ```
 
 Handling the result of SweetAlert2 modal:
 
 ```js
-Swal({
+Swal.fire({
   title: 'Are you sure?',
   text: 'You will not be able to recover this imaginary file!',
   type: 'warning',
@@ -117,7 +109,7 @@ Swal({
   cancelButtonText: 'No, keep it'
 }).then((result) => {
   if (result.value) {
-    Swal(
+    Swal.fire(
       'Deleted!',
       'Your imaginary file has been deleted.',
       'success'
@@ -125,7 +117,7 @@ Swal({
   // For more information about handling dismissals please visit
   // https://sweetalert2.github.io/#handling-dismissals
   } else if (result.dismiss === Swal.DismissReason.cancel) {
-    Swal(
+    Swal.fire(
       'Cancelled',
       'Your imaginary file is safe :)',
       'error'
@@ -140,9 +132,9 @@ Swal({
 Browser compatibility
 ---------------------
 
- IE11* | Edge | Chrome | Firefox | Safari | Opera | Android Browser* | UC Browser*
--------|------|--------|---------|--------|-------|------------------|------------
-:heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+ IE11* | Edge | Chrome | Firefox | Safari | Opera | UC Browser*
+-------|------|--------|---------|--------|-------|-------------
+:heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 \* ES6 Promise polyfill should be included, see [usage example](#usage).
 
@@ -201,10 +193,9 @@ Backers
 Donations
 ---------
 
-Has SweetAlert2 helped you create an amazing application? You can show your support by making a donation in one of several ways:
+Has SweetAlert2 helped you create an amazing application? You can show your support by making a donation:
 
 - [Donate via PayPal](https://www.paypal.me/limonte/5eur)
-- [Donate via Patreon](https://www.patreon.com/limonte)
 
 
 ### [Hall of Donators :trophy:](DONATIONS.md)

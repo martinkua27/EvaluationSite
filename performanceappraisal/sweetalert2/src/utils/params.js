@@ -1,4 +1,4 @@
-import { warn, warnOnce } from '../utils/utils'
+import { warn, warnOnce } from '../utils/utils.js'
 
 const defaultParams = {
   title: '',
@@ -9,6 +9,7 @@ const defaultParams = {
   type: null,
   toast: false,
   customClass: '',
+  customContainerClass: '',
   target: 'body',
   backdrop: true,
   animation: true,
@@ -24,11 +25,11 @@ const defaultParams = {
   confirmButtonText: 'OK',
   confirmButtonAriaLabel: '',
   confirmButtonColor: null,
-  confirmButtonClass: null,
+  confirmButtonClass: '',
   cancelButtonText: 'Cancel',
   cancelButtonAriaLabel: '',
   cancelButtonColor: null,
-  cancelButtonClass: null,
+  cancelButtonClass: '',
   buttonsStyling: true,
   reverseButtons: false,
   focusConfirm: true,
@@ -40,7 +41,7 @@ const defaultParams = {
   imageWidth: null,
   imageHeight: null,
   imageAlt: '',
-  imageClass: null,
+  imageClass: '',
   timer: null,
   width: null,
   padding: null,
@@ -50,7 +51,7 @@ const defaultParams = {
   inputValue: '',
   inputOptions: {},
   inputAutoTrim: true,
-  inputClass: null,
+  inputClass: '',
   inputAttributes: {},
   inputValidator: null,
   validationMessage: null,
@@ -62,16 +63,10 @@ const defaultParams = {
   onBeforeOpen: null,
   onAfterClose: null,
   onOpen: null,
-  onClose: null,
-  useRejections: false,
-  expectRejections: false
+  onClose: null
 }
 
-export const deprecatedParams = [
-  'useRejections',
-  'expectRejections',
-  'extraParams'
-]
+export const deprecatedParams = []
 
 const toastIncompatibleParams = [
   'allowOutsideClick',
@@ -88,7 +83,40 @@ const toastIncompatibleParams = [
  * @param {String} paramName
  */
 export const isValidParameter = (paramName) => {
-  return defaultParams.hasOwnProperty(paramName) || paramName === 'extraParams'
+  return defaultParams.hasOwnProperty(paramName)
+}
+
+/**
+ * Is valid parameter for Swal.update() method
+ * @param {String} paramName
+ */
+export const isUpdatableParameter = (paramName) => {
+  return [
+    'title',
+    'titleText',
+    'text',
+    'html',
+    'type',
+    'showConfirmButton',
+    'showCancelButton',
+    'confirmButtonText',
+    'confirmButtonAriaLabel',
+    'confirmButtonColor',
+    'confirmButtonClass',
+    'cancelButtonText',
+    'cancelButtonAriaLabel',
+    'cancelButtonColor',
+    'cancelButtonClass',
+    'buttonsStyling',
+    'reverseButtons',
+    'imageUrl',
+    'imageWidth',
+    'imageHeigth',
+    'imageAlt',
+    'imageClass',
+    'progressSteps',
+    'currentProgressStep'
+  ].indexOf(paramName) !== -1
 }
 
 /**

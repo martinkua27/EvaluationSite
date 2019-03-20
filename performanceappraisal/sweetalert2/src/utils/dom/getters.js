@@ -1,6 +1,6 @@
-import { swalClasses } from '../classes'
-import { uniqueArray, warnOnce, toArray } from '../utils'
-import { isVisible } from './domUtils'
+import { swalClasses } from '../classes.js'
+import { uniqueArray, toArray } from '../utils.js'
+import { isVisible } from './domUtils.js'
 
 export const getContainer = () => document.body.querySelector('.' + swalClasses.container)
 
@@ -29,13 +29,6 @@ export const getValidationMessage = () => elementByClass(swalClasses['validation
 export const getConfirmButton = () => elementByClass(swalClasses.confirm)
 
 export const getCancelButton = () => elementByClass(swalClasses.cancel)
-
-/* @deprecated */
-/* istanbul ignore next */
-export const getButtonsWrapper = () => {
-  warnOnce(`swal.getButtonsWrapper() is deprecated and will be removed in the next major release, use swal.getActions() instead`)
-  return elementByClass(swalClasses.actions)
-}
 
 export const getActions = () => elementByClass(swalClasses.actions)
 

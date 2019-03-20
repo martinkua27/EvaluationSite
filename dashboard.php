@@ -61,7 +61,6 @@ function countUsers(){
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
-    <link href="css/studenteval.css" rel="stylesheet">
 
 
     <!-- Bootstrap core CSS -->

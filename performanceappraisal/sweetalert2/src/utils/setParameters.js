@@ -1,8 +1,7 @@
 import { swalClasses } from './classes.js'
 import { warn } from './utils.js'
-import * as dom from './dom/index'
-import sweetAlert from '../sweetalert2'
-import defaultInputValidators from './defaultInputValidators'
+import * as dom from './dom/index.js'
+import defaultInputValidators from './defaultInputValidators.js'
 
 /**
  * Set type, text and actions on popup
@@ -15,17 +14,9 @@ export default function setParameters (params) {
   if (!params.inputValidator) {
     Object.keys(defaultInputValidators).forEach((key) => {
       if (params.input === key) {
-        params.inputValidator = params.expectRejections ? defaultInputValidators[key] : sweetAlert.adaptInputValidator(defaultInputValidators[key])
+        params.inputValidator = defaultInputValidators[key]
       }
     })
-  }
-
-  // params.extraParams is @deprecated
-  if (params.validationMessage) {
-    if (typeof params.extraParams !== 'object') {
-      params.extraParams = {}
-    }
-    params.extraParams.validationMessage = params.validationMessage
   }
 
   // Determine if the custom target element is valid
@@ -129,6 +120,10 @@ export default function setParameters (params) {
   // Custom Class
   if (params.customClass) {
     dom.addClass(popup, params.customClass)
+  }
+
+  if (params.customContainerClass) {
+    dom.addClass(container, params.customContainerClass)
   }
 
   // Progress steps
