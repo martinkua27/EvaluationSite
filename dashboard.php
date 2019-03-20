@@ -85,7 +85,7 @@ function evaluationStatus(){
   $subjectLeft = subjectLeftCount();
 
   if($subjectLeft == "0"){
-    $status = "COMPLETE";
+    $status = "Complete";
   }
   return $status;
 }
@@ -136,6 +136,45 @@ function getStudentSection(){
 }
 
 
+
+function getProgress(){
+
+ $progress = 0;
+ $computation = 0;
+ $totalSubject = countSubjects();
+ $subjectsLeft = subjectLeftCount();
+ $multiplier = $totalSubject - $subjectsLeft;
+
+ $computation = 100/$totalSubject;
+ 
+ $progress = $multiplier * $computation;
+
+  if($progress != 0 || $progress != 100){
+    $progress = round($progress, 2);
+  }
+ 
+  return $progress;
+}
+
+function progressbarColor(){
+
+  $color = "";
+  $getprogress = getProgress();
+
+  if($getprogress < 40){
+    $color = "progress-bar progress-bar-striped active w3-red";
+  }
+  else if($getprogress > 40 && $getprogress < 100){
+ $color = "progress-bar progress-bar-striped active w3-orange";
+  }
+  else {
+     $color = "progress-bar progress-bar-striped active w3-green";
+  }
+
+   return $color;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -176,7 +215,6 @@ function getStudentSection(){
    
 
   </head>
-
 
 
   <body background="images/redpattern.jpg" style="background-color: #9f0000;">
@@ -235,7 +273,7 @@ function getStudentSection(){
               <div class="panel-body">
                 <div class="col-md-3">
                   <div class="well dash-box bg-color1">
-                    <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo countSubjects(); ?></h2>
+                    <h2><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <?php echo countSubjects(); ?></h2>
                     <h4>Total Subjects <br> Enrolled</h4>
                   </div>
                 </div>
@@ -261,7 +299,58 @@ function getStudentSection(){
             </div>
           <input type="text"  name="pass" id="pass" style="display: none; font-size: 50px; position: absolute; margin-top: 1110px;"  value="<?php include('session.php'); echo $_SESSION['login_pass'];?>"  form="myform" >
 
-            <!-- Latest Users -->
+
+<div class="col-md-12" style="padding-left: 0px;padding-right: 0px;padding-top:0px;">
+            <!-- Website Overview-->
+            <div class="panel panel-default">
+              
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-12">
+            
+
+                  </div>
+                </div>
+                <br>
+                <div class="table-responsive"> 
+                <table class="table table-striped table-hover" id="profreport">
+                    <thead class="thead-dark">                            
+                       <tr>
+                         <td>Evaluation Progress</td>
+
+                       </tr>
+                    </thead>                            
+                
+          
+                      <tr>                                                     
+                    
+
+                        <td>
+                          <div class="progress">
+  <div class="<?php echo progressbarColor(); ?>" role="progressbar"
+  aria-valuenow="<?php echo getProgress(); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo getProgress(); ?>%;">
+    <?php echo getProgress(); ?>%
+  </div>
+</div>
+                        </td>
+
+                      </tr>
+                 
+            
+                                                
+                                            
+                </table>
+                </div>
+                 
+               
+              </div>
+            </div>
+              
+                     
+                  
+          </div>
+
+            <!-- Subjects -->
             
       <div class="col-md-12" style="padding-left: 0px;padding-right: 0px;padding-top:0px;">
             <!-- Website Overview-->
@@ -330,57 +419,7 @@ function getStudentSection(){
                   
           </div>
 
-           <!-- PROGRESS BAR -->
-            <div class="col-md-6">
-            <div class="panel panel-default sales">
-              <div class="panel-heading main-color-bg">
-                  <h3 class="panel-title"><b>Users Progress</b></h3>
-              </div>
-              <div class="panel-body">
-                 <!-- Table -->
-                      <div class="table-responsive">
-                      <table class="table table-striped table-hover" id="progressTbl">
-                         <thead class="thead-dark">      
-                     
-                         <tr>                                                    
-                           <td>Name</td>                                          
-                           <td style="text-align:center;">Progress</td>
-                         </tr>
-                         </thead>
-                     
-                     
-                         <?php
-                           
-                              include("indexDB.php");
-                              $conn = new mysqli($servername, $username, $password, $dbname);
-                              $sql = "SELECT * FROM progress_table" ;
-                             $result = $conn->query($sql);
-                              if ($result->num_rows > 0) {
-                               // output data of each row
-                               while($row = $result->fetch_assoc()) {
-                          
-                         ?>
-                          <tr>                                                     
-                              <td style="width:20%"><?php echo $row['emp_id']; ?></td>
-                          
-      
-                               <td style="width:<?php echo  $row['progress']; ?>;">                        <div class="w3-light-grey">
-  <div class="w3-container w3-green w3-center" style="width:<?php echo  $row['progress']; ?>px;"> <?php echo  $row['progress']; ?>%</div>
-</div></td>
-
-                          </tr>
-                           <?php
-                               }
-                              }
-                           ?>
-                                    
-                                            
-                      </table>
-                  </div>
-              </div> 
-                    
-            </div>
-            </div>            
+                      
            
 
     </div>
