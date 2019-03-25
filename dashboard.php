@@ -24,6 +24,61 @@ function getStudentName(){
   return $name;
 }
 
+function getStudentYear(){
+
+  include("includes/indexDB.php");
+ include('includes/session.php');
+
+  $year = "";
+  $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM student_list where student_id = '". $_SESSION['login_user'] ."'" ;
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+        $year = $row['year'];
+
+      }
+        
+  }
+  return $year;
+}
+
+function getStudentGender(){
+
+  include("includes/indexDB.php");
+ include('includes/session.php');
+
+  $gender = "";
+  $conn = new mysqli($servername, $username, $password, $dbname);
+     $sql = "SELECT * FROM student_list where student_id = '". $_SESSION['login_user'] ."'" ;
+     $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+    // output data of each row
+      while($row = $result->fetch_assoc()) {
+
+        $gender = $row['gender'];
+
+      }
+        
+  }
+
+  if($gender == "M"){
+    $gender = "Male";
+  }
+  else{
+     $gender = "Female";
+  }
+
+  return $gender;
+}
+
+
 function countSubjects(){
 
  include("includes/indexDB.php");
@@ -101,6 +156,17 @@ function evaluationStatusColor(){
 
 }
 
+function colorEvalStat(){
+
+ $status = "";
+ $getstatus = evaluationStatus();
+
+  if($getstatus == "Complete"){
+     $status = "background-color: #41E94D;";
+  }
+  return $status;
+}
+
 function evaluationStatusSign(){
   $status = "glyphicon glyphicon-warning-sign";
   $getstatus = evaluationStatus();
@@ -174,6 +240,21 @@ function progressbarColor(){
    return $color;
 }
 
+function evaluationButton(){
+
+  $condition = "<a href='studentsevaluation.php' ><span class='glyphicon glyphicon-cog' aria-hidden='true'></span>Evaluation</a></li>";
+
+  $subjectsLeft = subjectLeftCount();
+
+  if($subjectsLeft == 0){
+    $condition = "<span class='glyphicon glyphicon-cog' aria-hidden='true'></span>Evaluation</li>";
+  }
+  
+   return $condition;
+}
+
+
+
 
 ?>
 
@@ -211,7 +292,6 @@ function progressbarColor(){
 
     <title>Student Dashboard</title>
 
-   
 
   </head>
 
@@ -226,21 +306,46 @@ function progressbarColor(){
                     <a href="#"><img src="images/bedalogo.png" class="img-responsive center-block"></a>
                 </div>
                 <div class="sidebar-header">
+                  <!--
                     <div class="user-pic">
                         <img class="img-responsive img-rounded" src="images/man.png" alt="User picture">
                     </div>
+                  -->
                     <div class="user-info">
+                      <br>
                         <span class="user-name">
-                            <strong><?php echo getStudentName(); ?></strong>
+                        <strong><?php echo getStudentName(); ?></strong>
                         </span>
-                        <span class="user-role">Student</span>
+                        <span class="user-role">Name</span>
+                        <hr>
+                        <span class="user-name">
+                        <strong><?php echo getStudentYear(); ?></strong>
+                        </span>
+                        <span class="user-role">Year Level</span>
+                        <hr>
+                        <span class="user-name">
+                        <strong><?php echo getStudentSection(); ?></strong>
+                        </span>
+                        <span class="user-role">Section</span>
+                        <hr>
+                        <span class="user-name">
+                        <strong><?php echo getStudentGender(); ?></strong>
+                        </span>
+                        <span class="user-role">Gender</span>
+
                         
                     </div>
+
+                   
                 </div>
                
                 <li class=""><a href="#" onclick="changePass()" data-target="#addPage"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Change Password</a></li>
-                <li class="active"><a href="studentsevaluation.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Evaluation</a></li>
-                <li class="active"><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Summary</a></li>
+                <li class="active"><?php echo evaluationButton(); ?></li>
+                <!--
+                <li class="active"><a href="#" data-toggle='modal' data-target='#historyModal'><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Summary</a></li>
+              -->
+
+
                
             </ul>
         </div>
@@ -271,25 +376,25 @@ function progressbarColor(){
               </div>
               <div class="panel-body">
                 <div class="col-md-3">
-                  <div class="well dash-box bg-color1">
+                  <div class="well dash-box bg-color3">
                     <h2><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <?php echo countSubjects(); ?></h2>
                     <h4>Total Subjects <br> Enrolled</h4>
                   </div>
                 </div>
                 <div class="col-md-3">
-                  <div class="well dash-box bg-color1">
+                  <div class="well dash-box bg-color3">
                     <h2><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> <?php echo countEvaluationSubmitted(); ?></h2>
                     <h4>Total Evaluations <br> Submitted</h4>
                   </div>
                 </div>
                 <div class="col-md-3">
-                  <div class="well dash-box bg-color1">
-                    <h2><span class="glyphicon glyphicon glyphicon-tasks" aria-hidden="true"></span> <?php echo subjectLeftCount(); ?></h2>
-                    <h4>Subjects left to evaluate</h4>
+                  <div class="well dash-box bg-color3">
+                    <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> <?php echo subjectLeftCount(); ?></h2>
+                    <h4>Subjects left <br> to evaluate </h4>
                   </div>
                 </div>
                 <div class="col-md-3">
-                  <div class="<?php echo evaluationStatusColor(); ?>">
+                  <div style="<?php echo colorEvalStat(); ?>" class="<?php echo evaluationStatusColor(); ?>">
                     <h2><span class="<?php echo evaluationStatusSign(); ?>" aria-hidden="true"></span> <?php echo evaluationStatus(); ?> </h2>
                     <h4>Evaluation <br> Status</h4>
                   </div>
@@ -299,20 +404,19 @@ function progressbarColor(){
           <input type="text"  name="pass" id="pass" style="display: none; font-size: 50px; position: absolute; margin-top: 1110px;"  value="<?php include('session.php'); echo $_SESSION['login_pass'];?>"  form="myform" >
 
 
-<div class="col-md-12" style="padding-left: 0px;padding-right: 0px;padding-top:0px;">
+          
+
+          <div class="col-md-12" style="padding-left: 0px;padding-right: 0px;padding-top:0px;">
             <!-- Website Overview-->
             <div class="panel panel-default">
               
               <div class="panel-body">
                 <div class="row">
-                  <div class="col-md-12">
-            
-
-                  </div>
+                 
                 </div>
                 <br>
                 <div class="table-responsive"> 
-                <table class="table table-striped table-hover" id="profreport">
+                <table class="table table-striped" id="profreport">
                     <thead class="thead-dark">                            
                        <tr>
                          <td>Evaluation Progress</td>
@@ -326,10 +430,10 @@ function progressbarColor(){
 
                         <td>
                           <div class="progress">
-  <div class="<?php echo progressbarColor(); ?>" role="progressbar"
-  aria-valuenow="<?php echo getProgress(); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo getProgress(); ?>%;">
-    <?php echo getProgress(); ?>%
-  </div>
+                          <div class="<?php echo progressbarColor(); ?>" role="progressbar"
+                           aria-valuenow="<?php echo getProgress(); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo getProgress(); ?>%;">
+                          <?php echo getProgress(); ?>%
+                           </div>
 </div>
                         </td>
 
@@ -642,6 +746,33 @@ function myFunction() {
 
 })
       }
+
+      function showHistory(str){
+
+        openpdf.disabled = false;
+          getsem = str; 
+          var profname = document.getElementById('profName').value;
+
+       if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+        
+                  document.getElementById("txtHint").innerHTML = this.responseText;
+             
+               
+                }
+            };
+
+            xmlhttp.open("POST","includes/gethistory.php?sem=" + str + "&prof=" + profname + "&ay=" + ay,true);
+            xmlhttp.send();
+     }
      </script>
     
 
