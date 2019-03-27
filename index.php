@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $empPass = stripslashes($pass);
    
       $conn = new mysqli($servername, $username, $password, $dbname);
-      $sql = "SELECT * FROM tbllogin";
+      $sql = "SELECT * FROM login_table";
       $result = $conn->query($sql);
        
      if ($result->num_rows > 0) {
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     while($row = $result->fetch_assoc()) {
       
         
-        if($row["username"] == $empID && $row["password"] == $empPass){
+        if($row["emp_id"] == $empID && $row["emp_pass"] == $empPass){
             $verify = "match";
             $role = $row["emp_type"]; 
             $position = $row["postion"];
