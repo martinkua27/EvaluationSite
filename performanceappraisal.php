@@ -301,7 +301,7 @@ include('includes/session.php');
                   <span class="caret" style="color:#fff;"></span></button>
                        
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a type="button" onclick="changePass()" data-toggle="modal" data-target="#historyModal">Change Password</a></li>
+                <li><a type="button" onclick="changePass()">Change Password</a></li>
                 <li><a href="logout.php">Log Out</a></li>
               </ul>
           </ul>
@@ -1189,7 +1189,7 @@ var verpass = document.getElementById("pass").value;
       title: 'Error',
       html:
        'Incorrect old password',
-      confirmButtonText: 'Lovely!'
+      confirmButtonText: 'Ok'
       })
  }
   else if(values[1] != values[2]){
@@ -1197,7 +1197,7 @@ var verpass = document.getElementById("pass").value;
       title: 'Error',
       html:
        'New Password does not match',
-      confirmButtonText: 'Lovely!'
+      confirmButtonText: 'Ok'
       })
   }
 

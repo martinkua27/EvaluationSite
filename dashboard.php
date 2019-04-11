@@ -364,7 +364,7 @@ function evaluationButton(){
                     <h4>Welcome, <?php echo $_SESSION['login_user']; ?>!</h4>
                   </div>
                   <div class="col-md-1 logout-text">
-                    <h4><a href="logout.php">Logout</a></h4>
+                    <h4><a href="logout.php" id="logoutbtn" >Logout</a></h4>
                   </div>
                 </div>
               </div>
@@ -403,6 +403,7 @@ function evaluationButton(){
             </div>
           <input type="text"  name="pass" id="pass" style="display: none; font-size: 50px; position: absolute; margin-top: 1110px;"  value="<?php include('session.php'); echo $_SESSION['login_pass'];?>"  form="myform" >
 
+          <input type="text"  name="getusername" id="getusername" style="display: none; font-size: 50px; position: absolute; margin-top: 1110px;"  value="<?php include('session.php'); echo $_SESSION['login_user'];?>"  form="myform" >
 
           
 
@@ -534,6 +535,44 @@ function evaluationButton(){
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+
+ <script type="text/javascript">
+
+     
+      
+    </script>
+
+    <script type="text/javascript">
+      
+      window.onload = function(){
+
+    var getusername = document.getElementById("getusername").value;
+     var pass = document.getElementById("pass").value;
+
+     if(getusername == pass){
+       Swal.fire({
+  title: 'System Message',
+  text: "Please update your password",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Update',
+  cancelButtonText: 'Not now'
+}).then((result) => {
+  if (result.value) {
+   
+   changePass();
+
+  }
+})
+     }
+   
+
+    }
+</script>
+
     <script type="text/javascript">
       //Menu Toggle script
       $("#menu-toggle").click( function (e) {
@@ -717,24 +756,31 @@ var verpass = document.getElementById("pass").value;
 
 myFunction();
                
-swal({
-      title: 'All done!',
-      html:
-        'Change password successful',
-      confirmButtonText: 'Continue!'
-    })
+// swal({
+//       title: 'All done!',
+//       html:
+//         'Change password successful',
+//       confirmButtonText: 'Continue!'
+//     })
+
+autologout();
 
 document.getElementById("pass").value = value[1];
                    //document.getElementById("txtHint").innerHTML = this.responseText;
-             
+            
                
                 }
             };
             xmlhttp.open("POST","changepassStudent.php?q=" + values[1],true);
             xmlhttp.send();
 
+            
 
-      
+           // setTimeout(logoutAuto, 3000);
+           // function logoutAuto(){
+            //   document.getElementById('logoutbtn').click();
+            //}
+        
       }
 
 function myFunction() {
@@ -744,6 +790,33 @@ function myFunction() {
   }
 
 
+})
+      }
+
+      function autologout(){
+        let timerInterval
+Swal.fire({
+  title: 'System Message',
+  html: 'Change password successful, Logging out in <strong></strong> seconds.',
+  timer: 5000,
+  onBeforeOpen: () => {
+    Swal.showLoading()
+    timerInterval = setInterval(() => {
+      Swal.getContent().querySelector('strong')
+        .textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  onClose: () => {
+    clearInterval(timerInterval)
+    document.getElementById('logoutbtn').click();
+  }
+}).then((result) => {
+  if (
+    // Read more about handling dismissals
+    result.dismiss === Swal.DismissReason.timer
+  ) {
+    console.log('I was closed by the timer')
+  }
 })
       }
 
@@ -775,6 +848,7 @@ function myFunction() {
      }
      </script>
     
+
 
   </body>
 </html>
